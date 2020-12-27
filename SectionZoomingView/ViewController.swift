@@ -54,13 +54,12 @@ class SectionZoomingView: UIView {
         guard sender.scale > 0.01
         else { return }
         self.containedView.transform = self.initialTransform.scaledBy(x: sender.scale, y: sender.scale)
-
         if sender.state == .ended {
             print(self.columnRectForResizing())
-
+            print(self.containedView.layer.position)
             /// then create method to expand to ColRect.
             let colRect = self.columnRectForResizing()
-            self.centerInParentIfNeeded(for: colRect)
+            self.adjustScaleAndPosition(for: colRect)
             self.initialTransform = self.containedView.transform
         }
     }
@@ -75,12 +74,15 @@ class SectionZoomingView: UIView {
             print(self.columnRectForResizing())
 
             let colRect = self.columnRectForResizing()
-            self.centerInParentIfNeeded(for: colRect)
+            self.adjustScaleAndPosition(for: colRect)
             self.initialTransform = self.containedView.transform
         }
     }
 
     private func columnRectForResizing() -> ColRect {
+
+        self.containedView.layer.anchorPoint = CGPoint(x: 0, y: 0)
+
         let numberOfColumns = CGFloat(5)
         let columnWidth = self.containedView.frame.width/numberOfColumns
         let rawOrigin = self.containedView.frame.origin.x/columnWidth
@@ -96,29 +98,31 @@ class SectionZoomingView: UIView {
         return ColRect(x: columnOriginX, y: columnOriginY, width: resizedColumnCount, height: resizedColumnCount)
     }
 
-    func centerInParentIfNeeded(for colRect: ColRect) {
 
-//        if self.containedView.frame.width <= self.frame.width {
+    // this should probably be broken up into two methods that return scale & translation respecvitively.
+    func adjustScaleAndPosition(for colRect: ColRect) {
+
         let currentColumnSize = self.self.containedView.frame.width/5.0
 
         // the question is: how many columns fit in the current window.
         let scale = self.frame.width/currentColumnSize
-        print("scale: \(scale)")
         let roundedScale = round(scale)
-        print("rscale: \(roundedScale)")
-        let adjustedFrameWidth = self.containedView.frame.width*scale/roundedScale
-        let adjustedScale = adjustedFrameWidth/self.initialSize.width
-        let trans = CGAffineTransform(scaleX: adjustedScale, y: adjustedScale)
+        let adjustedScale = scale/roundedScale
+        let adjustedFrameWidth = self.containedView.frame.width*adjustedScale
+        let finalScale = adjustedFrameWidth/self.initialSize.width
+        let trans = CGAffineTransform(scaleX: finalScale, y: finalScale)
 
-
+        print("\(self.initialTransform.a) - \(trans.a)")
         // need a check to see if scale changed, and if not, then don't animate the trans, just move it.
-            UIView.animate(withDuration: 0.17) {
-                self.containedView.transform = trans
+        UIView.animate(withDuration: 0.1) {
+            self.containedView.transform = trans
+            self.containedView.layer.position = CGPoint(x: currentColumnSize*colRect.origin.x*adjustedScale, y: currentColumnSize*colRect.origin.y*adjustedScale)
+        } completion: { (complete) in
+            UIView.animate(withDuration: 0.1) {
             } completion: { (complete) in
                 self.initialTransform = trans
-                self.containedView.layer.position = CGPoint(x: currentColumnSize*colRect.origin.x, y: currentColumnSize*colRect.origin.y)
-
             }
+        }
 
     }
 
