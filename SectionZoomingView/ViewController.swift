@@ -8,7 +8,7 @@
 import UIKit
 
 typealias ColRect = CGRect
-
+typealias PinchState = UIPinchGestureRecognizer.State // convenience
 protocol SectionZoomEmbeddable: UIView {
     var columnWidth: CGFloat { get } // if we wanted to be cute, this could be `func widthOfColumn(at index: UInt)`
     var numberOfColumns: UInt { get}
@@ -36,8 +36,8 @@ class SectionZoomingView: UIView {
 
 
         self.initialTransform = self.containedView.transform
-        self.containedView.layer.anchorPoint = CGPoint(x: 0, y: 0)
-        self.containedView.layer.position = CGPoint(x: 0, y: 0)
+//        self.containedView.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.containedView.layer.position = CGPoint(x: self.containedView.frame.width/2.0, y: self.containedView.frame.width/2.0)
 
 
         let zoomRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
@@ -53,15 +53,29 @@ class SectionZoomingView: UIView {
     private func didPinch(_ sender: UIPinchGestureRecognizer) {
         guard sender.scale > 0.01
         else { return }
-        self.containedView.transform = self.initialTransform.scaledBy(x: sender.scale, y: sender.scale)
-        if sender.state == .ended {
+
+        if sender.state == .ended || sender.state == .cancelled {
             print(self.columnRectForResizing())
             print(self.containedView.layer.position)
             /// then create method to expand to ColRect.
             let colRect = self.columnRectForResizing()
             self.adjustScaleAndPosition(for: colRect)
             self.initialTransform = self.containedView.transform
+        } else if [PinchState.began, .changed].contains(sender.state) {
+            var center = sender.location(in: self.containedView)
+            center.x -= self.containedView.bounds.midX
+            center.y -= self.containedView.bounds.midY
+            var transform = self.initialTransform
+
+            transform = self.initialTransform.translatedBy(x: center.x, y: center.y)
+            let scale = sender.scale
+            transform = transform.scaledBy(x: scale, y: scale)
+            transform = transform.translatedBy(x: -center.x, y: -center.y)
+            self.containedView.transform = transform
+        } else {
+            self.containedView.transform = self.initialTransform.scaledBy(x: sender.scale, y: sender.scale)
         }
+
     }
 
     @objc
@@ -80,9 +94,6 @@ class SectionZoomingView: UIView {
     }
 
     private func columnRectForResizing() -> ColRect {
-
-        self.containedView.layer.anchorPoint = CGPoint(x: 0, y: 0)
-
         let numberOfColumns = CGFloat(5)
         let columnWidth = self.containedView.frame.width/numberOfColumns
         let rawOrigin = self.containedView.frame.origin.x/columnWidth
@@ -116,6 +127,7 @@ class SectionZoomingView: UIView {
         // need a check to see if scale changed, and if not, then don't animate the trans, just move it.
         UIView.animate(withDuration: 0.1) {
             self.containedView.transform = trans
+            // the positioning no longer works, due to the transform-based translation that I do in the pinch movement
             self.containedView.layer.position = CGPoint(x: currentColumnSize*colRect.origin.x*adjustedScale, y: currentColumnSize*colRect.origin.y*adjustedScale)
         } completion: { (complete) in
             UIView.animate(withDuration: 0.1) {
