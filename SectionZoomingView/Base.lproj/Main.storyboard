@@ -52,10 +52,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pyR-Ej-liH" customClass="SectionZoomingView" customModule="SectionZoomingView" customModuleProvider="target">
-                                <rect key="frame" x="8" y="50" width="398" height="398"/>
+                                <rect key="frame" x="8" y="50" width="398" height="723.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="pyR-Ej-liH" secondAttribute="height" id="6T8-L3-fEd"/>
+                                    <constraint firstAttribute="width" secondItem="pyR-Ej-liH" secondAttribute="height" multiplier="110:200" id="6T8-L3-fEd"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="130" translatesAutoresizingMaskIntoConstraints="NO" id="2Wy-1y-H5w">
