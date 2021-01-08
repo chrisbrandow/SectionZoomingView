@@ -66,7 +66,7 @@ class SectionZoomingView: UIView {
             if self.canScale(to: sender.scale) {
                 let revisedPt = CGPoint(x: -self.containedView.frame.origin.x + center.x, y: -self.containedView.frame.origin.y + center.y)
 
-                let change = CGPoint(x: center.x - self.firstPinchPos.x, y: 0)//center.y - self.firstPinchPos.y)
+                let change = CGPoint(x: center.x - self.firstPinchPos.x, y: center.y + self.firstPinchPos.y) // this makes it drag correctly but pinch zoom is off
                 self.containedView.scale(sender.scale, aboutPoint: revisedPt, from: self.initialTransform, change: change)
                 self.firstPinchPos = center
         }
@@ -226,7 +226,7 @@ class SectionZoomingView: UIView {
         let x = transform.tx/transform.a
         let y = transform.ty/transform.d
         let distance = sqrt(x*x + y*y)
-        let animationDuration = TimeInterval(min(0.1, distance*0.1/80))
+        let animationDuration = TimeInterval(max(0.1, distance*0.1/100))
 
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut, animations: {
             self.containedView.transform = transform
@@ -286,12 +286,17 @@ public extension UIView {
         var center = point
         center.x -= self.frame.midX
         center.y -= self.frame.midY
-
-        var transform = (startingTransfrom ?? self.transform).translatedBy(x: center.x, y: center.y)
+//        let adjust = CGPoint(x: point.x*scale, y: point.y*scale)
+//        let transAdjust = CGPoint(x: point.x - adjust.x, y: point.y - adjust.y + (startingTransfrom ?? self.transform).ty)
+        var transform = (startingTransfrom ?? self.transform).translatedBy(x: center.x, y: center.y )
         transform = transform.scaledBy(x: scale, y: scale)
-        let adjustedCenter = CGPoint(x: center.x/scale, y: center.y/scale) // dividing by scale handles case where user has pinched and then drags both fingers
+        var adjustedCenter = CGPoint(x: center.x/scale, y: center.y/scale) // dividing by scale handles case where user has pinched and then drags both fingers
+        
+//        adjustedCenter.x += self.frame.midX
+//        adjustedCenter.y += self.frame.midY
+
         transform = transform.translatedBy(x: -adjustedCenter.x + change.x, y: -adjustedCenter.y + change.y)
-        NSLog("%.1f, %.1f -- %.2f", point.x, point.y, self.transform.ty)
+//        NSLog("%.1f, %.1f -- %.2f", point.y, transAdjust.y, self.transform.ty)
 
         self.transform = transform
     }
