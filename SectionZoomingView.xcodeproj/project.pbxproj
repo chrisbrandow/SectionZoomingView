@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
 		8351CDDE2594569700946150 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDDD2594569700946150 /* AppDelegate.swift */; };
 		8351CDE02594569700946150 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDDF2594569700946150 /* SceneDelegate.swift */; };
-		8351CDE22594569700946150 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDE12594569700946150 /* ViewController.swift */; };
+		8351CDE22594569700946150 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDE12594569700946150 /* LaunchVC.swift */; };
 		8351CDE52594569700946150 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8351CDE32594569700946150 /* Main.storyboard */; };
 		8351CDE72594569A00946150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8351CDE62594569A00946150 /* Assets.xcassets */; };
 		8351CDEA2594569A00946150 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8351CDE82594569A00946150 /* LaunchScreen.storyboard */; };
 		8351CDF52594569A00946150 /* SectionZoomingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDF42594569A00946150 /* SectionZoomingViewTests.swift */; };
 		8351CE002594569A00946150 /* SectionZoomingViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDFF2594569A00946150 /* SectionZoomingViewUITests.swift */; };
+		83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D5125C9DB49008AE1BA /* DataSource.swift */; };
+		83B16D6325C9E95D008AE1BA /* zingari4Section29.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6225C9E95D008AE1BA /* zingari4Section29.json */; };
+		83B16D7025C9EC35008AE1BA /* Paradiso23Section304.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */; };
+		83B16D8225C9F1AC008AE1BA /* 54Mint11Section123.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */; };
+		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
+		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
 		8351CDDA2594569700946150 /* SectionZoomingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SectionZoomingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8351CDDD2594569700946150 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8351CDDF2594569700946150 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8351CDE12594569700946150 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8351CDE12594569700946150 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
 		8351CDE42594569700946150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8351CDE62594569A00946150 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8351CDE92594569A00946150 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +57,12 @@
 		8351CDFB2594569A00946150 /* SectionZoomingViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SectionZoomingViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8351CDFF2594569A00946150 /* SectionZoomingViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionZoomingViewUITests.swift; sourceTree = "<group>"; };
 		8351CE012594569A00946150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83B16D5125C9DB49008AE1BA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		83B16D6225C9E95D008AE1BA /* zingari4Section29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zingari4Section29.json; sourceTree = "<group>"; };
+		83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Paradiso23Section304.json; sourceTree = "<group>"; };
+		83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = laPressa4Section14.json; sourceTree = "<group>"; };
+		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
+		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +115,14 @@
 			children = (
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
-				8351CDE12594569700946150 /* ViewController.swift */,
+				8351CDE12594569700946150 /* LaunchVC.swift */,
+				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
+				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
+				83B16D6225C9E95D008AE1BA /* zingari4Section29.json */,
+				83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */,
+				83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */,
+				83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */,
+				83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */,
 				8351CDE32594569700946150 /* Main.storyboard */,
 				8351CDE62594569A00946150 /* Assets.xcassets */,
 				8351CDE82594569A00946150 /* LaunchScreen.storyboard */,
@@ -233,7 +254,12 @@
 			files = (
 				8351CDEA2594569A00946150 /* LaunchScreen.storyboard in Resources */,
 				8351CDE72594569A00946150 /* Assets.xcassets in Resources */,
+				83B16D7025C9EC35008AE1BA /* Paradiso23Section304.json in Resources */,
+				83B16D6325C9E95D008AE1BA /* zingari4Section29.json in Resources */,
+				83B16D8225C9F1AC008AE1BA /* 54Mint11Section123.json in Resources */,
 				8351CDE52594569700946150 /* Main.storyboard in Resources */,
+				83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */,
+				83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +284,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8351CDE22594569700946150 /* ViewController.swift in Sources */,
+				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
+				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
+				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
 				8351CDE02594569700946150 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
