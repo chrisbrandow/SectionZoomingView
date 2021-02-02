@@ -1,0 +1,327 @@
+{
+    "summaryAvailability" : {
+        "firstAvailableTimeslot" : {
+            "points" : 0,
+            "priceAmount" : 0,
+            "dateTime" : "2021-02-02T12:45",
+            "slotHash" : "2578959467",
+            "available" : true,
+            "token" : "eyJ2IjoyLCJtIjowLCJwIjowLCJjIjo2LCJzIjowLCJuIjoxfQ"
+        },
+        "hasOtherTimes" : true,
+        "firstAvailableLeadTime" : 30
+    },
+    "menus" : [
+        {
+            "name" : "Cafe de la Presse",
+            "groups" : [
+                {
+                    "name" : "Café de la Presse Christmas",
+                    "items" : [
+                        {
+                            "id" : "fcd431ee-5a65-45c5-9027-121ebcfb8899",
+                            "price" : {
+                                "amount" : 9900,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "French Onion Soup Gratinee with Croutons, Melted Swiss Cheese  ●Smoked Salmon, Roasted Beets and Spinach Salad with Radicchio, Toasted Almonds, Dice Apples, Citrus Vinaigrette  ● Braised Duck Legs in Pinot Noir Sauce with Glazed Pearl Onions, Mushrooms, Dry Figs, Caramelized Belgium Endives, Parsnips Puree  ● Warm Croissant Pudding with Valrhona Chocolate and Toffee Sauce",
+                            "modifierGroups" : [
+                                {
+                                    "minChoices" : 1,
+                                    "id" : "ca1656d5-3a45-4f15-b585-c9c79fea5f96",
+                                    "modifiers" : [
+                                        {
+                                            "id" : "eb87f6fb-bfb2-40ca-bf16-15b15bdf05bf",
+                                            "name" : "Thursday, December 24th"
+                                        }
+                                    ],
+                                    "name" : "Pick Up Date",
+                                    "required" : true,
+                                    "maxChoices" : 1
+                                }
+                            ],
+                            "name" : "Christmas Dinner for 2",
+                            "attributes" : [
+                                "Serves 2",
+                                "Merry Christmas!"
+                            ]
+                        }
+                    ],
+                    "description" : "Order by Monday, December 21st  for pick up Thursday, December 24th. Just heat, serve, and enjoy your Christmas!"
+                },
+                {
+                    "name" : "Appetizer",
+                    "items" : [
+                        {
+                            "id" : "ce5ecc6c-a7c7-4be6-91d1-064e0350ed31",
+                            "price" : {
+                                "amount" : 2200,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Pickles, Jam, Bread and Butter",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Selection of Charcuteries and Artisan Cheeses",
+                            "attributes" : [
+                                "Artisanal Cheeses"
+                            ]
+                        },
+                        {
+                            "id" : "9de49f72-3391-44b8-9f22-5c12dc30a3bb",
+                            "price" : {
+                                "amount" : 1600,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Nicoise Salad",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "7d98af63-ba83-4333-80c3-531563ebc39c",
+                            "price" : {
+                                "amount" : 1200,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "French Onion Soup served with Croutons and Melted Swiss Cheese",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "French Onion Soup",
+                            "attributes" : [
+
+                            ]
+                        }
+                    ],
+                    "description" : "Available Tuesday to Saturday from 12Pm to 6Pm"
+                },
+                {
+                    "name" : "Entrée",
+                    "items" : [
+                        {
+                            "id" : "af246b63-0ccb-4216-a09b-5153f7aa8bfd",
+                            "price" : {
+                                "amount" : 1400,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "French Grilled Ham and Cheese Sandwich with Tomato and Pesto",
+                            "modifierGroups" : [
+                                {
+                                    "id" : "cd4f1df2-cc89-47b5-8e36-6ff54a304f0a",
+                                    "modifiers" : [
+                                        {
+                                            "id" : "b15db696-a527-4a42-aa5f-f628ed7e45be",
+                                            "name" : "Add \"Over Easy\" Egg",
+                                            "description" : "",
+                                            "price" : {
+                                                "amount" : 150,
+                                                "currency" : "USD"
+                                            }
+                                        }
+                                    ],
+                                    "name" : "Add On",
+                                    "maxChoices" : 1
+                                }
+                            ],
+                            "name" : "Croque Monsieur Provencal",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "05da291d-4169-4225-9228-ba7981704086",
+                            "price" : {
+                                "amount" : 1700,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Grilled Black Angus Hamburger",
+                            "modifierGroups" : [
+                                {
+                                    "id" : "115e6d59-378b-4ac2-8d87-4bd6caf9c7ec",
+                                    "modifiers" : [
+                                        {
+                                            "id" : "3f19e9c9-ed09-4372-ab7d-7d8a64829ed1",
+                                            "name" : "Swiss",
+                                            "description" : "",
+                                            "price" : {
+                                                "amount" : 275,
+                                                "currency" : "USD"
+                                            }
+                                        },
+                                        {
+                                            "id" : "1806ecb6-230d-47a2-87c7-4c09647dcfed",
+                                            "name" : "Cheddar",
+                                            "description" : "",
+                                            "price" : {
+                                                "amount" : 275,
+                                                "currency" : "USD"
+                                            }
+                                        },
+                                        {
+                                            "id" : "3824e56c-4c03-44b7-b53b-4b3545de778c",
+                                            "name" : "Bacon",
+                                            "description" : "",
+                                            "price" : {
+                                                "amount" : 275,
+                                                "currency" : "USD"
+                                            }
+                                        }
+                                    ],
+                                    "name" : "Burger Add Ons",
+                                    "maxChoices" : 1
+                                }
+                            ],
+                            "name" : "Hamburger & Fries",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "89f51d2c-aa10-40f3-9213-01fd578505b9",
+                            "price" : {
+                                "amount" : 1600,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Fried Chicken, Creole Remoulade, Pickled Onions, Arugala Salad, Homemade Slaw",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Fried Chicken Sandwich",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "04e8f676-d5c9-47b3-a76d-f8077fee5e49",
+                            "price" : {
+                                "amount" : 2900,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Spicy Frnech Fries, Herbs Vinaigrette, and Romesco Sauce",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Grilled Hanger Steak",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "6b549685-7777-47bf-b4b7-9f321032ee63",
+                            "price" : {
+                                "amount" : 2800,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Duck Confit, Caramelized Belgium Endives, Parsnip Puree",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Duck Confit",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "4fde2667-a974-45c4-a7d5-ab3e6ec04be0",
+                            "price" : {
+                                "amount" : 2400,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Tomato, Oregano, Arugala, and Parmesan",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Rigatoni and Lamb Ragu",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "id" : "cf6b59e0-082b-439e-9dd1-fdba407c4bfa",
+                            "price" : {
+                                "amount" : 2700,
+                                "currency" : "USD"
+                            },
+                            "isSoldOut" : true,
+                            "description" : "Braised Chicken in Red Wine Sauce, Fettucine Pasta",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "Coq au Vin",
+                            "attributes" : [
+
+                            ]
+                        }
+                    ],
+                    "description" : "Available Tuesday to Saturday from 12Pm to 6Pm"
+                },
+                {
+                    "name" : "Gratuity",
+                    "items" : [
+                        {
+                            "price" : {
+                                "amount" : 1000,
+                                "currency" : "USD"
+                            },
+                            "id" : "6aeeae3b-e5b8-4cc3-b7fb-77c3b19a4246",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "$10 Gratuity",
+                            "description" : "",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "price" : {
+                                "amount" : 1500,
+                                "currency" : "USD"
+                            },
+                            "id" : "20a909bf-7f11-4069-bcc7-289794dac0f5",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "$15 Gratuity",
+                            "description" : "",
+                            "attributes" : [
+
+                            ]
+                        },
+                        {
+                            "price" : {
+                                "amount" : 2000,
+                                "currency" : "USD"
+                            },
+                            "id" : "538e3c82-82bc-4a9e-bcfc-9b02c05f18ef",
+                            "modifierGroups" : [
+
+                            ],
+                            "name" : "$20 Gratuity",
+                            "description" : "",
+                            "attributes" : [
+
+                            ]
+                        }
+                    ],
+                    "description" : ""
+                }
+            ]
+        }
+    ]
+}
