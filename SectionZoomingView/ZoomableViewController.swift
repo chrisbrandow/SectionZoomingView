@@ -62,7 +62,21 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         if let provider = self.zoomableProvider {
             let sectionedView = provider.zoomableView(for: scrollview.frame)
             self.addAndScale(view: sectionedView, to: scrollview)
+            let deadline = DispatchTime.now() + DispatchTimeInterval.milliseconds(Int(0.6*1000))
+            DispatchQueue.main.asyncAfter(deadline: deadline) {
+                if let scrollview = self.scrollView,
+                   let sectionedView = self.zoomableView {
+                    var colRect = ColRect.columnRectForResizing(sectionedView: sectionedView, in: scrollview)
+                    colRect.size.width = min(2.0, CGFloat(sectionedView.numberOfColumns))
+                    self.scrollView?.setZoomScale(1/colRect.width, animated: true)
+                    CATransaction.setCompletionBlock {
+                        let point = self.adjustedPoint(for: scrollview, numberOfColumns: sectionedView.numberOfColumns)
+                        self.scrollView?.setContentOffset(point, animated: true)
+                    }
+                }
+            }
         }
+        self.scrollView?.clipsToBounds = false
     }
 
     func addAndScale(view: SectionedView, to scrollview: UIScrollView) {
@@ -73,7 +87,9 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         scrollview.maximumZoomScale = CGFloat(view.numberOfColumns)*ratio*0.94
         scrollview.minimumZoomScale = ratio*0.95
         scrollview.contentSize = view.view.frame.size
+
         self.zoomableView = view
+        scrollview.setZoomScale(1/CGFloat(view.numberOfColumns), animated: false)
     }
 
 

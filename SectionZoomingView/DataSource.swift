@@ -8,10 +8,14 @@
 import Foundation
 
 class Loader {
+    enum LoaderError: Error {
+        case standard(String)
+    }
     static let shared = Loader()
     func loadString(named: String) throws -> String {
-        print(named)
-        return try String(contentsOfFile: Bundle.main.path(forResource: named, ofType: "json") as! String, encoding: .utf8)
+        guard let path = Bundle.main.path(forResource: named, ofType: "json")
+        else { throw LoaderError.standard("could not create path for \(named)") }
+        return try String(contentsOfFile: path, encoding: .utf8)
     }
 //    func loadJsonNamed(_ named : String, bundle payloadBundlePath: String? = nil) -> [String:AnyObject]? {
 //        let resolvedBundle: Bundle?

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LaunchVC: UIViewController, ZoomableViewProvider {
+class LaunchVC: UIViewController {//}, ZoomableViewProvider {
     var didLaunchOnce = false
 
     override func viewDidAppear(_ animated: Bool) {
@@ -19,26 +19,65 @@ class LaunchVC: UIViewController, ZoomableViewProvider {
         self.performSegue(withIdentifier: "showZoomable", sender: self)
     }
 
+
+//    func zoomableView(for frame: CGRect) -> SectionedView {
+//    }
+}
+
+class EntryView: UIView {
+    var item: Entry?
+
+    override var description: String {
+        return self.item?.title ?? " no item"
+    }
+}
+class ParentVC: UIViewController, ZoomableViewProvider {
+    @IBOutlet weak var titleLabel: UILabel!
+
+    var zoomingView: SectionedView?
+
+    func zoomableView(for frame: CGRect) -> SectionedView {
+        let view = self.zoomingView ?? self.createZoomingView(for: frame)
+        self.zoomingView = view
+        return view
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let zoomableVC = segue.destination as? ZoomableViewController {
             zoomableVC.zoomableProvider = self
+            self.zoomableController = zoomableVC
+        } else if let vc = segue.destination as? BottomBarVC, segue.identifier == "bottomBarVC" {
+            self.bottomBarVC = vc
         }
     }
 
-    func zoomableView(for frame: CGRect) -> SectionedView {
+
+    @IBOutlet var zoomableContainer: UIView?
+    var zoomableController: ZoomableViewController?
+    var bottomBarVC: BottomBarVC?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.zoomableContainer?.clipsToBounds = false
+        self.titleLabel.text = "Coquetta"
+
+    }
+
+    private func createZoomingView(for frame: CGRect) -> SectionedView {//(with: TakeoutDataSource) -> UIView {
         let columnCount = 5
         let floatingColumnCount = CGFloat(columnCount)
         let margin = CGFloat(2.0)
         let size = CGSize(width: floatingColumnCount*frame.width + (floatingColumnCount - 1)*margin, height: 5*frame.height)
         let sectionedView = UIView(frame: CGRect(origin: .zero, size: size))
-        sectionedView.backgroundColor = UIColor(hue: 0.11, saturation: 0.7, brightness: 1.00, alpha: 1.00)
+        sectionedView.backgroundColor = .systemGray5// UIColor(hue: 0.11, saturation: 0.7, brightness: 1.00, alpha: 1.00)
         let datasource = DataSource()
         let mDataSource = TakeoutDataSource(example: .paradiso_23_304)
         TakeoutDataSource.Example.allCases
-        .forEach({
-                    let d = TakeoutDataSource(example: $0)
-                    print("\(d.entireMenu.allSections.count) \(d.entireMenu.allItems.count)")
-        })
+            .forEach({
+                let d = TakeoutDataSource(example: $0)
+                print("\(d.entireMenu.allSections.count) \(d.entireMenu.allItems.count)")
+                d.entireMenu
+            })
 
 
         print("sting sour \(datasource.entries.count) - \(mDataSource.entireMenu.allSections.count)")
@@ -47,17 +86,30 @@ class LaunchVC: UIViewController, ZoomableViewProvider {
         for i in 0..<columnCount {
             for j in 0..<rowCount {
                 let x = CGFloat(i)*smallSize.width
-                let addView = UIView(frame: CGRect(x: x + margin, y: CGFloat(j)*smallSize.height + CGFloat(i)*CGFloat(j) + margin, width: smallSize.width - 2*margin, height: smallSize.height + CGFloat(i) - 2*margin))
-                addView.backgroundColor = UIColor(white: (0.95 - (1+CGFloat(i))*(CGFloat(j)+1)/CGFloat(120)), alpha: 1.0)
+                let addView = EntryView(frame: CGRect(x: x + margin, y: CGFloat(j)*smallSize.height + CGFloat(i)*CGFloat(j) + margin, width: smallSize.width - 2*margin, height: smallSize.height + CGFloat(i) - 2*margin))
+                addView.backgroundColor = .white// UIColor(white: (0.95 - (1+CGFloat(i))*(CGFloat(j)+1)/CGFloat(120)), alpha: 1.0)
+                //shoot. shadow probs isn't showing up because clips to bounds for corner radius. need to add a shadow layer
+                addView.layer.shadowOffset = CGSize(width: 0, height: 0)
+                addView.layer.shadowColor = UIColor.black.cgColor
+                addView.layer.shadowOpacity = 0.4
+                addView.layer.shadowRadius = 1.0
                 addView.layer.cornerRadius = 3
                 addView.layer.masksToBounds = true
+                addView.layer.shadowPath = UIBezierPath(roundedRect: CGRect(x: 1, y: 1, width: addView.bounds.width - 2, height: addView.bounds.height - 2), cornerRadius: 3).cgPath
                 var lFrame = addView.bounds
                 lFrame.origin.x += 8
+                lFrame.size.height /= 2.0
                 let label = UILabel(frame: lFrame)
                 label.text = datasource.entries[ i*rowCount + j].title
-                label.textColor = UIColor(hue: 0.58, saturation: 0.76, brightness: 0.84, alpha: 1.00)
+                label.textColor = .darkGray//  UIColor(hue: 0.58, saturation: 0.76, brightness: 0.84, alpha: 1.00)
                 label.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
+                let button = UIButton(type: .custom)
+                button.frame = addView.bounds
+                button.addTarget(self, action: #selector(didTap(_:)), for: .touchUpInside)
+                addView.item = datasource.entries[ i*rowCount + j]
                 addView.addSubview(label)
+                addView.addSubview(button)
+                addView.layer.masksToBounds = false
                 sectionedView.addSubview(addView)
             }
         }
@@ -65,9 +117,17 @@ class LaunchVC: UIViewController, ZoomableViewProvider {
         sectionedView.frame = CGRect(origin: .zero, size: CGSize(width: lastFrame.x, height: lastFrame.y))
 
         return SectionedView(view: sectionedView, numberOfColumns: 5, margin: margin)
-    }
-}
 
+    }
+
+    @objc
+    func didTap(_ sender: UIButton) {
+        let entry = sender.superview as? EntryView
+        print(entry?.item)
+        self.bottomBarVC?.cartLabel.text = entry?.item?.title
+    }
+
+}
 class BottomBarVC: UIViewController {
     @IBOutlet weak var cartView: UIView?
     @IBOutlet weak var searchView: UIView?
@@ -78,6 +138,7 @@ class BottomBarVC: UIViewController {
     @IBOutlet weak var searchImageTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTextField: UITextField?
 
+    @IBOutlet weak var cartLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -93,6 +154,7 @@ class BottomBarVC: UIViewController {
         NSLayoutConstraint.activate([
             self.searchImageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -8.0)
         ])
+        self.searchTextField?.alpha = 0
     }
 
     @objc
@@ -108,6 +170,7 @@ class BottomBarVC: UIViewController {
         self.view.gestureRecognizers?.forEach({$0.isEnabled = false })
 
         let textLeading: CGFloat = self.textLeadingConstraint.constant == 70 ? 8.0 : 70.0
+
         self.textLeadingConstraint.constant = textLeading
 
         //TODO: Chris Brandow  2021-02-02 here's how i want the animation to go
@@ -116,7 +179,8 @@ class BottomBarVC: UIViewController {
         // 2.5. the cart view should have normal stuff, # items, total price, and a "view cart" button
         // 3. i want to try to have the magnifying glass stay in its position with regards to the phone screen
         // 4. have the text field move with the search view underneath the search glass
-        UIView.animate(withDuration: 0.22, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.26, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.searchTextField?.alpha = textLeading == 70 ? 0.0 : 1.0
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.view.gestureRecognizers?.forEach({$0.isEnabled = true })
