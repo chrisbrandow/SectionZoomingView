@@ -16,31 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="C3W-ju-QgS">
-                                <rect key="frame" x="16" y="60" width="382" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1D-o1-w9d">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
-                                        <state key="normal" title="Raw"/>
-                                        <connections>
-                                            <segue destination="UJW-Zz-F0d" kind="presentation" identifier="showZoomable" id="Eta-as-JC4"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="200" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gAA-ix-G0G">
+                                <rect key="frame" x="20" y="68" width="374" height="200"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Nv-WY-59n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="8Nv-WY-59n" firstAttribute="trailing" secondItem="C3W-ju-QgS" secondAttribute="trailing" constant="16" id="lKd-0Y-qbg"/>
-                            <constraint firstItem="C3W-ju-QgS" firstAttribute="top" secondItem="8Nv-WY-59n" secondAttribute="top" constant="16" id="lox-K2-S3S"/>
-                            <constraint firstItem="C3W-ju-QgS" firstAttribute="leading" secondItem="8Nv-WY-59n" secondAttribute="leading" constant="16" id="u1s-dy-KQD"/>
+                            <constraint firstItem="gAA-ix-G0G" firstAttribute="top" secondItem="8Nv-WY-59n" secondAttribute="top" constant="24" id="Ygl-In-rel"/>
+                            <constraint firstItem="8Nv-WY-59n" firstAttribute="trailing" secondItem="gAA-ix-G0G" secondAttribute="trailing" constant="20" id="dcL-P5-p1X"/>
+                            <constraint firstItem="gAA-ix-G0G" firstAttribute="leading" secondItem="8Nv-WY-59n" secondAttribute="leading" constant="20" id="h1s-EY-uGc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stackView" destination="gAA-ix-G0G" id="V59-mk-FeD"/>
+                        <segue destination="UJW-Zz-F0d" kind="presentation" identifier="showZoomable" id="2kk-wL-2tv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VAd-Oe-lfU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-787" y="313"/>
+            <point key="canvasLocation" x="-816" y="185"/>
         </scene>
         <!--ParentVC-->
         <scene sceneID="Ctu-pv-qgR">
@@ -79,7 +74,7 @@
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQc-Z3-QcA">
-                                <rect key="frame" x="0.0" y="766" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="748" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="wxn-L7-gcq"/>
                                 </constraints>
@@ -105,7 +100,7 @@
                             <constraint firstItem="Esb-ih-ImM" firstAttribute="top" secondItem="Jn8-De-MI8" secondAttribute="top" id="kLK-lN-dp8"/>
                             <constraint firstItem="89h-El-dg8" firstAttribute="leading" secondItem="scb-Do-tAF" secondAttribute="leading" id="qDH-Ly-kiB"/>
                             <constraint firstItem="Jn8-De-MI8" firstAttribute="trailing" secondItem="Esb-ih-ImM" secondAttribute="trailing" id="uGB-9G-xUA"/>
-                            <constraint firstAttribute="bottom" secondItem="XQc-Z3-QcA" secondAttribute="bottom" constant="16" id="ypB-SB-OFd"/>
+                            <constraint firstItem="Jn8-De-MI8" firstAttribute="bottom" secondItem="XQc-Z3-QcA" secondAttribute="bottom" id="ypB-SB-OFd"/>
                         </constraints>
                     </view>
                     <connections>

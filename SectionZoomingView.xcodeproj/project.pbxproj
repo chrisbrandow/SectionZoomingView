@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319169D25CCB9E800753195 /* MenuTypes.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
 		8351CDDE2594569700946150 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDDD2594569700946150 /* AppDelegate.swift */; };
 		8351CDE02594569700946150 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDDF2594569700946150 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 		83B16D8225C9F1AC008AE1BA /* 54Mint11Section123.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */; };
 		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
 		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
+		83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8319169D25CCB9E800753195 /* MenuTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypes.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
 		8351CDDA2594569700946150 /* SectionZoomingView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SectionZoomingView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8351CDDD2594569700946150 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 		83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = laPressa4Section14.json; sourceTree = "<group>"; };
 		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
+		83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8351CDE12594569700946150 /* LaunchVC.swift */,
+				8319169D25CCB9E800753195 /* MenuTypes.swift */,
+				83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */,
 				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				83B16D6225C9E95D008AE1BA /* zingari4Section29.json */,
@@ -285,6 +291,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
+				8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */,
+				83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,

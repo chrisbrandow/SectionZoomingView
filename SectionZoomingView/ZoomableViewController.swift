@@ -52,8 +52,22 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     var zoomableView: SectionedView?
     weak var zoomableProvider: ZoomableViewProvider?
 
+    var didLayoutOnce = false
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        guard self.didLayoutOnce == false
+        else { return }
+        self.didLayoutOnce = true
+        self.setupZommableView()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        self.setupZommableView()
+    }
+
+    private func setupZommableView() {
         guard let scrollview = self.scrollView,
               self.zoomableView == nil
         else { return }
@@ -68,10 +82,9 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
                    let sectionedView = self.zoomableView {
                     var colRect = ColRect.columnRectForResizing(sectionedView: sectionedView, in: scrollview)
                     colRect.size.width = min(2.0, CGFloat(sectionedView.numberOfColumns))
-                    self.scrollView?.setZoomScale(1/colRect.width, animated: true)
-                    CATransaction.setCompletionBlock {
-                        let point = self.adjustedPoint(for: scrollview, numberOfColumns: sectionedView.numberOfColumns)
-                        self.scrollView?.setContentOffset(point, animated: true)
+                    UIView.animate(withDuration: 0.4) {
+                        self.scrollView?.setZoomScale(1/colRect.width, animated: false)
+                        self.scrollView?.setContentOffset(.zero, animated: false)
                     }
                 }
             }
