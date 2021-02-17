@@ -12,7 +12,9 @@ class LaunchVC: UIViewController {//}, ZoomableViewProvider {
 
     @IBOutlet var stackView: UIStackView?
 
-    var selectedExample = TakeoutDataSource.Example.coquetta_11_31
+    // to make it easier to integrate into OpenTable, i should move teh datasource
+    // to ParentVC, then "load" it from there, based on the name
+    var selectedExample = TakeoutDataSource.Example.mint_11_123
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +51,10 @@ class LaunchVC: UIViewController {//}, ZoomableViewProvider {
 }
 
 class EntryView: UIView {
-    var item: Entry?
+    var item: TakeoutMenuItem?
 
     override var description: String {
-        return self.item?.title ?? " no item"
+        return self.frame.debugDescription// self.item?.name ?? " no item"
     }
 }
 

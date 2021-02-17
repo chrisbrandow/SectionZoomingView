@@ -38,6 +38,37 @@ struct SectionedView {
     let view: UIView
     let numberOfColumns: Int
     let margin: CGFloat
+
+    public func parentWillAnimate(numberOfColumnsTo newColumnCount: Int, from oldColumnCount: Int, with animation: (() ->()), completion: (() ->())) {
+        /// this is wrong. i need to provide the animation blocks, not receive them.
+        // this is for modifying my own view based on what's happening
+        // also need a method for search
+        // also need a method for "is zooming"
+    }
+
+    func highlight(text: String) {
+        guard text.count > 2 else { return }
+         // would be nice to be able to create plural/singular variant
+        // would be nice to have a dictionary of words that would highlight specific items based
+        // on generic words like
+        //TODO: Chris Brandow  2021-02-10 need to deal with section headers
+        for view in self.view.subviews {
+            if let entryView = (view as? EntryView) ?? view.subviews.first as? EntryView {
+
+                if entryView.item?.name.lowercased().contains(text.lowercased()) == true {
+                    print("\(text) is in \(entryView.item?.name ?? " no name")")
+                    entryView.backgroundColor = .orange
+                } else if entryView.item?.itemDescription?.lowercased().contains(text.lowercased()) == true {
+                    print("\(text) is in \(entryView.item?.itemDescription ?? "No descript")")
+                    entryView.backgroundColor = .orange
+                } else {
+                    entryView.backgroundColor = .otk_white
+                }
+
+            }
+        }
+        print(self.view.subviews.first() { $0 is EntryView })
+    }
 }
 
 typealias PinchState = UIPinchGestureRecognizer.State // convenience
@@ -45,6 +76,8 @@ typealias PinchState = UIPinchGestureRecognizer.State // convenience
 protocol ZoomableViewProvider: class {
     func zoomableView(for frame: CGRect) -> SectionedView
 }
+
+
 
 class ZoomableViewController: UIViewController, UIScrollViewDelegate {
 
@@ -61,16 +94,14 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         self.didLayoutOnce = true
         self.setupZommableView()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        self.setupZommableView()
-    }
 
     private func setupZommableView() {
         guard let scrollview = self.scrollView,
               self.zoomableView == nil
         else { return }
+        let doubleTapGR = UITapGestureRecognizer(target: self, action: #selector(doubleTapAction(_:)))
+        doubleTapGR.numberOfTapsRequired = 2
+        scrollview.addGestureRecognizer(doubleTapGR)
         scrollview.delegate = self
         scrollview.layer.cornerRadius = 8.0
         if let provider = self.zoomableProvider {
@@ -92,12 +123,30 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView?.clipsToBounds = false
     }
 
+    @objc
+    func doubleTapAction(_ sender: UITapGestureRecognizer) {
+        if let scrollview = self.scrollView,
+           let sectionedView = self.zoomableView {
+            var colRect = ColRect.columnRectForResizing(sectionedView: sectionedView, in: scrollview)
+            colRect.size.width = 1
+            let pt = sender.location(in: scrollview)
+            // this fails wrt to x offset, b/c the content size is wrong. probs need to pass the predicted width in
+            let origin = self.adjustedPoint(for: scrollview, fromTarget: pt, numberOfColumns: 1)
+            UIView.animate(withDuration: 0.4) {
+                self.scrollView?.setZoomScale(1/colRect.width, animated: false)
+                self.scrollView?.setContentOffset(origin, animated: false)
+            }
+        }
+
+    }
+
     func addAndScale(view: SectionedView, to scrollview: UIScrollView) {
         scrollview.subviews.forEach({ $0.removeFromSuperview() })
 
         scrollview.addSubview(view.view)
         let ratio = scrollview.frame.width/view.view.bounds.width
-        scrollview.maximumZoomScale = CGFloat(view.numberOfColumns)*ratio*0.94
+        let accountForMargin = (scrollview.frame.width - 3*Layout.menuItemMargin)/scrollview.frame.width
+        scrollview.maximumZoomScale = CGFloat(view.numberOfColumns)*ratio*accountForMargin
         scrollview.minimumZoomScale = ratio*0.95
         scrollview.contentSize = view.view.frame.size
 
@@ -126,10 +175,19 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
            let scrollview = sender.view as? UIScrollView,
            let sectionedView = self.zoomableView {
             let colRect = ColRect.columnRectForResizing(sectionedView: sectionedView, in: scrollview)
-            self.scrollView?.setZoomScale(1/colRect.width, animated: true)
-            CATransaction.setCompletionBlock {
-                self.scrollView?.setContentOffset(self.adjustedPoint(for: self.scrollView!, numberOfColumns: self.zoomableView?.numberOfColumns ?? 0), animated: true)
-            }
+            self.setZoomable(to: Int(colRect.width))
+        }
+    }
+
+    public func setZoomableToMaximumMagnification() {
+        self.setZoomable(to: self.zoomableView?.numberOfColumns ?? 0)
+    }
+
+    private func setZoomable(to columnCount: Int) {
+        let point = self.adjustedPoint(for: self.scrollView!, numberOfColumns: self.zoomableView?.numberOfColumns ?? 0)
+        self.scrollView?.setZoomScale(1/(CGFloat(columnCount)*1.05), animated: true)
+        CATransaction.setCompletionBlock {
+            self.scrollView?.setContentOffset(point, animated: true)
         }
     }
 
