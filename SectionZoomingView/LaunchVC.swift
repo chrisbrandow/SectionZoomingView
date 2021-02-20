@@ -53,8 +53,24 @@ class LaunchVC: UIViewController {//}, ZoomableViewProvider {
 class EntryView: UIView {
     var item: TakeoutMenuItem?
 
+    var titleLabel = UILabel()
+    var bigTitleLabel = UILabel()
+    var descriptionLabel = UILabel()
+    var priceLabel = UILabel()
+    var button = UIButton()
+    var badge = UIView()
     override var description: String {
         return self.frame.debugDescription// self.item?.name ?? " no item"
+    }
+
+    var isNarrowCell: Bool {
+        guard let item = self.item
+        else { return false }
+        return item.itemDescription?.isEmpty != false
+    }
+
+    var isSectionHeader: Bool {
+        return self.item == nil
     }
 }
 

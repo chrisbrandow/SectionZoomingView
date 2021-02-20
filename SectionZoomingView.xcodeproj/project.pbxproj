@@ -28,6 +28,7 @@
 		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
 		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
 		83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */; };
+		83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4F4F225E0A3E20026A0F8 /* Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
 		83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		83F4F4F225E0A3E20026A0F8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				831916A725CE27B100753195 /* CoreMenuView.swift */,
 				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
+				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
 				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				83B16D6225C9E95D008AE1BA /* zingari4Section29.json */,
@@ -305,6 +308,7 @@
 			files = (
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
 				8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */,
+				83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */,
 				83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,

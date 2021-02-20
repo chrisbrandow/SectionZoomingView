@@ -8,21 +8,54 @@
 import UIKit
 
 struct Layout {
+    /// 4.0
     static let menuItemMargin: CGFloat = 4.0
+    /// 16.0
     static let buttonSpacing: CGFloat = 16.0
+    /// 16.0
+    static let bottomDrawerMargin: CGFloat = 16.0
+    /// 8.0
+    static let bottomDrawerInterMargin: CGFloat = 8.0
+    /// 8.0
     static let floatingLeadingMargin: CGFloat = 8.0
+    /// 80.0
     static let exposedViewWidth: CGFloat = 80.0
+    /// 4.0
     static let cornerRadius: CGFloat = 4.0
+}
+
+extension CGFloat {
+    /// 4.0
+    static let otk_menuItemMargin: CGFloat = 4.0
+    /// 16.0
+    static let otk_buttonSpacing: CGFloat = 16.0
+    /// 16.0
+    static let otk_bottomDrawerMargin: CGFloat = 16.0
+    /// 32.0
+    static let otk_bottomButtonSpacing: CGFloat = 32.0
+    /// 32.0
+    static let otk_incrementButtonHeight: CGFloat = 40
+    /// 8.0
+    static let otk_bottomDrawerInterMargin: CGFloat = 8.0
+    /// 8.0
+    static let otk_floatingLeadingMargin: CGFloat = 8.0
+    /// 80.0
+    static let otk_exposedViewWidth: CGFloat = 80.0
+    /// 4.0
+    static let otk_cornerRadius: CGFloat = 4.0
 }
 
 extension UIColor {
     static var otk_red: UIColor { return UIColor(named: "otKit_red") ?? .black }
     static var otk_ash: UIColor { return UIColor(named: "otKit_ash") ?? .black }
+    static var otk_ashDark: UIColor { return UIColor(named: "otKit_ash_dark") ?? .black }
     static var otk_ashDarker: UIColor { return UIColor(named: "otKit_ash_darker") ?? .black }
     static var otk_ashLight: UIColor { return UIColor(named: "otKit_ash_light") ?? .black }
     static var otk_ashLighter: UIColor { return UIColor(named: "otKit_ash_lighter") ?? .black }
     static var otk_ashLightest: UIColor { return UIColor(named: "otKit_ash_lightest") ?? .black }
+    static var otk_greenLighter: UIColor { return UIColor(named: "otKit_green_lighter") ?? .black }
     static var otk_white: UIColor { return UIColor(named: "otKit_white") ?? .black }
+    static var otk_white_white: UIColor { return UIColor(named: "otKit_white_white") ?? .black }
     static var otk_whiteAsh: UIColor { return UIColor(named: "otKit_white_ash") ?? .black }
     static var otk_whiteAshDark: UIColor { return UIColor(named: "otKit_white_ash_dark") ?? .black }
 }
@@ -70,6 +103,17 @@ class PlaceholderMenuView: UIView {
         label.frame = view.frame
         label.textAlignment = .center
         view.backgroundColor = .otk_ashLightest
+        var bigFrame = view.bounds
+        bigFrame.origin.x += 8.0
+        bigFrame.size.width -= 8.0
+        let bigTitleView = UILabel(frame: bigFrame)
+        bigTitleView.font = UIFont(name: "BrandonText-Bold", size: 40)
+        bigTitleView.textColor = .otk_ashDark
+        bigTitleView.textAlignment = .center
+        view.addSubview(bigTitleView)
+        bigTitleView.text = entry.name
+        view.bigTitleLabel = bigTitleView
+        view.titleLabel = label
         return view
     }
 
@@ -81,39 +125,27 @@ class PlaceholderMenuView: UIView {
         view.frame = CGRect(x: 0, y: 0, width: columnWidth, height: 2*defaultTextHeight)
         view.backgroundColor = .otk_whiteAshDark
         let topSpacing: CGFloat = 4.0
-        let label = UILabel()
-        label.text = entry.name
-        label.textColor = .otk_ashDarker
+        let titleLabel = UILabel()
+        titleLabel.text = entry.name
+        titleLabel.textColor = .otk_ashDarker
 
-        let isNarrowCell = entry.itemDescription?.isEmpty != false
-        label.numberOfLines = isNarrowCell ? 0 : 1
-        label.font = UIFont(name: "BrandonText-Bold", size: 16.0)// UIFont.systemFont(ofSize: 16, weight: .semibold)
-        label.textAlignment = .left
+        
+        titleLabel.numberOfLines = view.isNarrowCell ? 0 : 1
+        titleLabel.font = UIFont(name: "BrandonText-Bold", size: 16.0)// UIFont.systemFont(ofSize: 16, weight: .semibold)
+        titleLabel.textAlignment = .left
         let titleFrame = entry.itemDescription?.isEmpty != false && entry.name.count > 45 // hack. fix this
             ? CGRect(x: 8, y: topSpacing, width: columnWidth - 92, height: 2*defaultTextHeight)
             : CGRect(x: 8, y: topSpacing, width: columnWidth - 92, height: defaultTextHeight)
-        label.frame = titleFrame
+        titleLabel.frame = titleFrame
 
-        view.addSubview(label)
-
-        //        if index.isMultiple(of: 25),
-        //           sections.isEmpty == false {
-        //            let header = sections.removeFirst()
-        //            label.text = header
-//            label.textColor = .otk_ashDarker
-//
-//            label.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-//            label.frame = view.frame
-//            label.textAlignment = .center
-//            view.backgroundColor = .otk_ashLightest
-//            return view
-//        }
-
+        view.addSubview(titleLabel)
 
         let price = UILabel()
-        price.text = entry.price.formattedDescription
+        price.text = "\(entry.price.formattedDescription ?? "")"
         price.textColor = .otk_ashDarker
-        price.frame = CGRect(x: columnWidth - 60, y: topSpacing, width:  55, height: defaultTextHeight)
+
+        price.sizeToFit()
+        price.frame = CGRect(x: columnWidth - (price.frame.width + 16), y: topSpacing, width:  price.frame.width + 10, height: defaultTextHeight)
         price.numberOfLines = 1
         price.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         price.textAlignment = .right
@@ -121,23 +153,19 @@ class PlaceholderMenuView: UIView {
 
         var bFrame = price.frame
         bFrame.size.width = 1.5*bFrame.size.height
-        if isNarrowCell {
+        if view.isNarrowCell {
             bFrame.origin.x -= (price.frame.height + 4)
         } else {
             bFrame.origin.y += bFrame.height + 4
             bFrame.origin.x += (price.frame.width - bFrame.width)
         }
-        let badge = UILabel(frame: bFrame)
+        let badge = UIView(frame: price.frame)
         badge.backgroundColor = .otk_red
         badge.layer.cornerRadius = bFrame.height/2.0
         badge.layer.masksToBounds = true
-        badge.textColor = .otk_white
-        badge.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        badge.textAlignment = .center
-        badge.text = "1"
         badge.tag = 123
         badge.isHidden = true
-        view.addSubview(badge)
+        view.insertSubview(badge, belowSubview: price)
 
         let description = UILabel()
         description.text = entry.itemDescription
@@ -150,21 +178,20 @@ class PlaceholderMenuView: UIView {
         description.textAlignment = .left
 
         //
-        let size = isNarrowCell
+        let size = view.isNarrowCell
             ? CGRect.zero
             : ((entry.itemDescription ?? "" )as NSString).boundingRect(with: CGSize(width: columnWidth - 92, height: 100000), options: .usesLineFragmentOrigin, attributes: [.font: description.font!], context: nil)
         description.frame = CGRect(origin: CGPoint(x: 8, y: defaultTextHeight + 4 + topSpacing), size: size.size)
         NSLog("size \(description.frame.size) - \(size)")
         view.addSubview(description)
-
         let button = UIButton(type: .custom)
 
         button.addTarget(target, action: action, for: .touchUpInside)
         view.addSubview(button)
         var vFrame = view.frame
         let addedHeight = description.frame.height > 0 ? description.frame.height + 4 + 8 : 8
-
-        vFrame.size.height = label.frame.height + addedHeight
+        
+        vFrame.size.height = titleLabel.frame.height + addedHeight
         button.frame = vFrame
         let cornerRadius: CGFloat = Layout.menuItemMargin
         let shadowView = UIView(frame: vFrame)
@@ -178,6 +205,21 @@ class PlaceholderMenuView: UIView {
         view.frame = shadowView.bounds
         view.layer.cornerRadius = Layout.menuItemMargin
         shadowView.addSubview(view)
+        var bigFrame = view.bounds
+        bigFrame.origin.x += 8.0
+        bigFrame.size.width -= 8.0
+        let bigTitleView = UILabel(frame: bigFrame)
+        bigTitleView.font = UIFont(name: "BrandonText-Bold", size: view.isNarrowCell ? 24.0 : 32)
+        bigTitleView.textColor = .otk_ashDark
+        view.addSubview(bigTitleView)
+        
+        bigTitleView.text = entry.name
+        view.descriptionLabel = description
+        view.priceLabel = price
+        view.titleLabel = titleLabel
+        view.button = button
+        view.bigTitleLabel = bigTitleView
+        view.badge = badge
         return shadowView
     }
 }

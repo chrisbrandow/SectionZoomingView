@@ -8,6 +8,9 @@
 import UIKit
 
 class ParentVC: UIViewController, ZoomableViewProvider {
+
+    var items = [TakeoutMenuItem: Int]()
+
     @IBOutlet weak var titleLabel: UILabel?
 
     var zoomingView: SectionedView?
@@ -40,8 +43,10 @@ class ParentVC: UIViewController, ZoomableViewProvider {
     @IBOutlet var bottomBarContainer: UIView?
     var zoomableController: ZoomableViewController?
     var bottomBarVC: BottomBarVC?
+    var shadowLine = UIView()
 
     @IBOutlet weak var bottomBarBottomConstraint: NSLayoutConstraint?
+    @IBOutlet weak var bottomBarHeightConstraint: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +55,17 @@ class ParentVC: UIViewController, ZoomableViewProvider {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardToggled(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardToggled(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-
+        if let container = self.titleLabel?.superview {
+            self.shadowLine.translatesAutoresizingMaskIntoConstraints = false
+            self.shadowLine.backgroundColor = UIColor.otk_ashLight.withAlphaComponent(0.4)
+            container.addSubview(self.shadowLine)
+            NSLayoutConstraint.activate([
+                self.shadowLine.topAnchor.constraint(equalTo: container.bottomAnchor),
+                self.shadowLine.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                self.shadowLine.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                self.shadowLine.heightAnchor.constraint(equalToConstant: 1.0/UIScreen.main.scale)
+            ])
+        }
     }
 
     var bottomVCConstraint: NSLayoutConstraint? {
@@ -63,7 +78,6 @@ class ParentVC: UIViewController, ZoomableViewProvider {
         let viewHeight = (self.bottomBarVC?.view.superview?.frame.origin.y ?? 0)
             - (self.titleLabel?.superview?.frame.maxY ?? 0)
         let aspectRatioSubHeader = Double(view.bounds.width/viewHeight)
-//        let arrangement = CGSize.bestArrangement(for: strips, matchingRatio: aspectRatioSubHeader)
         let arrangement = UIView.bestArrangement(for: strips, matchingRatio: aspectRatioSubHeader)
         let margin: CGFloat = 4.0
         var size = arrangement.rect
@@ -91,16 +105,17 @@ class ParentVC: UIViewController, ZoomableViewProvider {
 
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
-        return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: TakeoutDataSource(example: self.selectedExample), target: self, action: #selector(didTap(_:)))
+        return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: TakeoutDataSource(example: self.selectedExample), target: self, action: #selector(ParentVC.didTap(_:)))
     }
 
     @objc
     func didTap(_ sender: UIButton) {
         let entry = sender.superview as? EntryView
         self.selectedItems.append(entry?.item?.name ?? "")
-        self.bottomBarVC?.cartLabel.text = "\(entry?.item?.name ?? "")   \(self.selectedItems.count)"
-        if let name = entry?.item?.name {
-            self.userDidTap(button: sender, for: name)
+        let count =  self.items.reduce(0) { $0 + $1.value }
+        self.bottomBarVC?.cartLabel.text = "\(count) items in cart"
+        if let item = entry?.item {
+            self.userDidTap(button: sender, for: item)
         }
 
         self.selectedBadge = (entry?.subviews.first() { $0.tag == 123 })
@@ -126,28 +141,44 @@ class ParentVC: UIViewController, ZoomableViewProvider {
         guard let info = notif.userInfo as? [String: Any]
         else { return NSLog("\(notif.userInfo ?? [:])")}
         let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval ?? 0.25
-
-        guard notif.name != UIResponder.keyboardWillHideNotification else {
+        
+        if notif.name == UIResponder.keyboardWillHideNotification {
             //dismiss animation
             self.bottomBarBottomConstraint?.constant = 0
             self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -(self.view.frame.width - (2*Layout.exposedViewWidth - Layout.buttonSpacing) + 8)
+            self.bottomBarVC?.searchImageView.image = UIImage(named: "ic_search_template")
+            self.animateImageChange(duration: duration)
 
             self.bottomBarVC?.searchViewWidthConstraint?.constant = -68
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
+            } completion: { _ in
+                self.zoomingView?.setButtons(enabled: true)
             }
             return
-        }
-        // will show
-        if let keyboardRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect) {
-           let constant = keyboardRect.height - self.view.safeAreaInsets.bottom //+ self.bottomBarContainer!.frame.height
+        } else if let keyboardRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect) {
+            let constant = keyboardRect.height - self.view.safeAreaInsets.bottom
             self.bottomBarBottomConstraint?.constant = constant
             self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -self.view.frame.width + 60
             self.bottomBarVC?.searchViewWidthConstraint?.constant = 0
+            self.bottomBarVC?.searchImageView.image = UIImage(named: "ic_close")
+            self.bottomBarVC?.searchImageView.tintColor = .otk_white
+            self.animateImageChange(duration: duration)
+
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
+            } completion: { _ in
+                self.zoomingView?.setButtons(enabled: false)
             }
         }
+    }
+
+    private func animateImageChange(duration: TimeInterval) {
+        let transition = CATransition()
+        transition.duration = 0.12
+        transition.timingFunction = CAMediaTimingFunction.init(name: .easeInEaseOut)
+        transition.type = .fade;
+        self.bottomBarVC?.searchImageView?.layer.add(transition, forKey: "fade")
     }
 
 }
@@ -156,25 +187,31 @@ class BottomBarVC: UIViewController {
     @IBOutlet weak var searchView: UIView?
 
     @IBOutlet weak var searchImageView: UIImageView!
+    @IBOutlet weak var cartImageView: UIImageView!
     @IBOutlet weak var cartToParentLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var textFieldLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchImageTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var searchTextField: UITextField?
+    @IBOutlet weak var cartWidthConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var cartLabel: UILabel!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.searchTextField?.textColor = .otk_white
+        self.searchTextField?.tintColor = .otk_white
+        
         self.cartView?.layer.cornerRadius = 4.0
         self.cartView?.layer.masksToBounds = true
+        self.cartImageView.tintColor = .otk_white_white
+
 
         self.searchView?.layer.cornerRadius = 4.0
         self.searchView?.layer.masksToBounds = true
 
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(BottomBarVC.didTap(_:)))
         self.view.addGestureRecognizer(tapGR)
         self.searchImageTrailingConstraint.isActive = false
         NSLayoutConstraint.activate([
@@ -182,9 +219,11 @@ class BottomBarVC: UIViewController {
         ])
         self.searchTextField?.alpha = 0
         self.searchTextField?.delegate = self
+        self.searchTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
 
 
+    // make the bottom container FLOATING!!
     @objc
     func didTap(_ tapGR: UITapGestureRecognizer) {
         guard let tappedView = tapGR.view
@@ -192,7 +231,58 @@ class BottomBarVC: UIViewController {
         let tapPoint = tapGR.location(in: tappedView)
         if self.currentState == .cart {
             if self.cartView?.frame.contains(tapPoint) == true {
-                // do something with the cart
+                if self.cartView!.frame.height < 51 {
+                    (self.parent as? ParentVC)?.bottomBarHeightConstraint?.constant = 300
+                    self.cartToParentLeadingConstraint.constant = 16.0
+                    self.cartWidthConstraint.constant = -.otk_bottomDrawerMargin*2
+                    self.cartImageView.image = UIImage.caretImage
+                    self.cartImageView.animateImageChange(duration: 0.2)
+
+                    if let menuItems = (self.parent as? ParentVC)?.items,
+                        menuItems.isEmpty == false {
+                        let labels: [UILabel] = menuItems.map({
+                            let label = UILabel()
+                            label.text = "\($0.value) - \($0.key.name) * \($0.key.price.formattedDescription ?? "")"
+                            label.translatesAutoresizingMaskIntoConstraints = false
+                            label.numberOfLines = 0
+                            label.textColor = .otk_white_white
+                            label.textAlignment = .right
+                            label.font = UIFont(name: "BrandonText-Bold", size: 14.0)
+                            return label
+                        })
+
+                        let stackView = UIStackView(arrangedSubviews: labels)
+                        stackView.translatesAutoresizingMaskIntoConstraints = false
+                        stackView.axis = .vertical
+                        stackView.spacing = .otk_bottomDrawerInterMargin
+                        var frame = self.cartView?.bounds ?? .zero
+                        frame.origin.y += 30
+                        frame.size.height -= 30
+                        stackView.frame = frame
+                        self.cartView?.addSubview(stackView)
+                        NSLayoutConstraint.activate([
+                            stackView.topAnchor.constraint(equalTo: self.cartLabel!.bottomAnchor, constant: .otk_bottomDrawerInterMargin),
+                            stackView.leadingAnchor.constraint(equalTo: self.cartView!.leadingAnchor, constant: .otk_bottomDrawerMargin),
+                            stackView.trailingAnchor.constraint(equalTo: self.cartView!.trailingAnchor, constant: -.otk_bottomDrawerMargin),
+                        ])
+                    }
+
+
+                } else {
+                    self.cartView?.subviews.first(where: { $0 is UIStackView })?.removeFromSuperview()
+
+                    self.cartToParentLeadingConstraint.constant = 8.0
+                    self.cartWidthConstraint.constant = -76.0
+                    (self.parent as? ParentVC)?.bottomBarHeightConstraint?.constant = 50
+
+                    self.cartImageView.image = UIImage(named: "ic_pickup_red_24")
+                    self.cartImageView.animateImageChange(duration: 0.2)
+                }
+                
+                UIView.animate(withDuration: 0.2) {
+                    (self.parent as? ParentVC)?.view.layoutIfNeeded()
+                }
+
             } else {
                 self.toggleViews()
             }
@@ -256,10 +346,7 @@ class BottomBarVC: UIViewController {
 }
 
 extension BottomBarVC: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        (self.parent as? ParentVC)?.zoomingView?.highlight(text: textField.text ?? "")
-        return true
-    }
+
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.endSearch()
@@ -269,9 +356,17 @@ extension BottomBarVC: UITextFieldDelegate {
     private func endSearch() {
         self.searchTextField?.resignFirstResponder()
         // obvs, this should eventually only happen if values are found
-        (self.parent as? ParentVC)?.zoomableController?.setZoomableToMaximumMagnification()
+        (self.parent as? ParentVC)?.zoomableController?.setZoomableToMaximumCompression()
         // also shoud add a "clear highlighting" button
+    }
+
+    @objc
+    func textFieldDidChange(_ textField: UITextField) {
+        if (self.parent as? ParentVC)?.zoomingView?.highlight(text: textField.text ?? "") == true {
+            (self.parent as? ParentVC)?.zoomableController?.setZoomableToMaximumCompression()
+        }
     }
 
 
 }
+
