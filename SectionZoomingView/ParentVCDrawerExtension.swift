@@ -126,9 +126,8 @@ extension ParentVC {
             let count = Int(qLabel.text ?? "") ?? 1
             self.update(value: count, for: entryView)
             self.items[item] = count
-            let totalCount =  self.items.reduce(0) { $0 + $1.value }
-            self.bottomBarVC?.cartLabel.text = "\(totalCount) items in cart"
 
+            self.bottomBarVC?.cartMiniView.totalLabel?.text = self.miniCartText()
             mButton.isEnabled = count > 0
         }), for: .touchUpInside)
 
@@ -183,7 +182,7 @@ extension ParentVC {
         view.priceLabel.font = value == 0
             ? UIFont.systemFont(ofSize: 14)
             : UIFont(name: "BrandonText-Bold", size: 14.0)
-        view.priceLabel.textColor = .otk_white
+        view.priceLabel.textColor = .otk_white_white
         let originalFrame = view.priceLabel.frame
         if let _ = priceText.firstIndex(of: "•"),
            let index = priceText.firstIndex(of: " ") {
@@ -202,6 +201,7 @@ extension ParentVC {
         view.badge.layer.cornerRadius = view.badge.frame.size.height/2.0 - 1
         view.badge.frame = newFrame
         view.badge.backgroundColor = .otk_red
+        
     }
 }
 

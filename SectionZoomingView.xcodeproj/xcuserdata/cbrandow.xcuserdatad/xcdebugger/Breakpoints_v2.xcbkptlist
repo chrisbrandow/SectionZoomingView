@@ -20,7 +20,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "428D6EF7-52E5-495B-B90E-614124A57437 - 3787ebd68350859f"
+                  uuid = "428D6EF7-52E5-495B-B90E-614124A57437 - 3787ebd68350851b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,12 +30,12 @@
                   urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/ZoomableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "242"
-                  endingLineNumber = "242"
+                  startingLineNumber = "238"
+                  endingLineNumber = "238"
                   offsetFromSymbolStart = "1113">
                </Location>
                <Location
-                  uuid = "428D6EF7-52E5-495B-B90E-614124A57437 - f028af73ba779852"
+                  uuid = "428D6EF7-52E5-495B-B90E-614124A57437 - f028af73ba7798d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -45,8 +45,8 @@
                   urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/ZoomableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "243"
-                  endingLineNumber = "243"
+                  startingLineNumber = "239"
+                  endingLineNumber = "239"
                   offsetFromSymbolStart = "232">
                </Location>
             </Locations>
@@ -142,13 +142,13 @@
             filePath = "SectionZoomingView/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "userDidTapDismiss(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3E3A87FA-1B75-4666-8937-20F56A29EF9D - 156f1955345ffd86"
+                  uuid = "3E3A87FA-1B75-4666-8937-20F56A29EF9D - 156f1955345ffcf9"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -158,12 +158,12 @@
                   urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/MenuViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
                   offsetFromSymbolStart = "32">
                </Location>
                <Location
-                  uuid = "3E3A87FA-1B75-4666-8937-20F56A29EF9D - 513e3c052968850d"
+                  uuid = "3E3A87FA-1B75-4666-8937-20F56A29EF9D - 513e3c05296885b0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -173,43 +173,11 @@
                   urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/MenuViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "128"
-                  endingLineNumber = "128"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
                   offsetFromSymbolStart = "155">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "13F86146-4B2C-4DF3-9696-B553EE37E6D4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "keyboardToggled(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C338D3E0-268C-419B-A65D-3F5144803082"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "keyboardToggled(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -238,8 +206,8 @@
             filePath = "SectionZoomingView/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "didTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +222,8 @@
             filePath = "SectionZoomingView/ParentVCDrawerExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "userDidTap(button:for:)"
             landmarkType = "7">
             <Locations>
@@ -302,8 +270,8 @@
             filePath = "SectionZoomingView/ParentVCDrawerExtension.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "userDidTap(button:for:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -327,22 +295,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1DDEA508-8F00-4BF1-B3C9-1B348628B870"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/MenuViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "didTap(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "7DCCF8A2-6D37-4B0E-BFD1-9D0722A23AA8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -350,8 +302,8 @@
             filePath = "SectionZoomingView/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
+            startingLineNumber = "339"
+            endingLineNumber = "339"
             landmarkName = "didTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -359,32 +311,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3B86D533-6BE3-4DA8-B4DA-FBAB3D624C1A"
+            uuid = "B8A96BAF-8585-4E72-9AEA-C56971E34BF5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/ParentVCDrawerExtension.swift"
+            filePath = "SectionZoomingView/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "userDidTap(button:for:)"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "keyboardToggled(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "50F49FE4-6F20-4E68-A018-F57015D1DB3A"
+            uuid = "ABFF0DDA-F3F0-4AFF-8204-EC28B99ED705"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/ParentVCDrawerExtension.swift"
+            filePath = "SectionZoomingView/MenuViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "userDidTap(button:for:)"
+            startingLineNumber = "352"
+            endingLineNumber = "352"
+            landmarkName = "didTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9195F58B-DE00-4DED-8559-15B23F55A2B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SectionZoomingView/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
+            landmarkName = "didTap(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9195F58B-DE00-4DED-8559-15B23F55A2B0 - 4dd326d984f10e69"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SectionZoomingView.BottomBarVC.didTap(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "SectionZoomingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/MenuViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "315"
+                  endingLineNumber = "315"
+                  offsetFromSymbolStart = "8140">
+               </Location>
+               <Location
+                  uuid = "9195F58B-DE00-4DED-8559-15B23F55A2B0 - 67fa37594fdb1958"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UIView) -&gt; Swift.Bool in SectionZoomingView.BottomBarVC.didTap(__C.UITapGestureRecognizer) -&gt; ()"
+                  moduleName = "SectionZoomingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/MenuViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "315"
+                  endingLineNumber = "315"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "00B80D40-1496-49AD-A58F-5C52163C1F12"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SectionZoomingView/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
+            landmarkName = "didTap(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EC963C1B-BE68-4159-AF30-0766DBDD22C2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SectionZoomingView/MenuViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "didTap(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

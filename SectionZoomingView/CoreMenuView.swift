@@ -182,7 +182,7 @@ class PlaceholderMenuView: UIView {
             ? CGRect.zero
             : ((entry.itemDescription ?? "" )as NSString).boundingRect(with: CGSize(width: columnWidth - 92, height: 100000), options: .usesLineFragmentOrigin, attributes: [.font: description.font!], context: nil)
         description.frame = CGRect(origin: CGPoint(x: 8, y: defaultTextHeight + 4 + topSpacing), size: size.size)
-        NSLog("size \(description.frame.size) - \(size)")
+//        NSLog("size \(description.frame.size) - \(size)")
         view.addSubview(description)
         let button = UIButton(type: .custom)
 

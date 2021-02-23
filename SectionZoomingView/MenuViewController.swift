@@ -112,14 +112,19 @@ class ParentVC: UIViewController, ZoomableViewProvider {
     func didTap(_ sender: UIButton) {
         let entry = sender.superview as? EntryView
         self.selectedItems.append(entry?.item?.name ?? "")
-        let count =  self.items.reduce(0) { $0 + $1.value }
-        self.bottomBarVC?.cartLabel.text = "\(count) items in cart"
         if let item = entry?.item {
             self.userDidTap(button: sender, for: item)
         }
 
         self.selectedBadge = (entry?.subviews.first() { $0.tag == 123 })
     }
+
+    func miniCartText() -> String {
+        let count =  self.items.reduce(0) { $0 + $1.value }
+        let totPrice = self.items.reduce(0) { $0 + ($1.key.price.amount as NSDecimalNumber).doubleValue*Double($1.value)  }
+        return String(format: "%zd • $%0.2f", count, totPrice)
+    }
+
     weak var selectedBadge: UIView?
     var selectedItems = [String]()
     @objc
@@ -145,11 +150,15 @@ class ParentVC: UIViewController, ZoomableViewProvider {
         if notif.name == UIResponder.keyboardWillHideNotification {
             //dismiss animation
             self.bottomBarBottomConstraint?.constant = 0
-            self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -(self.view.frame.width - (2*Layout.exposedViewWidth - Layout.buttonSpacing) + 8)
-            self.bottomBarVC?.searchImageView.image = UIImage(named: "ic_search_template")
-            self.animateImageChange(duration: duration)
-
-            self.bottomBarVC?.searchViewWidthConstraint?.constant = -68
+            if self.bottomBarVC?.currentState == .search {
+                
+                self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -(self.view.frame.width - (2*Layout.exposedViewWidth - Layout.buttonSpacing) + 8)
+                self.bottomBarVC?.searchImageView.image = UIImage(named: "ic_search_template")
+                self.animateImageChange(duration: duration)
+                
+                self.bottomBarVC?.searchViewWidthConstraint?.constant = -68
+                
+            }
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
             } completion: { _ in
@@ -159,17 +168,21 @@ class ParentVC: UIViewController, ZoomableViewProvider {
         } else if let keyboardRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect) {
             let constant = keyboardRect.height - self.view.safeAreaInsets.bottom
             self.bottomBarBottomConstraint?.constant = constant
-            self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -self.view.frame.width + 60
-            self.bottomBarVC?.searchViewWidthConstraint?.constant = 0
-            self.bottomBarVC?.searchImageView.image = UIImage(named: "ic_close")
-            self.bottomBarVC?.searchImageView.tintColor = .otk_white
-            self.animateImageChange(duration: duration)
 
+            if self.bottomBarVC?.currentState == .search {
+                self.bottomBarVC?.cartToParentLeadingConstraint?.constant = -self.view.frame.width + 60
+                self.bottomBarVC?.searchViewWidthConstraint?.constant = 0
+                self.bottomBarVC?.searchImageView.image = UIImage.caretImage
+                self.bottomBarVC?.searchImageView.tintColor = .otk_white
+                self.animateImageChange(duration: duration)
+
+            }
             UIView.animate(withDuration: duration) {
                 self.view.layoutIfNeeded()
             } completion: { _ in
                 self.zoomingView?.setButtons(enabled: false)
             }
+
         }
     }
 
@@ -195,14 +208,16 @@ class BottomBarVC: UIViewController {
     @IBOutlet weak var searchTextField: UITextField?
     @IBOutlet weak var cartWidthConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var cartLabel: UILabel!
+    @IBOutlet weak var dtpView: UIView!
+    @IBOutlet weak var timeLabel: UILabel!
 
+    @IBOutlet weak var cartMiniView: CartInfoView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.searchTextField?.textColor = .otk_white
         self.searchTextField?.tintColor = .otk_white
-        
+
         self.cartView?.layer.cornerRadius = 4.0
         self.cartView?.layer.masksToBounds = true
         self.cartImageView.tintColor = .otk_white_white
@@ -220,52 +235,99 @@ class BottomBarVC: UIViewController {
         self.searchTextField?.alpha = 0
         self.searchTextField?.delegate = self
         self.searchTextField?.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        self.cartMiniView.totalLabel?.text = "0 items"
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        [self.dtpView].forEach({
+            $0?.layer.masksToBounds = true
+            $0?.layer.borderWidth = 1/UIScreen.main.scale
+            $0?.layer.borderColor = UIColor.otk_white_white.cgColor
+            $0?.layer.cornerRadius = $0!.frame.height/2.0
+        })
+        [self.cartMiniView].forEach({
+            $0?.layer.masksToBounds = true
+//            $0?.layer.borderWidth = 1/UIScreen.main.scale
+//            $0?.layer.borderColor = UIColor.otk_white_white.cgColor
+            $0?.layer.cornerRadius = .otk_cornerRadius
+        })
+    }
     // make the bottom container FLOATING!!
+
+    var targetPickupDate: Date?
     @objc
     func didTap(_ tapGR: UITapGestureRecognizer) {
         guard let tappedView = tapGR.view
         else { return }
         let tapPoint = tapGR.location(in: tappedView)
+        self.cartMiniView.totalLabel?.text = (self.parent as? ParentVC)?.miniCartText()
+
+        guard self.datePickerWasFirstResponder == false else {
+            self.view.otf_findFirstResponder()?.resignFirstResponder()
+
+            self.datePickerWasFirstResponder = false
+            return
+        }
+
         if self.currentState == .cart {
             if self.cartView?.frame.contains(tapPoint) == true {
                 if self.cartView!.frame.height < 51 {
-                    (self.parent as? ParentVC)?.bottomBarHeightConstraint?.constant = 300
                     self.cartToParentLeadingConstraint.constant = 16.0
                     self.cartWidthConstraint.constant = -.otk_bottomDrawerMargin*2
                     self.cartImageView.image = UIImage.caretImage
+                    self.cartMiniView.totalLabel?.text = ""
                     self.cartImageView.animateImageChange(duration: 0.2)
-
+                    let stackView: UIStackView
+                    let constraints: [NSLayoutConstraint]
                     if let menuItems = (self.parent as? ParentVC)?.items,
-                        menuItems.isEmpty == false {
-                        let labels: [UILabel] = menuItems.map({
-                            let label = UILabel()
-                            label.text = "\($0.value) - \($0.key.name) * \($0.key.price.formattedDescription ?? "")"
-                            label.translatesAutoresizingMaskIntoConstraints = false
-                            label.numberOfLines = 0
-                            label.textColor = .otk_white_white
-                            label.textAlignment = .right
-                            label.font = UIFont(name: "BrandonText-Bold", size: 14.0)
-                            return label
-                        })
+                       menuItems.filter({ $0.value != 0 }).isEmpty == false {
+                        let entries: [UIStackView] = menuItems.map { self.cartEntry(for: "\($0.value) - \($0.key.name)", right: $0.key.price.formattedDescription ?? "") }
 
-                        let stackView = UIStackView(arrangedSubviews: labels)
+                        stackView = UIStackView(arrangedSubviews: entries)
+
                         stackView.translatesAutoresizingMaskIntoConstraints = false
                         stackView.axis = .vertical
                         stackView.spacing = .otk_bottomDrawerInterMargin
+
                         var frame = self.cartView?.bounds ?? .zero
                         frame.origin.y += 30
                         frame.size.height -= 30
                         stackView.frame = frame
-                        self.cartView?.addSubview(stackView)
-                        NSLayoutConstraint.activate([
-                            stackView.topAnchor.constraint(equalTo: self.cartLabel!.bottomAnchor, constant: .otk_bottomDrawerInterMargin),
+
+                        stackView.addArrangedSubview(self.createSeparator())
+                        stackView.addArrangedSubview(self.finalEntry(items: menuItems))
+                        stackView.addArrangedSubview(self.timePickerEntry())
+                        constraints = [
+                            stackView.topAnchor.constraint(equalTo: self.cartMiniView!.bottomAnchor, constant: .otk_bottomDrawerInterMargin),
                             stackView.leadingAnchor.constraint(equalTo: self.cartView!.leadingAnchor, constant: .otk_bottomDrawerMargin),
                             stackView.trailingAnchor.constraint(equalTo: self.cartView!.trailingAnchor, constant: -.otk_bottomDrawerMargin),
-                        ])
+                        ]
+
+                    } else {
+
+                        stackView = UIStackView(arrangedSubviews: [self.timePickerEntry()])
+                        stackView.translatesAutoresizingMaskIntoConstraints = false
+                        stackView.alignment = .leading
+
+                        constraints = [
+                            stackView.topAnchor.constraint(equalTo: self.cartMiniView!.bottomAnchor, constant: .otk_bottomDrawerInterMargin),
+                            stackView.leadingAnchor.constraint(equalTo: self.cartView!.leadingAnchor, constant: .otk_bottomDrawerMargin),
+                        ]
+
                     }
+                    let height = stackView.arrangedSubviews.reduce(CGFloat(100)) {
+                        if $1 is UIStackView {
+                            return $0 + 8 + (($1 as? UILabel)?.intrinsicContentSize.height ?? 15)
+                        } else {
+                            return $0 + 50.0
+                        }
+                    }
+                    (self.parent as? ParentVC)?.bottomBarHeightConstraint?.constant = height
+
+
+                    self.cartView?.addSubview(stackView)
+                    NSLayoutConstraint.activate(constraints)
 
 
                 } else {
@@ -287,6 +349,7 @@ class BottomBarVC: UIViewController {
                 self.toggleViews()
             }
         } else {
+
             if self.searchView?.frame.contains(tapPoint) == true {
                 // do something with the search
                 if self.searchTextField?.isFirstResponder == true {
@@ -298,6 +361,84 @@ class BottomBarVC: UIViewController {
         }
     }
 
+    private func timePickerEntry() -> UIView {
+
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        let picker = UIDatePicker()
+        picker.preferredDatePickerStyle = .inline
+        picker.addTarget(self, action: #selector(Self.dateChanged(_:)), for: .valueChanged)
+        picker.datePickerMode = .time
+
+        if let time = self.targetPickupDate {
+            picker.date = time
+        } else {
+            picker.date = Date(timeIntervalSinceNow: 60*37)
+        }
+        container.addSubview(picker)
+        NSLayoutConstraint.activate([
+            container.leadingAnchor.constraint(equalTo: picker.leadingAnchor),
+            container.trailingAnchor.constraint(greaterThanOrEqualTo: picker.trailingAnchor),
+            container.topAnchor.constraint(equalTo: picker.topAnchor),
+            container.bottomAnchor.constraint(equalTo: picker.bottomAnchor),
+        ])
+        return container
+    }
+
+    private func createSeparator() -> UIView {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        view.backgroundColor = .otk_ashLightest
+        return view
+    }
+    private func finalEntry(items: [TakeoutMenuItem: Int]) -> UIStackView {
+        let count =  items.reduce(0) { $0 + $1.value }
+        let totPrice = items.reduce(0) { $0 + ($1.key.price.amount as NSDecimalNumber).doubleValue*Double($1.value)  }
+
+        let entry = self.cartEntry(for: "\(count) items", right: String(format: "$%.2f", totPrice))
+
+        entry.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        return entry
+    }
+
+    private func cartEntry(for left: String, right: String) -> UIStackView {
+        let label2 = UILabel()
+        label2.text = left
+        label2.textAlignment = .left
+        label2.translatesAutoresizingMaskIntoConstraints = false
+        label2.numberOfLines = 0
+        label2.textColor = .otk_white_white
+        label2.font = UIFont(name: "BrandonText-Bold", size: 14.0)
+
+        let label = UILabel()
+        label.textAlignment = .right
+        label.text = right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textColor = .otk_white_white
+        label.font = UIFont(name: "BrandonText-Bold", size: 14.0)
+        return UIStackView(arrangedSubviews: [label2, label])
+    }
+
+    fileprivate static var shortTimeFormatter: DateFormatter = {
+        let shortTimeFormatter = DateFormatter()
+        shortTimeFormatter.timeStyle = .short
+        shortTimeFormatter.dateStyle = .none
+        return shortTimeFormatter
+    }()
+
+    @objc
+    func dateChanged(_ sender: UIDatePicker) {
+        self.targetPickupDate = sender.date
+        self.timeLabel.text = String(format: "%@ • %.0f mins", Self.shortTimeFormatter.string(from: sender.date), sender.date.timeIntervalSinceNow/60)
+        print(self.parent?.view.otf_findFirstResponder())
+        self.datePickerWasFirstResponder = true
+    }
+
+    var datePickerWasFirstResponder = false
+
+
     private var isShowingCart: Bool {
         return true
     }
@@ -307,12 +448,12 @@ class BottomBarVC: UIViewController {
         case search
     }
 
-    private var currentState: Presented {
+    var currentState: Presented {
         return self.textFieldLeadingConstraint?.constant == 70 ? .cart : .search
     }
 
 
-    private var nextState: Presented {
+    var nextState: Presented {
         return self.textFieldLeadingConstraint?.constant == 70 ? .search : .cart
     }
 
@@ -337,10 +478,9 @@ class BottomBarVC: UIViewController {
         // 4. have the text field move with the search view underneath the search glass
         UIView.animate(withDuration: 0.26, delay: 0.0, options: .curveEaseInOut, animations: {
             self.searchTextField?.alpha = textLeading == 70 ? 0.0 : 1.0
-            self.view.layoutIfNeeded()
+            (self.parent as? ParentVC)?.view.layoutIfNeeded()
         }, completion: { _ in
             self.view.gestureRecognizers?.forEach({$0.isEnabled = true })
-            print("done")
         })
     }
 }
@@ -370,3 +510,29 @@ extension BottomBarVC: UITextFieldDelegate {
 
 }
 
+class CartInfoView: UIView {
+    @IBOutlet weak var imageView: UIImageView?
+    @IBOutlet weak var totalLabel: UILabel?
+
+    func update(withNumber: Int, price: Double) {
+        
+    }
+}
+
+extension UIView {
+    public func otf_findFirstResponder() -> UIView? {
+        if self.isFirstResponder {
+            return self
+        }
+
+        for subview in self.subviews {
+            guard let responder = subview.otf_findFirstResponder() else {
+                continue
+            }
+            return responder
+        }
+
+        return nil
+    }
+
+}
