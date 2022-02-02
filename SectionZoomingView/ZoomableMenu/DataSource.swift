@@ -65,26 +65,3 @@ class TakeoutDataSource {
         self.entireMenu = TakeoutMenuAssembler.shared.createMenus(from: menuDto, title: title)
     }
 }
-
-
-//struct Entry {
-//    let title: String
-//    let description: String
-//    let price: String
-//
-//    //this is temporary. next up, start using
-//    init(title: String, description: String, price: String) {
-//        self.title = title
-//        self.description = description
-//        self.price = price
-//    }
-//}
-//
-//extension Entry {
-//    init(menuItem: TakeoutMenuItem) {
-//        self.title = menuItem.name
-//        self.description = menuItem.itemDescription ?? ""
-//        self.price = menuItem.price.formattedDescription ?? ""
-//    }
-//
-//}

@@ -168,16 +168,14 @@ extension ParentVC {
 
         }
     }
-
     
-
     private func update(value: Int, for view: EntryView) {
         guard var priceText = view.priceLabel.text,
               value > 0 else {
             view.badge.isHidden = true
             return
         }
-
+        
         view.badge.isHidden = false
         view.priceLabel.font = value == 0
             ? UIFont.systemFont(ofSize: 14)

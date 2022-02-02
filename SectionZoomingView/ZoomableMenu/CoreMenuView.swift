@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct Layout {
+public struct Layout {
     /// 4.0
     static let menuItemMargin: CGFloat = 4.0
     /// 16.0
@@ -60,6 +60,30 @@ extension UIColor {
     static var otk_whiteAshDark: UIColor { return UIColor(named: "otKit_white_ash_dark") ?? .black }
 }
 
+
+class EntryView: UIView {
+    var item: TakeoutMenuItem?
+
+    var titleLabel = UILabel()
+    var bigTitleLabel = UILabel()
+    var descriptionLabel = UILabel()
+    var priceLabel = UILabel()
+    var button = UIButton()
+    var badge = UIView()
+    override var description: String {
+        return self.frame.debugDescription// self.item?.name ?? " no item"
+    }
+
+    var isNarrowCell: Bool {
+        guard let item = self.item
+        else { return false }
+        return item.itemDescription?.isEmpty != false
+    }
+
+    var isSectionHeader: Bool {
+        return self.item == nil
+    }
+}
 
 //TODO: Chris Brandow  2021-02-05 this is temporary. it's more of a builder, but any actual views hsould come from this.
 class PlaceholderMenuView: UIView {
@@ -134,12 +158,11 @@ class PlaceholderMenuView: UIView {
         titleLabel.font = UIFont(name: "BrandonText-Bold", size: 16.0)// UIFont.systemFont(ofSize: 16, weight: .semibold)
         titleLabel.textAlignment = .left
         let titleFrame = entry.itemDescription?.isEmpty != false && entry.name.count > 45 // hack. fix this
-            ? CGRect(x: 8, y: topSpacing, width: columnWidth - 92, height: 2*defaultTextHeight)
+            ? CGRect(x: 8, y: topSpacing, width: columnWidth - 92, height: 2*defaultTextHeight + 6)
             : CGRect(x: 8, y: topSpacing, width: columnWidth - 92, height: defaultTextHeight)
         titleLabel.frame = titleFrame
 
         view.addSubview(titleLabel)
-
         let price = UILabel()
         price.text = "\(entry.price.formattedDescription ?? "")"
         price.textColor = .otk_ashDarker

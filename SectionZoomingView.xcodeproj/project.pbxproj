@@ -28,8 +28,9 @@
 		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
 		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
 		83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */; };
-		83E9D67625E4979800934F8A /* ZoomingMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E9D67525E4979800934F8A /* ZoomingMenu.storyboard */; };
+		83E9D67C25E497E200934F8A /* ZoomableMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */; };
 		83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4F4F225E0A3E20026A0F8 /* Utilities.swift */; };
+		9B7105DA27A9E053007F8479 /* ErikaNotes in Resources */ = {isa = PBXBuildFile; fileRef = 9B7105D927A9E053007F8479 /* ErikaNotes */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,8 +78,9 @@
 		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
 		83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		83E9D67525E4979800934F8A /* ZoomingMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ZoomingMenu.storyboard; sourceTree = "<group>"; };
+		83E9D67B25E497E200934F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SectionZoomingView/Base.lproj/ZoomableMenu.storyboard; sourceTree = "<group>"; };
 		83F4F4F225E0A3E20026A0F8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		9B7105D927A9E053007F8479 /* ErikaNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ErikaNotes; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,21 +135,14 @@
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8351CDE12594569700946150 /* LaunchVC.swift */,
-				8319169D25CCB9E800753195 /* MenuTypes.swift */,
-				83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */,
-				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
-				831916A725CE27B100753195 /* CoreMenuView.swift */,
-				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
-				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
-				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
-				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
+				9B7105D927A9E053007F8479 /* ErikaNotes */,
+				83E9D68325E497F900934F8A /* ZoomableMenu */,
 				83B16D6225C9E95D008AE1BA /* zingari4Section29.json */,
 				83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */,
 				83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */,
 				83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */,
 				83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */,
 				8351CDE32594569700946150 /* Main.storyboard */,
-				83E9D67525E4979800934F8A /* ZoomingMenu.storyboard */,
 				8351CDE62594569A00946150 /* Assets.xcassets */,
 				8351CDE82594569A00946150 /* LaunchScreen.storyboard */,
 				8351CDEB2594569A00946150 /* Info.plist */,
@@ -171,6 +166,22 @@
 				8351CE012594569A00946150 /* Info.plist */,
 			);
 			path = SectionZoomingViewUITests;
+			sourceTree = "<group>";
+		};
+		83E9D68325E497F900934F8A /* ZoomableMenu */ = {
+			isa = PBXGroup;
+			children = (
+				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
+				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
+				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
+				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
+				8319169D25CCB9E800753195 /* MenuTypes.swift */,
+				83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */,
+				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
+				831916A725CE27B100753195 /* CoreMenuView.swift */,
+				83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */,
+			);
+			path = ZoomableMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +291,11 @@
 				8351CDE72594569A00946150 /* Assets.xcassets in Resources */,
 				83B16D7025C9EC35008AE1BA /* Paradiso23Section304.json in Resources */,
 				83B16D6325C9E95D008AE1BA /* zingari4Section29.json in Resources */,
+				83E9D67C25E497E200934F8A /* ZoomableMenu.storyboard in Resources */,
 				83B16D8225C9F1AC008AE1BA /* 54Mint11Section123.json in Resources */,
 				8351CDE52594569700946150 /* Main.storyboard in Resources */,
+				9B7105DA27A9E053007F8479 /* ErikaNotes in Resources */,
 				832DA6D425D4F59400BB8DD8 /* BrandonText-Bold.otf in Resources */,
-				83E9D67625E4979800934F8A /* ZoomingMenu.storyboard in Resources */,
 				83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */,
 				83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */,
 			);
@@ -370,6 +382,14 @@
 				8351CDE92594569A00946150 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83E9D67B25E497E200934F8A /* Base */,
+			);
+			name = ZoomableMenu.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -497,7 +517,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -519,7 +539,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;

@@ -225,6 +225,8 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
 
     @objc
     func doubleTapAction(_ sender: UITapGestureRecognizer) {
+        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+
         if let scrollview = self.scrollView,
            let sectionedView = self.zoomableView {
             var colRect = ColRect.columnRectForResizing(sectionedView: sectionedView, in: scrollview)
@@ -264,6 +266,10 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         return self.zoomableView?.view
     }
 
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+    }
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         targetContentOffset.pointee = self.adjustedPoint(for: scrollView, fromTarget: targetContentOffset.pointee, numberOfColumns: self.zoomableView?.numberOfColumns ?? 0)
 
@@ -274,8 +280,16 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
         scrollView.gestureRecognizers?.first(where: { $0 is UIPinchGestureRecognizer})?.addTarget(self, action: #selector(didPinch(_:)))
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        NSLog("touches began \(touches.first!.location(in: self.view))")
+    }
     @objc
     func didPinch(_ sender: UIPanGestureRecognizer) {
+        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+//        let point1 = sender.location(ofTouch: 0, in: self.view)
+//        let point2 = sender.location(ofTouch: 1, in: self.view)
+//        NSLog("\(point1) \(point2)")
         if sender.state == .ended || sender.state == .cancelled,
            let scrollview = sender.view as? UIScrollView,
            let sectionedView = self.zoomableView {
@@ -285,11 +299,11 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     }
 
     public func setZoomableToMaximumCompression() {
-        self.setZoomable(to: self.zoomableView?.numberOfColumns ?? 0)
+        self.setZoomable(to: self.zoomableView?.numberOfColumns ?? 0, toOrigin: true)
     }
 
-    private func setZoomable(to columnCount: Int) {
-        let point = self.adjustedPoint(for: self.scrollView!, numberOfColumns: self.zoomableView?.numberOfColumns ?? 0)
+    private func setZoomable(to columnCount: Int, toOrigin: Bool = false) {
+        let point = self.adjustedPoint(for: self.scrollView!, numberOfColumns: self.zoomableView?.numberOfColumns ?? 0, toOrigin: toOrigin)
         self.scrollView?.setZoomScale(1/(CGFloat(columnCount)*1.05), animated: true)
         CATransaction.setCompletionBlock {
             self.scrollView?.setContentOffset(point, animated: true)
@@ -298,8 +312,8 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     }
 
     /// This still needs some work on y, when scrolling to bottom of view
-    private func adjustedPoint(for scrollView: UIScrollView, fromTarget point: CGPoint? = nil, numberOfColumns: Int) -> CGPoint {
-        var point = point ?? scrollView.contentOffset
+    private func adjustedPoint(for scrollView: UIScrollView, fromTarget point: CGPoint? = nil, numberOfColumns: Int, toOrigin: Bool = false) -> CGPoint {
+        var point = toOrigin ? CGPoint.zero : (point ?? scrollView.contentOffset)
         let newWidth = scrollView.contentSize.width
         let floatColumns = CGFloat(numberOfColumns)
         let intX = round(floatColumns*(point.x)/newWidth)
@@ -309,3 +323,19 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     }
 }
 
+
+class PinchCaptureVC: UIViewController {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        let descript = touches.map({ "\($0.location(in: self.view).x),\($0.location(in: self.view).y)"})
+            .joined(separator: "; ")
+        NSLog("touches began 2 \(descript)")
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        let descript = touches.map({ "\($0.location(in: self.view).x),\($0.location(in: self.view).y)"})
+            .joined(separator: "; ")
+        NSLog("touches moved \(descript)")
+    }
+}

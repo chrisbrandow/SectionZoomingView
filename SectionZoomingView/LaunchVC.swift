@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LaunchVC: UIViewController {//}, ZoomableViewProvider {
+class LaunchVC: UIViewController {
     var didLaunchOnce = false
 
     @IBOutlet var stackView: UIStackView?
@@ -30,6 +30,7 @@ class LaunchVC: UIViewController {//}, ZoomableViewProvider {
                 guard let self = self else { return }
                 self.self.selectedExample = example
                 self.performSegue(withIdentifier: "showZoomable", sender: self)
+
             }), for: .touchUpInside)
             self.stackView?.addArrangedSubview(button)
         }
@@ -48,29 +49,5 @@ class LaunchVC: UIViewController {//}, ZoomableViewProvider {
         (segue.destination as? ParentVC)?.selectedExample = self.selectedExample
     }
 
-}
-
-class EntryView: UIView {
-    var item: TakeoutMenuItem?
-
-    var titleLabel = UILabel()
-    var bigTitleLabel = UILabel()
-    var descriptionLabel = UILabel()
-    var priceLabel = UILabel()
-    var button = UIButton()
-    var badge = UIView()
-    override var description: String {
-        return self.frame.debugDescription// self.item?.name ?? " no item"
-    }
-
-    var isNarrowCell: Bool {
-        guard let item = self.item
-        else { return false }
-        return item.itemDescription?.isEmpty != false
-    }
-
-    var isSectionHeader: Bool {
-        return self.item == nil
-    }
 }
 

@@ -44,11 +44,12 @@ extension UIView {
 
     static func bestArrangement(for strips: [UIView], matchingRatio targetRatio: Double) -> (rect: CGSize, columns: [[UIView]]) {
         let ratio = CGFloat(targetRatio)
-        guard let width = strips.first?.frame.width
+        guard let width = strips.first?.frame.width,
+                let lastStrip = strips.last
         else { return (rect: .zero, columns: [[]]) }
 
-        let columnCount = round(sqrt(strips.last!.frame.maxY*ratio/width)) // putting ceil here makes sure it doesn't extend below
-        let targetHeight = strips.last!.frame.maxY/columnCount
+        let columnCount = round(sqrt(lastStrip.frame.maxY*ratio/width)) // putting ceil here makes sure it doesn't extend below
+        let targetHeight = lastStrip.frame.maxY/columnCount
 
         let columns = UIView.getBestArrangement(for: [], with: strips, in: Int(columnCount), target: targetHeight)
         let maxHeight = columns.reduce(0) { max($0, $1.height) }
