@@ -36,6 +36,7 @@ class TakeoutDataSource {
         case laPressa_4_14 = "laPressa4Section14"
         case mint_11_123 = "54Mint11Section123"
         case coquetta_11_31 = "coqueta11Section31"
+        case betterZoom = "better zoom"
 
         var displayName: String {
             switch self {
@@ -44,6 +45,7 @@ class TakeoutDataSource {
             case .laPressa_4_14: return "La Pressa"// (4 sections 14 items)"
             case .mint_11_123: return "Mint 54"// (11 sections 123 items)"
             case .coquetta_11_31: return "Coquetta"// (11 sections 31 items)"
+            case .betterZoom: return "better zoom"
             }
         }
     }

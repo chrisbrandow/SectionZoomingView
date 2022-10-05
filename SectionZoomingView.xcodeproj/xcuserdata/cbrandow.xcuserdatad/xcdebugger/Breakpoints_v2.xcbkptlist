@@ -336,23 +336,23 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "334"
             endingLineNumber = "334"
-            landmarkName = "didTap(_:)"
+            landmarkName = "keyboardToggled(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "58F03BF9-DFB5-4E57-B39F-60CCC6CD5F4D"
-            shouldBeEnabled = "Yes"
+            uuid = "C23BEC40-E538-4E12-8ABA-9DFB88F421E3"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/LaunchVC.swift"
+            filePath = "SectionZoomingView/NewZoom/ZoomableContainerView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "textField(_:shouldChangeCharactersIn:replacementString:)"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "layoutSubviews()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
