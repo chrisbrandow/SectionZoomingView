@@ -225,7 +225,7 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
 
     @objc
     func doubleTapAction(_ sender: UITapGestureRecognizer) {
-        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+//        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
 
         if let scrollview = self.scrollView,
            let sectionedView = self.zoomableView {
@@ -267,7 +267,7 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+//        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -286,7 +286,7 @@ class ZoomableViewController: UIViewController, UIScrollViewDelegate {
     }
     @objc
     func didPinch(_ sender: UIPanGestureRecognizer) {
-        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
+//        (self.parent as? ParentVC)?.pinchToZoomLayer?.removeFromSuperlayer()
 //        let point1 = sender.location(ofTouch: 0, in: self.view)
 //        let point2 = sender.location(ofTouch: 1, in: self.view)
 //        NSLog("\(point1) \(point2)")
