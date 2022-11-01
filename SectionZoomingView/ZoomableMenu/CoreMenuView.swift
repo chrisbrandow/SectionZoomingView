@@ -89,7 +89,7 @@ class EntryView: UIView {
 
 //TODO: Chris Brandow  2021-02-05 this is temporary. it's more of a builder, but any actual views hsould come from this.
 class PlaceholderMenuView: UIView {
-    static func createViews(columnWidth: CGFloat, datasource: TakeoutDataSource, target: Any?, action: Selector) -> [UIView] {
+    static func createViews(columnWidth: CGFloat, datasource: MenuDataSource, target: Any?, action: Selector) -> [UIView] {
 
         var alllviews = [UIView]()
         var origin = CGFloat(0)

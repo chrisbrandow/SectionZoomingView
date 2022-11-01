@@ -7,33 +7,50 @@
 
 import UIKit
 
-
-// single entry in a cart. represents the ordered item, and likely a user who ordered
-struct CartEntry: Codable {
-    // orderedItem (id?)
-    // user?
-    // status?
-    // course?
-}
-
 struct Cart: Codable {
-    var orders: [DinerOrder]
-    // allItems
-    // courses
-    // …
+    var orders: [Self.Order]
 }
 
-struct DinerOrder: Codable {
-    var dinerId: String
-
-    var courses: [Int: Course]
+extension Cart {
+    struct Item: Codable {
+        var id: String
+        var menuItem: MenuItem
+        var quantity: Int = 1
+        var course: Int?
+    }
 }
 
-struct Course: Codable {
-    var items: [MenuItem]
-//    enum : Codable, Equatable, Hashable {
-//        case appetizer, salad, main, dessert, generic(Int)
-//    }
+extension Cart {
+    struct Order: Codable {
+        var dinerId: String
 
+        var items: [Cart.Item]
+    }
 }
 
+extension Cart {
+    static func stub() throws -> Self {
+        Cart(orders: [try .stub()])
+    }
+}
+
+extension Cart.Order {
+    static func stub() throws -> Self {
+        return Cart.Order(dinerId: UUID().uuidString,
+                          items: try (0 ..< 4).map { _ in try .stub() })
+    }
+}
+
+extension Cart.Item {
+    static func stub() throws -> Self {
+        Cart.Item(id: UUID().uuidString, menuItem: .random())
+    }
+}
+
+fileprivate extension MenuItem {
+    static func random() -> Self {
+        return try! MenuDataSource.load(example: .laPressa_4_14, title: "A Random Menu")
+            .allItems
+            .randomElement()!
+    }
+}

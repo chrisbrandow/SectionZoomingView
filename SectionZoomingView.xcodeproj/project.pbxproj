@@ -18,6 +18,7 @@
 		5E1BE3B82911934000F0002C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B72911934000F0002C /* Menu.swift */; };
 		5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */; };
 		5E1BE3C429119DE500F0002C /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C329119DE500F0002C /* MenuTests.swift */; };
+		5EBA473F2912E9D3006C950B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA473E2912E9D3006C950B /* Loader.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -81,6 +82,7 @@
 		5E1BE3B72911934000F0002C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuItem.swift; sourceTree = "<group>"; };
 		5E1BE3C329119DE500F0002C /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
+		5EBA473E2912E9D3006C950B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +153,9 @@
 			isa = PBXGroup;
 			children = (
 				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
-				5E1BE3AD2911928600F0002C /* Types */,
+				5EBA473E2912E9D3006C950B /* Loader.swift */,
 				8370766229123627000621FC /* RecordManager.swift */,
+				5E1BE3AD2911928600F0002C /* Types */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,
 				5E1BE3B1291192F800F0002C /* Price.swift in Sources */,
 				8370764129117728000621FC /* Cart.swift in Sources */,
+				5EBA473F2912E9D3006C950B /* Loader.swift in Sources */,
 				83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */,
 				8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */,
 				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,

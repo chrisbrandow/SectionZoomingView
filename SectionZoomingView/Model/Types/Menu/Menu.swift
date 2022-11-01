@@ -16,6 +16,15 @@ struct Menu {
     }
 }
 
+// MARK: Menu Section
+extension Menu {
+    struct Section: Codable {
+        var name: String?
+        var sectionDescription: String?
+        var items: [MenuItem]
+    }
+}
+
 // MARK: Codable
 extension Menu: Codable {
     enum CodingKeys: String, CodingKey {
@@ -36,14 +45,5 @@ extension Menu: Equatable {
 extension Menu: CustomDebugStringConvertible {
     var debugDescription: String {
         return "name: \(self.name); items: \(self.items)"
-    }
-}
-
-// MARK: Menu Section
-extension Menu {
-    struct Section: Codable {
-        var name: String?
-        var sectionDescription: String?
-        var items: [MenuItem]
     }
 }
