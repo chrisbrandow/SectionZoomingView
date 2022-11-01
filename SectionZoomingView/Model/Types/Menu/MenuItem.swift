@@ -2,6 +2,10 @@ import Foundation
 
 // MARK: MenuItem
 struct MenuItem: Codable, Equatable, Hashable {
+    enum CodingKeys: String, CodingKey {
+        case id, name, isSoldOut, attributes, modifierGroups, price
+        case itemDescription = "description"
+    }
     var id: String
     var name: String
     var itemDescription: String?
