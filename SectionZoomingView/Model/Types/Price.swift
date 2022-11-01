@@ -1,21 +1,24 @@
 import Foundation
 
-struct Price: Codable, Equatable, Hashable {
-    var amount: Decimal
+struct Price: Equatable, Hashable {
+    private var amountTimes100: Decimal
+
     var currency: Currency?
 
+    var amount: Decimal { amountTimes100 / 100 }
+
     init(amountTimes100: Decimal, currency: Currency?) {
-        self.amount = amountTimes100 / 100
+        self.amountTimes100 = amountTimes100
         self.currency = currency
     }
 
     init(exactAmount: Decimal, currency: Currency?) {
-        self.amount = exactAmount
+        self.amountTimes100 = exactAmount * 100
         self.currency = currency
     }
 
     static func *(lhs: Price, rhs: Decimal) -> Price {
-        return Price(exactAmount: lhs.amount * rhs, currency: lhs.currency)
+        Price(exactAmount: lhs.amount * rhs, currency: lhs.currency)
     }
 
     var formattedDescription: String? {
@@ -24,6 +27,13 @@ struct Price: Codable, Equatable, Hashable {
         formatter.currencyCode = self.currency?.stringValue
 
         return formatter.string(from: NSDecimalNumber(decimal: self.amount))
+    }
+}
+
+extension Price: Codable {
+    enum CodingKeys: String, CodingKey {
+        case amountTimes100 = "amount"
+        case currency
     }
 }
 
