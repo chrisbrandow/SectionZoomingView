@@ -540,6 +540,7 @@
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -562,6 +563,7 @@
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
