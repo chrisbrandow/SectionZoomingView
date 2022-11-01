@@ -13,7 +13,7 @@ class LaunchVC: UIViewController {
     @IBOutlet var stackView: UIStackView?
 
     // to make it easier to integrate into OpenTable, i should move teh datasource
-    // to ParentVC, then "load" it from there, based on the name
+    // to MenuParentViewController, then "load" it from there, based on the name
     var selectedExample = TakeoutDataSource.Example.mint_11_123
 
     override func viewDidLoad() {
@@ -60,7 +60,7 @@ class LaunchVC: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as? ParentVC)?.selectedExample = self.selectedExample
+        (segue.destination as? MenuParentViewController)?.selectedExample = self.selectedExample
     }
 
 }

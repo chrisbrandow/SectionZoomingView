@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ParentVC-->
+        <!--Menu Parent View Controller-->
         <scene sceneID="Ctu-pv-qgR">
             <objects>
-                <viewController id="UJW-Zz-F0d" customClass="ParentVC" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UJW-Zz-F0d" customClass="MenuParentViewController" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="scb-Do-tAF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

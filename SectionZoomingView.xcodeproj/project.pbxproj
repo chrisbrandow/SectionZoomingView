@@ -24,13 +24,15 @@
 		8351CDF52594569A00946150 /* SectionZoomingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDF42594569A00946150 /* SectionZoomingViewTests.swift */; };
 		8351CE002594569A00946150 /* SectionZoomingViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351CDFF2594569A00946150 /* SectionZoomingViewUITests.swift */; };
 		8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */; };
+		8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */; };
+		8370764129117728000621FC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370764029117728000621FC /* Cart.swift */; };
 		83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D5125C9DB49008AE1BA /* DataSource.swift */; };
 		83B16D6325C9E95D008AE1BA /* zingari4Section29.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6225C9E95D008AE1BA /* zingari4Section29.json */; };
 		83B16D7025C9EC35008AE1BA /* Paradiso23Section304.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */; };
 		83B16D8225C9F1AC008AE1BA /* 54Mint11Section123.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */; };
 		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
 		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
-		83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */; };
+		83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */; };
 		83E9D67C25E497E200934F8A /* ZoomableMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */; };
 		83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4F4F225E0A3E20026A0F8 /* Utilities.swift */; };
 		9B7105DA27A9E053007F8479 /* ErikaNotes in Resources */ = {isa = PBXBuildFile; fileRef = 9B7105D927A9E053007F8479 /* ErikaNotes */; };
@@ -77,13 +79,15 @@
 		8351CDFF2594569A00946150 /* SectionZoomingViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionZoomingViewUITests.swift; sourceTree = "<group>"; };
 		8351CE012594569A00946150 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParentVCDrawerExtension.swift; sourceTree = "<group>"; };
+		8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomingMenuViewStructures.swift; sourceTree = "<group>"; };
+		8370764029117728000621FC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		83B16D5125C9DB49008AE1BA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		83B16D6225C9E95D008AE1BA /* zingari4Section29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zingari4Section29.json; sourceTree = "<group>"; };
 		83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Paradiso23Section304.json; sourceTree = "<group>"; };
 		83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = laPressa4Section14.json; sourceTree = "<group>"; };
 		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
-		83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuParentViewController.swift; sourceTree = "<group>"; };
 		83E9D67B25E497E200934F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SectionZoomingView/Base.lproj/ZoomableMenu.storyboard; sourceTree = "<group>"; };
 		83F4F4F225E0A3E20026A0F8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9B7105D927A9E053007F8479 /* ErikaNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ErikaNotes; sourceTree = "<group>"; };
@@ -192,10 +196,12 @@
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
 				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
-				8319169D25CCB9E800753195 /* MenuTypes.swift */,
-				83B16D9825CCAF6A008AE1BA /* MenuViewController.swift */,
-				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
+				8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */,
 				831916A725CE27B100753195 /* CoreMenuView.swift */,
+				8319169D25CCB9E800753195 /* MenuTypes.swift */,
+				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
+				8370764029117728000621FC /* Cart.swift */,
+				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */,
 			);
 			path = ZoomableMenu;
@@ -344,8 +350,10 @@
 				8342FC4A28ED00E600D2A0E3 /* ZoomableView Helpers.swift in Sources */,
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,
 				8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */,
+				8370764129117728000621FC /* Cart.swift in Sources */,
 				83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */,
-				83B16D9925CCAF6A008AE1BA /* MenuViewController.swift in Sources */,
+				8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */,
+				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,

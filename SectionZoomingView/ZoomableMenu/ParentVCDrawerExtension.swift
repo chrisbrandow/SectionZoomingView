@@ -1,5 +1,5 @@
 //
-//  ParentVCDrawerExtension.swift
+//  MenuParentViewControllerDrawerExtension.swift
 //  SectionZoomingView
 //
 //  Created by Chris Brandow on 2/11/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ParentVC {
+extension MenuParentViewController {
     @objc
     func tapBackgroundAction(_ sender: UITapGestureRecognizer) {
         guard let container = sender.view?.subviews.first,

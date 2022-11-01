@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ParentVC: UIViewController, ZoomableViewProvider {
+class MenuParentViewController: UIViewController, ZoomableViewProvider {
    
     var items = [TakeoutMenuItem: Int]()
 
@@ -119,12 +119,12 @@ class ParentVC: UIViewController, ZoomableViewProvider {
     var selectedItems = [String]()
 }
 
-extension ParentVC {
+extension MenuParentViewController {
 
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
         let datasource = TakeoutDataSource(example: self.selectedExample)
-        return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: datasource, target: self, action: #selector(ParentVC.didTap(_:)))
+        return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: datasource, target: self, action: #selector(MenuParentViewController.didTap(_:)))
     }
 
     private func createView(with strips: [UIView]) -> SectionedView {
@@ -183,7 +183,7 @@ class CartInfoView: UIView {
 
 
 /// Not needed for demo
-extension ParentVC {
+extension MenuParentViewController {
 
     /// this is not really needed for the demo
     //    private func addPinchToZoomIndicator() {
