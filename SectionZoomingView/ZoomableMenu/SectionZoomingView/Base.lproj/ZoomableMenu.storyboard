@@ -23,16 +23,16 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1fo-Ym-58x">
-                                <rect key="frame" x="0.0" y="56" width="414" height="634"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="586"/>
                                 <connections>
                                     <segue destination="sBX-QR-Bg8" kind="embed" id="RsF-DJ-JoT"/>
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esb-ih-ImM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46t-vg-xYK">
-                                        <rect key="frame" x="8" y="8" width="398" height="40"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="88"/>
                                         <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -46,13 +46,13 @@
                                     <constraint firstAttribute="trailingMargin" secondItem="46t-vg-xYK" secondAttribute="trailing" id="zzV-2g-s8y"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loi-1x-FFc" userLabel="Search Bar Container">
-                                <rect key="frame" x="8" y="0.0" width="398" height="56"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="loi-1x-FFc" userLabel="Top Bar Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="56" id="ZEo-al-hKE"/>
+                                    <constraint firstAttribute="height" constant="104" id="Y34-89-gRm"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="Onf-RN-XIb" kind="embed" destinationCreationSelector="embedSearchBar:" id="K83-D3-3sI"/>
+                                    <segue destination="Onf-RN-XIb" kind="embed" destinationCreationSelector="embedTopContainer:" id="K83-D3-3sI"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQc-Z3-QcA">
@@ -78,9 +78,9 @@
                             <constraint firstItem="1fo-Ym-58x" firstAttribute="top" secondItem="loi-1x-FFc" secondAttribute="bottom" id="LtY-8A-nBL"/>
                             <constraint firstAttribute="bottom" secondItem="89h-El-dg8" secondAttribute="bottom" id="N7e-WV-jPY"/>
                             <constraint firstItem="1fo-Ym-58x" firstAttribute="leading" secondItem="Jn8-De-MI8" secondAttribute="leading" id="T4w-TF-Ptq"/>
-                            <constraint firstItem="loi-1x-FFc" firstAttribute="leading" secondItem="Jn8-De-MI8" secondAttribute="leading" constant="8" id="XSr-7K-PeO"/>
+                            <constraint firstItem="loi-1x-FFc" firstAttribute="leading" secondItem="Jn8-De-MI8" secondAttribute="leading" id="XSr-7K-PeO"/>
                             <constraint firstItem="Esb-ih-ImM" firstAttribute="leading" secondItem="Jn8-De-MI8" secondAttribute="leading" id="gKe-Q6-LZ7"/>
-                            <constraint firstItem="Jn8-De-MI8" firstAttribute="trailing" secondItem="loi-1x-FFc" secondAttribute="trailing" constant="8" id="gUl-d0-ffo"/>
+                            <constraint firstItem="Jn8-De-MI8" firstAttribute="trailing" secondItem="loi-1x-FFc" secondAttribute="trailing" id="gUl-d0-ffo"/>
                             <constraint firstItem="loi-1x-FFc" firstAttribute="top" secondItem="Jn8-De-MI8" secondAttribute="top" id="k2F-QO-FHq"/>
                             <constraint firstItem="Esb-ih-ImM" firstAttribute="top" secondItem="Jn8-De-MI8" secondAttribute="top" id="kLK-lN-dp8"/>
                             <constraint firstItem="89h-El-dg8" firstAttribute="leading" secondItem="scb-Do-tAF" secondAttribute="leading" id="qDH-Ly-kiB"/>
@@ -109,14 +109,14 @@
             <objects>
                 <viewController id="sBX-QR-Bg8" customClass="ZoomableViewController" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sk5-Lv-bjO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="652.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yZP-70-OmW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="784"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="818" translatesAutoresizingMaskIntoConstraints="NO" id="9i3-xf-DWn">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="602"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="604.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>

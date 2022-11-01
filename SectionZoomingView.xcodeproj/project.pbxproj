@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		447B7B412911B65800CE3501 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B402911B65800CE3501 /* SearchBar.swift */; };
 		447B7B452911D33400CE3501 /* Font+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B442911D33400CE3501 /* Font+UIFont.swift */; };
+		447B7B4B2911DFB400CE3501 /* TagBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4A2911DFB400CE3501 /* TagBar.swift */; };
+		447B7B4D2911E00300CE3501 /* TopBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4C2911E00300CE3501 /* TopBarContainer.swift */; };
 		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
 		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
 		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
@@ -66,6 +68,8 @@
 /* Begin PBXFileReference section */
 		447B7B402911B65800CE3501 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		447B7B442911D33400CE3501 /* Font+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+UIFont.swift"; sourceTree = "<group>"; };
+		447B7B4A2911DFB400CE3501 /* TagBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBar.swift; sourceTree = "<group>"; };
+		447B7B4C2911E00300CE3501 /* TopBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarContainer.swift; sourceTree = "<group>"; };
 		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
@@ -247,6 +251,8 @@
 				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
 				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				447B7B402911B65800CE3501 /* SearchBar.swift */,
+				447B7B4A2911DFB400CE3501 /* TagBar.swift */,
+				447B7B4C2911E00300CE3501 /* TopBarContainer.swift */,
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */,
@@ -405,6 +411,7 @@
 				8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */,
 				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
+				447B7B4D2911E00300CE3501 /* TopBarContainer.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
 				447B7B452911D33400CE3501 /* Font+UIFont.swift in Sources */,
@@ -414,6 +421,7 @@
 				5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
 				831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */,
+				447B7B4B2911DFB400CE3501 /* TagBar.swift in Sources */,
 				5E1BE3B82911934000F0002C /* Menu.swift in Sources */,
 				8351CDE02594569700946150 /* SceneDelegate.swift in Sources */,
 			);
