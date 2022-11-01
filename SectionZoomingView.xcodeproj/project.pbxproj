@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8319169D25CCB9E800753195 /* MenuTypes.swift */; };
+		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
+		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
+		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
+		5E1BE3B82911934000F0002C /* TakeoutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B72911934000F0002C /* TakeoutMenu.swift */; };
+		5E1BE3BA2911936C00F0002C /* TakeoutMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */; };
+		5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */; };
+		5E1BE3BE2911939300F0002C /* TakeoutModifierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */; };
+		5E1BE3C0291193A900F0002C /* TakeoutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */; };
+		5E1BE3C2291193BE00F0002C /* TakeoutMenuAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -57,7 +65,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8319169D25CCB9E800753195 /* MenuTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTypes.swift; sourceTree = "<group>"; };
+		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
+		5E1BE3B72911934000F0002C /* TakeoutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenu.swift; sourceTree = "<group>"; };
+		5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuSection.swift; sourceTree = "<group>"; };
+		5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuItem.swift; sourceTree = "<group>"; };
+		5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutModifierGroup.swift; sourceTree = "<group>"; };
+		5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutModifier.swift; sourceTree = "<group>"; };
+		5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuAssembler.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +136,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E1BE3AC2911927D00F0002C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E1BE3AD2911928600F0002C /* Types */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E1BE3AD2911928600F0002C /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				5E1BE3B42911931700F0002C /* Menu */,
+				8370764029117728000621FC /* Cart.swift */,
+				5E1BE3AE2911929B00F0002C /* Currency.swift */,
+				5E1BE3B0291192F800F0002C /* Price.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		5E1BE3B42911931700F0002C /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				5E1BE3B72911934000F0002C /* TakeoutMenu.swift */,
+				5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */,
+				5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */,
+				5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */,
+				5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */,
+				5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */,
+				5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		8342FC4428ECFF5600D2A0E3 /* NewZoom */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +202,7 @@
 		8351CDDC2594569700946150 /* SectionZoomingView */ = {
 			isa = PBXGroup;
 			children = (
+				5E1BE3AC2911927D00F0002C /* Model */,
 				832DA6D325D4F58800BB8DD8 /* BrandonText-Bold.otf */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
@@ -201,9 +251,7 @@
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */,
 				831916A725CE27B100753195 /* CoreMenuView.swift */,
-				8319169D25CCB9E800753195 /* MenuTypes.swift */,
 				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
-				8370764029117728000621FC /* Cart.swift */,
 				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */,
 			);
@@ -349,21 +397,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */,
 				8342FC4828ED00E600D2A0E3 /* Layout Helpers.swift in Sources */,
+				5E1BE3BE2911939300F0002C /* TakeoutModifierGroup.swift in Sources */,
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
+				5E1BE3C0291193A900F0002C /* TakeoutModifier.swift in Sources */,
 				8342FC4A28ED00E600D2A0E3 /* ZoomableView Helpers.swift in Sources */,
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,
-				8319169E25CCB9E800753195 /* MenuTypes.swift in Sources */,
+				5E1BE3B1291192F800F0002C /* Price.swift in Sources */,
 				8370764129117728000621FC /* Cart.swift in Sources */,
 				83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */,
 				8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */,
 				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
+				5E1BE3C2291193BE00F0002C /* TakeoutMenuAssembler.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
+				5E1BE3BA2911936C00F0002C /* TakeoutMenuSection.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
+				5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */,
+				5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
 				831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */,
+				5E1BE3B82911934000F0002C /* TakeoutMenu.swift in Sources */,
 				8351CDE02594569700946150 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
