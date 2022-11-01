@@ -1,49 +1,46 @@
-//
-//  File.swift
-//  SectionZoomingView
-//
-//  Created by Chris Brandow on 11/1/22.
-//
-
 import UIKit
 
+// MARK: Cart
 struct Cart: Codable {
-    var orders: [Self.Order]
+    var items: [Self.Item]
 }
 
+// MARK: Cart Item
 extension Cart {
     struct Item: Codable, Identifiable {
-        var id: String
+        // Opaque so it's trivial to change later
+        typealias DinerID = String
+
+        /// The unique id of this item
+        var id: UUID = UUID()
+
+        /// The menu item the diners ordered
         var menuItem: MenuItem
+
+        /// Diners who are responsible for this item.
+        var diners: [DinerID] = []
+
+        /// Number of items ordered
         var quantity: Int = 1
-        var course: Int?
+
+        /// The meal sequence or "course" this item should be grouped with.
+        ///
+        /// Higher values will stage the item for later in the meal. The value here only matters relative to the other
+        /// values in the order, and are not absolute.
+        var course: Int = 0
     }
 }
 
-extension Cart {
-    struct Order: Codable {
-        var dinerId: String
-
-        var items: [Cart.Item]
-    }
-}
-
+// MARK: Stubs
 extension Cart {
     static func stub() -> Self {
-        Cart(orders: [.stub()])
-    }
-}
-
-extension Cart.Order {
-    static func stub() -> Self {
-        return Cart.Order(dinerId: UUID().uuidString,
-                          items: (0 ..< 4).map { .stub(index: $0) })
+        Cart(items: (0 ..< 5).map { Item.stub(index: $0) })
     }
 }
 
 extension Cart.Item {
     static func stub(index: Int) -> Self {
-        Cart.Item(id: UUID().uuidString, menuItem: .stub(index: index))
+        Cart.Item(menuItem: .stub(index: index))
     }
 }
 
