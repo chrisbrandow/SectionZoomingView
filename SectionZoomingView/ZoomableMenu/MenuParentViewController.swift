@@ -30,8 +30,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet weak var backingView: UIView!
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
-    @IBSegueAction func embedSearchBar(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: SearchBar())
+
+    @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: TopBarContainer())
     }
 
     func zoomableView(for frame: CGRect) -> SectionedView {
