@@ -1,13 +1,6 @@
-//
-//  Currency.swift
-//  SectionZoomingView
-//
-//  Created by Doug Boutwell on 11/1/22.
-//
-
 import Foundation
 
-public enum Currency: Equatable {
+enum Currency: String, Codable, Equatable {
 
     case CAD, GBP, MXN, USD, EUR, JPY, AUD, AED, unknown
 

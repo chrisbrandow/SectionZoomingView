@@ -9,7 +9,7 @@ import UIKit
 
 class MenuParentViewController: UIViewController, ZoomableViewProvider {
    
-    var items = [TakeoutMenuItem: Int]()
+    var items = [MenuItem: Int]()
 
     var zoomingView: SectionedView?
 
@@ -123,7 +123,7 @@ extension MenuParentViewController {
 
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
-        let datasource = TakeoutDataSource(example: self.selectedExample)
+        let datasource = try! TakeoutDataSource(example: self.selectedExample)
         return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: datasource, target: self, action: #selector(MenuParentViewController.didTap(_:)))
     }
 

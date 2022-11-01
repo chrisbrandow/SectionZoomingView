@@ -1,47 +1,38 @@
-//
-//  TakeoutMenuGroup.swift
-//  SectionZoomingView
-//
-//  Created by Doug Boutwell on 11/1/22.
-//
-
 import Foundation
 
-public struct TakeoutMenuGroup: Equatable, CustomDebugStringConvertible {
-    private let menus: [TakeoutMenu]
-    let title: String
-    public init(menus: [TakeoutMenu], title: String) {
-        self.menus = menus
-        self.title = title
-    }
+struct MenuGroup: Codable, Equatable {
+    var menus: [Menu]
 
-    public var debugDescription: String {
-        return "menus: \(self.menus)"
-    }
+    var title: String?
 
-    public var allSections: [TakeoutMenuSection] {
+    var allSections: [Menu.Section] {
         self.menus.flatMap { $0.sections }
     }
 
-    public var allItems: [TakeoutMenuItem] {
+    var allItems: [MenuItem] {
         self.menus.flatMap { $0.items }
     }
 
-    public func contains(_ item: TakeoutMenuItem) -> Bool {
+    func contains(_ item: MenuItem) -> Bool {
         return self.allItems.contains(item)
     }
 
-    public func isPreviewOf(_ other: TakeoutMenuGroup) -> Bool {
+    func isPreviewOf(_ other: Self) -> Bool {
         return Set(self.allItems).isSubset(of: other.allItems)
     }
 
-    public func setItemsSoldOut(for ids: [String]) {
-        ids.forEach { id in
-            guard let item = self.allItems.first(where: { $0.id == id }) else {
-                return
-            }
-            item.setSoldOut(true)
-        }
-    }
+//    func setItemsSoldOut(forItemIds ids: [String]) {
+//        ids.forEach { id in
+//            guard let item = self.allItems.first(where: { $0.id == id }) else {
+//                return
+//            }
+//            item.isSoldOut = true
+//        }
+//    }
 }
 
+extension MenuGroup: CustomDebugStringConvertible {
+    public var debugDescription: String {
+        return "menus: \(self.menus)"
+    }
+}

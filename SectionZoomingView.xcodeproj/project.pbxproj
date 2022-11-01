@@ -10,12 +10,9 @@
 		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
 		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
 		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
-		5E1BE3B82911934000F0002C /* TakeoutMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B72911934000F0002C /* TakeoutMenu.swift */; };
-		5E1BE3BA2911936C00F0002C /* TakeoutMenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */; };
+		5E1BE3B82911934000F0002C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B72911934000F0002C /* Menu.swift */; };
 		5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */; };
-		5E1BE3BE2911939300F0002C /* TakeoutModifierGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */; };
-		5E1BE3C0291193A900F0002C /* TakeoutModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */; };
-		5E1BE3C2291193BE00F0002C /* TakeoutMenuAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */; };
+		5E1BE3C429119DE500F0002C /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C329119DE500F0002C /* MenuTests.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -68,12 +65,9 @@
 		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
-		5E1BE3B72911934000F0002C /* TakeoutMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenu.swift; sourceTree = "<group>"; };
-		5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuSection.swift; sourceTree = "<group>"; };
+		5E1BE3B72911934000F0002C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuItem.swift; sourceTree = "<group>"; };
-		5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutModifierGroup.swift; sourceTree = "<group>"; };
-		5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutModifier.swift; sourceTree = "<group>"; };
-		5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuAssembler.swift; sourceTree = "<group>"; };
+		5E1BE3C329119DE500F0002C /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +133,7 @@
 		5E1BE3AC2911927D00F0002C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				5E1BE3AD2911928600F0002C /* Types */,
 			);
 			path = Model;
@@ -158,13 +153,9 @@
 		5E1BE3B42911931700F0002C /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				5E1BE3B72911934000F0002C /* TakeoutMenu.swift */,
+				5E1BE3B72911934000F0002C /* Menu.swift */,
 				5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */,
 				5E1BE3BB2911937700F0002C /* TakeoutMenuItem.swift */,
-				5E1BE3B92911936C00F0002C /* TakeoutMenuSection.swift */,
-				5E1BE3BF291193A900F0002C /* TakeoutModifier.swift */,
-				5E1BE3BD2911939300F0002C /* TakeoutModifierGroup.swift */,
-				5E1BE3C1291193BE00F0002C /* TakeoutMenuAssembler.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -228,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				8351CDF42594569A00946150 /* SectionZoomingViewTests.swift */,
+				5E1BE3C329119DE500F0002C /* MenuTests.swift */,
 				8351CDF62594569A00946150 /* Info.plist */,
 			);
 			path = SectionZoomingViewTests;
@@ -247,7 +239,6 @@
 			children = (
 				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
-				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */,
 				831916A725CE27B100753195 /* CoreMenuView.swift */,
@@ -399,9 +390,7 @@
 			files = (
 				5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */,
 				8342FC4828ED00E600D2A0E3 /* Layout Helpers.swift in Sources */,
-				5E1BE3BE2911939300F0002C /* TakeoutModifierGroup.swift in Sources */,
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
-				5E1BE3C0291193A900F0002C /* TakeoutModifier.swift in Sources */,
 				8342FC4A28ED00E600D2A0E3 /* ZoomableView Helpers.swift in Sources */,
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,
 				5E1BE3B1291192F800F0002C /* Price.swift in Sources */,
@@ -411,15 +400,13 @@
 				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
-				5E1BE3C2291193BE00F0002C /* TakeoutMenuAssembler.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
-				5E1BE3BA2911936C00F0002C /* TakeoutMenuSection.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
 				5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */,
 				5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
 				831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */,
-				5E1BE3B82911934000F0002C /* TakeoutMenu.swift in Sources */,
+				5E1BE3B82911934000F0002C /* Menu.swift in Sources */,
 				8351CDE02594569700946150 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E1BE3C429119DE500F0002C /* MenuTests.swift in Sources */,
 				8351CDF52594569A00946150 /* SectionZoomingViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,7 +594,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = VE26CNW5ZX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
@@ -629,7 +617,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = VE26CNW5ZX;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;

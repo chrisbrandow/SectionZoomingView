@@ -11,13 +11,21 @@ class Loader {
     enum LoaderError: Error {
         case standard(String)
     }
+
     static let shared = Loader()
+
+    func loadData(named: String) throws -> Data {
+        guard let path = Bundle.main.path(forResource: named, ofType: "json")
+        else { throw LoaderError.standard("could not create path for \(named)") }
+        return try Data(contentsOf: URL(fileURLWithPath: path, isDirectory: false))
+    }
 
     func loadString(named: String) throws -> String {
         guard let path = Bundle.main.path(forResource: named, ofType: "json")
         else { throw LoaderError.standard("could not create path for \(named)") }
         return self.cleanRows(try String(contentsOfFile: path, encoding: .utf8))
     }
+
     func cleanRows(_ contents: String) -> String {
         var contents = contents
         contents = contents.replacingOccurrences(of: "\r", with: "\n")
@@ -26,7 +34,7 @@ class Loader {
     }
 }
 
-class TakeoutDataSource {
+struct TakeoutDataSource {
 
     //this is temporary. next up, start using the menugroup directly
 //    let entries: [Entry]
@@ -50,20 +58,16 @@ class TakeoutDataSource {
         }
     }
 
-    let entireMenu: TakeoutMenuGroup
+    var entireMenu: MenuGroup
 
-    convenience init(example: Example) {
-        let string = try! Loader.shared.loadString(named: example.rawValue)
-        self.init(string: string, title: example.displayName)
+    static func load(example: Example, title: String) throws -> MenuGroup {
+        let data = try Loader().loadData(named: example.rawValue)
+        var result = try JSONDecoder().decode(MenuGroup.self, from: data)
+        result.title = title
+        return result
     }
 
-    init(string: String, title: String) {
-        guard let menuDtoString = string.data(using: .utf8),
-              let dto = try? JSONSerialization.jsonObject(with: menuDtoString, options: .allowFragments),
-        let menuDto = dto as? [String: Any] else {
-            self.entireMenu = TakeoutMenuGroup(menus: [], title: "")
-            return
-        }
-        self.entireMenu = TakeoutMenuAssembler.shared.createMenus(from: menuDto, title: title)
+    init(example: Example) throws {
+        self.entireMenu = try Self.load(example: example, title: example.displayName)
     }
 }
