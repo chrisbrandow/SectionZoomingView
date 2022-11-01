@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		447B7B412911B65800CE3501 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B402911B65800CE3501 /* SearchBar.swift */; };
 		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
 		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
 		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		447B7B402911B65800CE3501 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
@@ -237,13 +239,14 @@
 		83E9D68325E497F900934F8A /* ZoomableMenu */ = {
 			isa = PBXGroup;
 			children = (
+				831916A725CE27B100753195 /* CoreMenuView.swift */,
 				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
+				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
+				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
+				447B7B402911B65800CE3501 /* SearchBar.swift */,
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
 				8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */,
-				831916A725CE27B100753195 /* CoreMenuView.swift */,
-				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
-				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */,
 			);
 			path = ZoomableMenu;
@@ -402,6 +405,7 @@
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
+				447B7B412911B65800CE3501 /* SearchBar.swift in Sources */,
 				5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */,
 				5E1BE3BC2911937700F0002C /* TakeoutMenuItem.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,

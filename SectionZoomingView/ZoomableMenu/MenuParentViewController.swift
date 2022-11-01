@@ -5,6 +5,7 @@
 //  Created by Chris Brandow on 2/4/21.
 //
 
+import SwiftUI
 import UIKit
 
 class MenuParentViewController: UIViewController, ZoomableViewProvider {
@@ -29,6 +30,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet weak var backingView: UIView!
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
+    @IBSegueAction func embedSearchBar(_ coder: NSCoder) -> UIViewController? {
+        return UIHostingController(coder: coder, rootView: SearchBar())
+    }
 
     func zoomableView(for frame: CGRect) -> SectionedView {
         let view: SectionedView
