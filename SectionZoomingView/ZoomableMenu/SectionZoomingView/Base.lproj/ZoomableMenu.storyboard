@@ -249,7 +249,7 @@
         <image name="ic_clock_white_24" width="24" height="24"/>
         <image name="ic_pickup_red_24" width="24" height="24"/>
         <namedColor name="otKit_red">
-            <color red="0.85500001907348633" green="0.2160000205039978" blue="0.2630000114440918" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.85490196943283081" green="0.21568629145622253" blue="0.26274511218070984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

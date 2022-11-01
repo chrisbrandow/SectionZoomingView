@@ -246,3 +246,72 @@ class PlaceholderMenuView: UIView {
         return shadowView
     }
 }
+
+
+
+enum EntryViewStyle {
+    case normal
+    case highlightDescription(text: String)
+    case highlightTitle(text: String)
+}
+
+enum EntryMagnificationStyle {
+    case normal
+    case compressed
+}
+
+extension EntryView {
+
+    func configure(compression style: EntryMagnificationStyle) {
+        switch style {
+        case .normal:
+            self.bigTitleLabel.layer.opacity = 0.0
+            self.titleLabel.layer.opacity = 1.0
+            self.descriptionLabel.layer.opacity = 1.0
+            self.priceLabel.layer.opacity = 1.0
+        case .compressed:
+            self.bigTitleLabel.layer.opacity = 1.0
+            self.titleLabel.layer.opacity = 0.0
+            self.descriptionLabel.layer.opacity = 0.0
+            self.priceLabel.layer.opacity = 0.0
+        }
+    }
+    func configure(style: EntryViewStyle) {
+        switch style {
+        case .normal:
+            self.backgroundColor = .otk_white
+            self.titleLabel.textColor = .otk_ashDarker
+            self.descriptionLabel.textColor = .otk_ashLight
+            self.descriptionLabel.text = self.descriptionLabel.text
+            self.titleLabel.text = self.titleLabel.text
+        case let .highlightDescription(text):
+            self.backgroundColor = .otk_greenLighter
+            self.descriptionLabel.textColor = .otk_ashDarker
+            self.descriptionLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
+        case let .highlightTitle(text):
+            self.descriptionLabel.textColor = .otk_ashDark
+            self.backgroundColor = .otk_greenLighter
+            self.titleLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
+        }
+    }
+}
+
+extension UILabel {
+
+    public func setHightlightedString(tintColor: UIColor, tintingString: String) {
+        guard let string = self.text,
+              string.isEmpty == false
+        else { return }
+        let tintRange = NSString(string: (self.text ?? "").lowercased()).range(of: tintingString.lowercased())
+        let mutable = NSMutableAttributedString(string: string, attributes: [
+            .font: self.font as Any,
+            .foregroundColor: self.textColor as Any
+        ])
+        mutable.addAttributes([
+            .font: UIFont.boldSystemFont(ofSize: self.font.pointSize),
+            .foregroundColor: tintColor
+        ], range: tintRange)
+        print(mutable)
+        self.attributedText = (mutable.copy() as? NSAttributedString) ?? NSAttributedString()
+    }
+}
