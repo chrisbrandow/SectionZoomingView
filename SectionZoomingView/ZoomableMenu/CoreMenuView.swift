@@ -62,7 +62,7 @@ extension UIColor {
 
 
 class EntryView: UIView {
-    var item: TakeoutMenuItem?
+    var item: MenuItem?
 
     var titleLabel = UILabel()
     var bigTitleLabel = UILabel()
@@ -107,7 +107,7 @@ class PlaceholderMenuView: UIView {
 
     }
 
-    private static func createSingleSectionHeaderView(for entry: TakeoutMenuSection, index: Int, columnWidth: CGFloat, action: Selector) -> UIView {
+    private static func createSingleSectionHeaderView(for entry: Menu.Section, index: Int, columnWidth: CGFloat, action: Selector) -> UIView {
 
         let fontSize = CGFloat(32)
         let labelMargin = CGFloat(6)
@@ -141,7 +141,7 @@ class PlaceholderMenuView: UIView {
         return view
     }
 
-    private static func createSingleView(for entry: TakeoutMenuItem, index: Int, columnWidth: CGFloat, action: Selector) -> UIView {
+    private static func createSingleView(for entry: MenuItem, index: Int, columnWidth: CGFloat, action: Selector) -> UIView {
         let defaultTextHeight = CGFloat(20)
 
         let view = EntryView()

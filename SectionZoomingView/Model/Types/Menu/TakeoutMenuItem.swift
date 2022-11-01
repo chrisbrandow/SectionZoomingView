@@ -1,37 +1,16 @@
-//
-//  TakeoutMenuItem.swift
-//  SectionZoomingView
-//
-//  Created by Doug Boutwell on 11/1/22.
-//
-
 import Foundation
 
-public class TakeoutMenuItem: Equatable, Hashable {
+// MARK: MenuItem
+struct MenuItem: Codable, Equatable, Hashable {
+    var id: String
+    var name: String
+    var itemDescription: String?
+    var isSoldOut: Bool?
+    var attributes: [String]
+    var modifierGroups: [Self.ModifierGroup]
+    var price: Price
 
-    public let id: String
-    public let name: String
-    public let itemDescription: String?
-    public private(set) var isSoldOut: Bool
-    public let attributes: [String]
-    public let modifierGroups: [TakeoutModifierGroup]
-    public let price: Price
-
-    init(id: String, name: String, itemDescription: String?, isSoldOut: Bool, attributes: [String], modifierGroups: [TakeoutModifierGroup], price: Price) {
-        self.id = id
-        self.name = name
-        self.itemDescription = itemDescription
-        self.isSoldOut = isSoldOut
-        self.attributes = attributes
-        self.modifierGroups = modifierGroups
-        self.price = price
-    }
-
-    public func setSoldOut(_ value: Bool) {
-        self.isSoldOut = value
-    }
-
-    public static func ==(lhs: TakeoutMenuItem, rhs: TakeoutMenuItem) -> Bool {
+    public static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
     }
 
@@ -39,3 +18,41 @@ public class TakeoutMenuItem: Equatable, Hashable {
         hasher.combine(self.id)
     }
 }
+
+// MARK: Modifier
+extension MenuItem {
+    struct Modifier: Codable, Equatable, Hashable {
+        var id: String
+        var name: String
+        var description: String?
+        var price: Price?
+        var tax: Price?
+
+        static func ==(lhs: Self, rhs: Self) -> Bool {
+            return lhs.id == rhs.id
+        }
+
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(self.id)
+        }
+    }
+}
+
+// MARK: ModifierGroup
+extension MenuItem {
+    struct ModifierGroup: Codable {
+        var id: String
+        var name: String
+        var description: String?
+        var required: Bool?
+        var allowsMultipleSelection: Bool?
+        var minimumAllowed: Int?
+        var maximumAllowed: Int?
+        var modifiers: [MenuItem.Modifier]
+
+        static func ==(lhs: Self, rhs: Self) -> Bool {
+            return lhs.id == rhs.id
+        }
+    }
+}
+

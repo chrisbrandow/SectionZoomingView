@@ -18,7 +18,7 @@ extension MenuParentViewController {
         }
     }
 
-    func userDidTap(button: UIButton, for item: TakeoutMenuItem) {//}, in view: ZoomableView) {
+    func userDidTap(button: UIButton, for item: MenuItem) {//}, in view: ZoomableView) {
         let presentedController = UIViewController()
         presentedController.view.frame = self.view.frame
         let tapBackgroundGR = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundAction(_:)))
