@@ -29,25 +29,34 @@ extension Cart {
 }
 
 extension Cart {
-    static func stub() throws -> Self {
-        Cart(orders: [try .stub()])
+    static func stub() -> Self {
+        Cart(orders: [.stub()])
     }
 }
 
 extension Cart.Order {
-    static func stub() throws -> Self {
+    static func stub() -> Self {
         return Cart.Order(dinerId: UUID().uuidString,
-                          items: try (0 ..< 4).map { _ in try .stub() })
+                          items: (0 ..< 4).map { .stub(index: $0) })
     }
 }
 
 extension Cart.Item {
-    static func stub() throws -> Self {
-        Cart.Item(id: UUID().uuidString, menuItem: .random())
+    static func stub(index: Int) -> Self {
+        Cart.Item(id: UUID().uuidString, menuItem: .stub(index: index))
     }
 }
 
 fileprivate extension MenuItem {
+    static func stub(index: Int) -> Self {
+        let allItems = try! MenuDataSource
+            .load(example: .laPressa_4_14, title: "A Random Menu")
+            .allItems
+        // Just wrap around to beginning if needed
+        let safeIndex = index % allItems.count
+        return allItems[safeIndex]
+    }
+
     static func random() -> Self {
         return try! MenuDataSource.load(example: .laPressa_4_14, title: "A Random Menu")
             .allItems
