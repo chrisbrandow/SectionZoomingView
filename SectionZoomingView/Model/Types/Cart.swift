@@ -12,7 +12,7 @@ struct Cart: Codable {
 }
 
 extension Cart {
-    struct Item: Codable {
+    struct Item: Codable, Identifiable {
         var id: String
         var menuItem: MenuItem
         var quantity: Int = 1
