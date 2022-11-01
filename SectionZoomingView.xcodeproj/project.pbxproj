@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		447B7B412911B65800CE3501 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B402911B65800CE3501 /* SearchBar.swift */; };
+		447B7B452911D33400CE3501 /* Font+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B442911D33400CE3501 /* Font+UIFont.swift */; };
 		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
 		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
 		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		447B7B402911B65800CE3501 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		447B7B442911D33400CE3501 /* Font+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+UIFont.swift"; sourceTree = "<group>"; };
 		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
@@ -198,8 +200,9 @@
 				5E1BE3AC2911927D00F0002C /* Model */,
 				832DA6D325D4F58800BB8DD8 /* BrandonText-Bold.otf */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
-				8351CDDF2594569700946150 /* SceneDelegate.swift */,
+				447B7B442911D33400CE3501 /* Font+UIFont.swift */,
 				8351CDE12594569700946150 /* LaunchVC.swift */,
+				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8342FC4428ECFF5600D2A0E3 /* NewZoom */,
 				9B7105D927A9E053007F8479 /* ErikaNotes */,
 				83E9D68325E497F900934F8A /* ZoomableMenu */,
@@ -404,6 +407,7 @@
 				832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
+				447B7B452911D33400CE3501 /* Font+UIFont.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
 				447B7B412911B65800CE3501 /* SearchBar.swift in Sources */,
 				5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */,
@@ -601,7 +605,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,7 +628,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,12 +16,14 @@ struct SearchBar: View {
                 .foregroundColor(.gray)
             TextField("", text: $query)
                 .foregroundColor(.black)
+                .font(Font(uiFont: UIFont(name: "BrandonText-Bold", size: 12)!))
         }
         .frame(height: 40)
         .padding(.leading, 8)
         .overlay(
             RoundedRectangle(cornerRadius: 4)
                 .stroke(.gray, lineWidth: 1)
+                .shadow(color: .gray, radius: 8, x: 0, y: 2)
         )
     }
 }
