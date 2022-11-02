@@ -1,21 +1,28 @@
+//
+//  AddToCartView.swift
+//  SectionZoomingView
+//
+//  Created by Doug Boutwell on 11/2/22.
+//
+
 import SwiftUI
 
-struct CartItemView: View {
-    @State var item: Cart.Item
+struct AddToCartView: View {
+    var item: MenuItem
 
     var body: some View {
         VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
             HStack(alignment: .top, spacing: .otk_mediumSpacing) {
-                Text(item.menuItem.name)
+                Text(item.name)
                     .otk_configureBodyText(fontSize: 14, weight: .bold)
                     .layoutPriority(1)
                 Spacer()
-                Text(item.menuItem.price.formattedDescription ?? "")
+                Text(item.price.formattedDescription ?? "")
                     .otk_configureBodyText(fontSize: 14)
                     .foregroundColor(.ash_dark)
                     .fixedSize(horizontal: true, vertical: false)
             }
-            if let description = item.menuItem.itemDescription {
+            if let description = item.itemDescription {
                 Text(description)
                     .otk_configureBodyText(fontSize: 12)
                     .lineLimit(2)
@@ -27,11 +34,8 @@ struct CartItemView: View {
     }
 }
 
-struct CartItemView_Previews: PreviewProvider {
-    @State static var item: Cart.Item = .stub(index: 1)
-
+struct AddToCartView_Previews: PreviewProvider {
     static var previews: some View {
-        CartItemView(item: item)
-            .previewLayout(.sizeThatFits)
+        AddToCartView(item: .stub(index: 1))
     }
 }

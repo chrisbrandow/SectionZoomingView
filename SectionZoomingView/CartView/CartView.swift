@@ -11,7 +11,7 @@ struct CartView: View {
                     .background {
                         Color(uiColor: .otk_white)
                             .cornerRadius(8)
-                            .shadow(color: Color(uiColor: .otk_ash_lighter), radius: 6, y: 6)
+                            .otk_shadow()
                     }
             }
             if let total = try? viewModel.cart.total() {
