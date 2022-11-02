@@ -29,7 +29,18 @@ struct MenuDataSource {
             case .betterZoom: return "better zoom"
             }
         }
+        static var allCases: [Example] {
+            [
+                .zingari_4_29,
+                .mint_11_123,
+                .coquetta_11_31,
+                .paradiso_23_304,
+                .laPressa_4_14
+            ]
+        }
     }
+
+
 
     var entireMenu: MenuGroup
 

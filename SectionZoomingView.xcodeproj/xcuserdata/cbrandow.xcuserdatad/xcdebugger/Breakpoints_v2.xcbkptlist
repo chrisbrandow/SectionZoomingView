@@ -7,17 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "65731D3B-12EC-4B53-BB90-4969C2CF4347"
+            uuid = "C1E74ED0-A9B5-4F19-98D7-F5278C17BB0A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SectionZoomingView/ZoomableMenu/CoreMenuView.swift"
+            filePath = "SectionZoomingView/LaunchVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "createSingleView(for:index:columnWidth:action:)"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D946C7E-27EF-4C95-BBB4-2A03C7E9F45D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SectionZoomingView/LaunchVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3D946C7E-27EF-4C95-BBB4-2A03C7E9F45D - 7cd8e56bda0c31f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SectionZoomingView.LaunchVC.viewDidLoad() -&gt; ()"
+                  moduleName = "SectionZoomingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/LaunchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  uuid = "3D946C7E-27EF-4C95-BBB4-2A03C7E9F45D - 9879480a0c886eb7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (__C.UIView) -&gt; Swift.Optional&lt;__C.UIButton&gt; in SectionZoomingView.LaunchVC.viewDidLoad() -&gt; ()"
+                  moduleName = "SectionZoomingView"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cbrandow/Developer/SectionZoomingView/SectionZoomingView/LaunchVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "26"
+                  endingLineNumber = "26"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

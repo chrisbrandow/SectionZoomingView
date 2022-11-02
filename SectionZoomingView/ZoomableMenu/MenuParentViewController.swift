@@ -164,6 +164,9 @@ extension MenuParentViewController {
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
         let datasource = try! MenuDataSource(example: self.selectedExample)
+        // Ryosuke - here are the tags
+        let allTags = datasource.entireMenu.allTags
+        print(allTags)
         return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: datasource, target: self, action: #selector(MenuParentViewController.didTap(_:)))
     }
 
