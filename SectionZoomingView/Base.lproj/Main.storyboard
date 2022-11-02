@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTI-E4-E70">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -14,24 +14,72 @@
             <objects>
                 <viewController id="z7v-CI-FRI" customClass="LaunchVC" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tQX-kL-XTC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="200" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gAA-ix-G0G">
-                                <rect key="frame" x="20" y="24" width="374" height="200"/>
+                                <rect key="frame" x="20" y="24" width="353" height="200"/>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RestaurantListView.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yu4-Un-aeF">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UNB-sT-8GE">
+                                <rect key="frame" x="0.0" y="145" width="393" height="560"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk6-yE-Byi">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="us9-pi-fIX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgv-OX-jiB">
+                                        <rect key="frame" x="0.0" y="140" width="393" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="O6U-fH-SCp"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoK-Pf-Y9m">
+                                        <rect key="frame" x="0.0" y="280" width="393" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="pnP-GI-qZD"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hai-K9-7zT">
+                                        <rect key="frame" x="0.0" y="420" width="393" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="140" id="0kV-in-DRX"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain"/>
+                                    </button>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="8Nv-WY-59n"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Yu4-Un-aeF" secondAttribute="trailing" id="El0-Lq-AU1"/>
+                            <constraint firstItem="Yu4-Un-aeF" firstAttribute="leading" secondItem="tQX-kL-XTC" secondAttribute="leading" id="FuF-9b-jCG"/>
+                            <constraint firstItem="UNB-sT-8GE" firstAttribute="trailing" secondItem="Yu4-Un-aeF" secondAttribute="trailing" id="H4I-0l-vHz"/>
+                            <constraint firstAttribute="bottom" secondItem="Yu4-Un-aeF" secondAttribute="bottom" id="L7O-ZT-nha"/>
+                            <constraint firstItem="UNB-sT-8GE" firstAttribute="leading" secondItem="Yu4-Un-aeF" secondAttribute="leading" id="QtF-aB-uzk"/>
+                            <constraint firstItem="UNB-sT-8GE" firstAttribute="top" secondItem="Yu4-Un-aeF" secondAttribute="top" constant="145" id="Ukh-hk-iky"/>
                             <constraint firstItem="gAA-ix-G0G" firstAttribute="top" secondItem="8Nv-WY-59n" secondAttribute="top" constant="24" id="Ygl-In-rel"/>
                             <constraint firstItem="8Nv-WY-59n" firstAttribute="trailing" secondItem="gAA-ix-G0G" secondAttribute="trailing" constant="20" id="dcL-P5-p1X"/>
                             <constraint firstItem="gAA-ix-G0G" firstAttribute="leading" secondItem="8Nv-WY-59n" secondAttribute="leading" constant="20" id="h1s-EY-uGc"/>
+                            <constraint firstItem="Yu4-Un-aeF" firstAttribute="top" secondItem="8Nv-WY-59n" secondAttribute="top" id="v9e-PV-ZZG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mPy-O4-gRV"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="mockStackView" destination="UNB-sT-8GE" id="g3z-zr-Lim"/>
                         <outlet property="stackView" destination="gAA-ix-G0G" id="V59-mk-FeD"/>
                         <segue destination="9VN-PH-nHa" kind="show" identifier="showZoomable" id="2kk-wL-2tv"/>
                         <segue destination="nGr-pY-0oc" kind="show" identifier="showBetterZoom" id="Rhw-zL-K5Y"/>
@@ -46,7 +94,7 @@
             <objects>
                 <viewController id="I5S-Gi-55e" customClass="PinchCaptureVC" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CbY-or-aOC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="QY8-1P-oYr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,7 +110,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rTI-E4-E70" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h0A-8w-HL9">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -89,11 +137,11 @@
             <objects>
                 <viewController storyboardIdentifier="betterZoom" id="nGr-pY-0oc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GqB-1R-2nT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="749"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pRy-tu-qf4" customClass="ZoomableContainerView" customModule="SectionZoomingView" customModuleProvider="target">
-                                <rect key="frame" x="16" y="52" width="382" height="669"/>
+                                <rect key="frame" x="16" y="52" width="361" height="614"/>
                                 <color key="backgroundColor" systemColor="systemGray3Color"/>
                             </view>
                         </subviews>
@@ -114,6 +162,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="RestaurantListView.png" width="393" height="799"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
