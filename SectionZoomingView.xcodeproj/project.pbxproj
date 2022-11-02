@@ -36,6 +36,8 @@
 		8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */; };
 		8370764129117728000621FC /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8370764029117728000621FC /* Cart.swift */; };
 		8370764329117EE6000621FC /* OTKitColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8370764229117EE6000621FC /* OTKitColors.xcassets */; };
+		8370765D2911F8E1000621FC /* FakeList.png in Resources */ = {isa = PBXBuildFile; fileRef = 8370765C2911F8E1000621FC /* FakeList.png */; };
+		83707661291232BB000621FC /* RestaurantListView.png in Resources */ = {isa = PBXBuildFile; fileRef = 83707660291232BB000621FC /* RestaurantListView.png */; };
 		83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D5125C9DB49008AE1BA /* DataSource.swift */; };
 		83B16D6325C9E95D008AE1BA /* zingari4Section29.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6225C9E95D008AE1BA /* zingari4Section29.json */; };
 		83B16D7025C9EC35008AE1BA /* Paradiso23Section304.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */; };
@@ -101,6 +103,8 @@
 		8370763E29117454000621FC /* ZoomingMenuViewStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomingMenuViewStructures.swift; sourceTree = "<group>"; };
 		8370764029117728000621FC /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		8370764229117EE6000621FC /* OTKitColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = OTKitColors.xcassets; sourceTree = "<group>"; };
+		8370765C2911F8E1000621FC /* FakeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FakeList.png; sourceTree = "<group>"; };
+		83707660291232BB000621FC /* RestaurantListView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RestaurantListView.png; sourceTree = "<group>"; };
 		83B16D5125C9DB49008AE1BA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		83B16D6225C9E95D008AE1BA /* zingari4Section29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zingari4Section29.json; sourceTree = "<group>"; };
 		83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Paradiso23Section304.json; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */,
 				83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */,
 				83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */,
+				83707660291232BB000621FC /* RestaurantListView.png */,
+				8370765C2911F8E1000621FC /* FakeList.png */,
 				8351CDE32594569700946150 /* Main.storyboard */,
 				8351CDE62594569A00946150 /* Assets.xcassets */,
 				8370764229117EE6000621FC /* OTKitColors.xcassets */,
@@ -375,7 +381,9 @@
 				832DA6D425D4F59400BB8DD8 /* BrandonText-Bold.otf in Resources */,
 				8370764329117EE6000621FC /* OTKitColors.xcassets in Resources */,
 				83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */,
+				8370765D2911F8E1000621FC /* FakeList.png in Resources */,
 				83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */,
+				83707661291232BB000621FC /* RestaurantListView.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
