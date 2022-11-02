@@ -17,8 +17,14 @@ struct Price: Equatable, Hashable {
         self.currency = currency
     }
 
-    static func *(lhs: Price, rhs: Decimal) -> Price {
-        Price(exactAmount: lhs.amount * rhs, currency: lhs.currency)
+    static func *(lhs: Self, rhs: Decimal) -> Self {
+        Price(exactAmount: lhs.amount * rhs,
+              currency: lhs.currency)
+    }
+
+    static func +(lhs: Self, rhs: Self) -> Self {
+        Price(amountTimes100: lhs.amountTimes100 + rhs.amountTimes100,
+              currency: lhs.currency)
     }
 
     var formattedDescription: String? {
