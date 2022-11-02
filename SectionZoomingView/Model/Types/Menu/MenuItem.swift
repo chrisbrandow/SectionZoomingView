@@ -14,17 +14,6 @@ struct MenuItem: Codable, Equatable, Hashable {
     var modifierGroups: [Self.ModifierGroup]
     var price: Price
 
-    enum CodingKeys: String, CodingKey {
-        case id
-        case name
-        case itemDescription = "description"
-        case isSoldOut
-        case attributes
-        case modifierGroups
-        case price
-
-    }
-
     public static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
     }
