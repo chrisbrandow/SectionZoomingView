@@ -27,13 +27,13 @@ struct TagText: View {
 
     var body: some View {
         Text(title)
-            .foregroundColor(.black)
-            .font(Font(uiFont: UIFont(name: "BrandonText-Bold", size: 12)!))
+            .foregroundColor(Color(.otk_ashDark))
+            .font(.caption)
             .padding([.leading, .trailing], 16)
             .padding([.top, .bottom], 8)
             .overlay(
                 Capsule(style: .continuous)
-                    .stroke(.gray, lineWidth: 1)
+                    .stroke(Color(.otk_ashLighter), lineWidth: 1)
             )
     }
 }
