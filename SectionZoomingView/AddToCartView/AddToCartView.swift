@@ -37,8 +37,16 @@ struct AddToCartView: View {
                 MenuItemView(item: self.menuItem)
                 ItemQuantityView(quantity: $quantity)
                     .padding([.top, .bottom], .otk_largeSpacing)
-                self.addToCartButton()
-                self.cancelButton()
+                CartButtonView(
+                    style: .confirm,
+                    title: self.addToCartButtonTitle,
+                    isEnabled: self.quantity > 0) {
+                        self.onAddToCart(self.cartItem)
+                    }
+                CartButtonView(
+                    style: .cancel, title: "Cancel", isEnabled: true) {
+                        self.onCancel()
+                    }
             }
             .padding(.otk_mediumSpacing)
             .padding([.top], .otk_mediumSpacing) // Add a little more, just to the top
@@ -47,35 +55,6 @@ struct AddToCartView: View {
         .background { Color(.clear) }
         .frame(maxHeight: .infinity)
     }
-
-    func addToCartButton() -> some View {
-        Button(self.addToCartButtonTitle) {
-            self.onAddToCart(self.cartItem)
-        }
-        .foregroundColor(.otk_white)
-        .font(.otf_systemFont(ofSize: 18, weight: .bold))
-        .padding()
-        .frame(maxWidth: .infinity)
-        .background { self.quantity > 0 ? Color.otk_red : Color.ash_lighter }
-        .cornerRadius(.otk_cornerRadius)
-        .disabled(self.quantity < 1)
-    }
-
-    func cancelButton() -> some View {
-        Button("Cancel") {
-            self.onCancel()
-        }
-        .foregroundColor(Color.ash_dark)
-        .font(.otf_systemFont(ofSize: 18, weight: .bold))
-        .padding()
-        .frame(maxWidth: .infinity)
-        .overlay {
-            RoundedRectangle(cornerRadius: .otk_cornerRadius)
-                .stroke(Color.ash_lighter, lineWidth: 1)
-        }
-        .frame(maxWidth: .infinity)
-    }
-
 }
 
 struct AddToCartView_Previews: PreviewProvider {
