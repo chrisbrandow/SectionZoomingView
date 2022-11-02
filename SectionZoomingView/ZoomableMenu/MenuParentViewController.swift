@@ -5,6 +5,7 @@
 //  Created by Chris Brandow on 2/4/21.
 //
 
+import Combine
 import SwiftUI
 import UIKit
 
@@ -16,7 +17,11 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     var selectedExample = TakeoutDataSource.Example.paradiso_23_304
 //    lazy var pinchToZoomLayer: CALayer? = self.createPinchLayer()
-    
+
+    var searchBarViewModel: SearchBarViewModel?
+
+    private var cancellables = Set<AnyCancellable>()
+
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet var zoomableContainer: UIView?
     @IBOutlet var bottomBarContainer: UIView?
@@ -32,7 +37,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
-        return UIHostingController(coder: coder, rootView: TopBarContainer())
+        let searchBarViewModel = SearchBarViewModel()
+        self.searchBarViewModel = searchBarViewModel
+        return UIHostingController(coder: coder, rootView: TopBarContainer(searchBarViewModel: searchBarViewModel))
     }
 
     func zoomableView(for frame: CGRect) -> SectionedView {
@@ -82,6 +89,8 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                 self.shadowLine.heightAnchor.constraint(equalToConstant: 1.0/UIScreen.main.scale)
             ])
         }
+
+        observeSearchBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -122,6 +131,24 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     weak var selectedBadge: UIView?
     var selectedItems = [String]()
+
+    private func observeSearchBar() {
+        guard let searchBarViewModel = searchBarViewModel else {
+            return
+        }
+
+        searchBarViewModel
+            .$searchQuery
+            .filter { !$0.isEmpty }
+            .sink { [weak self] query in
+                guard let zoomingView = self?.zoomingView else {
+                    return
+                }
+
+                zoomingView.highlight(text: query)
+            }
+            .store(in: &cancellables)
+    }
 }
 
 extension MenuParentViewController {

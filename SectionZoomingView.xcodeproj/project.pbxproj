@@ -11,6 +11,7 @@
 		447B7B452911D33400CE3501 /* Font+UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B442911D33400CE3501 /* Font+UIFont.swift */; };
 		447B7B4B2911DFB400CE3501 /* TagBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4A2911DFB400CE3501 /* TagBar.swift */; };
 		447B7B4D2911E00300CE3501 /* TopBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4C2911E00300CE3501 /* TopBarContainer.swift */; };
+		44B54EE929123CB3007381B2 /* SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */; };
 		5E1BE3AF2911929B00F0002C /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3AE2911929B00F0002C /* Currency.swift */; };
 		5E1BE3B1291192F800F0002C /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B0291192F800F0002C /* Price.swift */; };
 		5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */; };
@@ -70,6 +71,7 @@
 		447B7B442911D33400CE3501 /* Font+UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+UIFont.swift"; sourceTree = "<group>"; };
 		447B7B4A2911DFB400CE3501 /* TagBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBar.swift; sourceTree = "<group>"; };
 		447B7B4C2911E00300CE3501 /* TopBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarContainer.swift; sourceTree = "<group>"; };
+		44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
 		5E1BE3AE2911929B00F0002C /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		5E1BE3B0291192F800F0002C /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		5E1BE3B52911932A00F0002C /* TakeoutMenuGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeoutMenuGroup.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
 				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				447B7B402911B65800CE3501 /* SearchBar.swift */,
+				44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */,
 				447B7B4A2911DFB400CE3501 /* TagBar.swift */,
 				447B7B4C2911E00300CE3501 /* TopBarContainer.swift */,
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
@@ -402,6 +405,7 @@
 			files = (
 				5E1BE3B62911932A00F0002C /* TakeoutMenuGroup.swift in Sources */,
 				8342FC4828ED00E600D2A0E3 /* Layout Helpers.swift in Sources */,
+				44B54EE929123CB3007381B2 /* SearchBarViewModel.swift in Sources */,
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
 				8342FC4A28ED00E600D2A0E3 /* ZoomableView Helpers.swift in Sources */,
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,

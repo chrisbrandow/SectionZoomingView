@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @State var query: String = ""
+    @ObservedObject var viewModel: SearchBarViewModel
 
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(Color(.otk_ash))
-            TextField("", text: $query)
+            TextField("", text: $viewModel.searchQuery)
                 .foregroundColor(Color(.otk_ashDarker))
                 .font(.callout)
         }
@@ -30,6 +30,6 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        SearchBar(viewModel: SearchBarViewModel())
     }
 }
