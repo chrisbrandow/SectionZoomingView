@@ -15,7 +15,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     var zoomingView: SectionedView?
 
-    var selectedExample = TakeoutDataSource.Example.paradiso_23_304
+    var selectedExample = MenuDataSource.Example.paradiso_23_304
 //    lazy var pinchToZoomLayer: CALayer? = self.createPinchLayer()
 
     var searchBarViewModel: SearchBarViewModel?
@@ -155,7 +155,7 @@ extension MenuParentViewController {
 
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
-        let datasource = try! TakeoutDataSource(example: self.selectedExample)
+        let datasource = try! MenuDataSource(example: self.selectedExample)
         return PlaceholderMenuView.createViews(columnWidth: columnWidth, datasource: datasource, target: self, action: #selector(MenuParentViewController.didTap(_:)))
     }
 

@@ -5,6 +5,6 @@ import XCTest
 class MenuTests: XCTestCase {
     // Make sure it doesn't blow up
     func testMenuDecoding() throws {
-        XCTAssertNoThrow(try TakeoutDataSource(example: .coquetta_11_31))
+        XCTAssertNoThrow(try MenuDataSource(example: .coquetta_11_31))
     }
 }

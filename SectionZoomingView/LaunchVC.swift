@@ -15,7 +15,7 @@ class LaunchVC: UIViewController {
     @IBOutlet weak var mockStackView: UIStackView!
     // to make it easier to integrate into OpenTable, i should move teh datasource
     // to MenuParentViewController, then "load" it from there, based on the name
-    var selectedExample = TakeoutDataSource.Example.mint_11_123
+    var selectedExample = MenuDataSource.Example.mint_11_123
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class LaunchVC: UIViewController {
         OrderManager.shared.fetchDinerOrders(forDinerIDs: []) { records, error in
             print("records. count \(records?.count)")
         }
-        for (button, example) in zip(self.mockStackView.arrangedSubviews.compactMap({ $0 as? UIButton}), TakeoutDataSource.Example.allCases) {
+        for (button, example) in zip(self.mockStackView.arrangedSubviews.compactMap({ $0 as? UIButton}), MenuDataSource.Example.allCases) {
             button.addAction(UIAction(handler: { [weak self] _ in
                 guard let self = self else { return }
                 self.selectedExample = example
