@@ -124,6 +124,14 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         let entry = sender.superview as? EntryView
         self.selectedItems.append(entry?.item?.name ?? "")
         if let item = entry?.item {
+//            let v = AddToCartView(item: item, quantity: 1) { cartItem in
+//                print("yay you added a thing to your cart. Congratulations. \(cartItem)")
+//            } onCancel: { [unowned self] in
+//                self.dismiss(animated: true)
+//            }
+//
+//            let vc = UIHostingController(rootView: v)
+//            self.present(vc, animated: true)
             self.userDidTap(button: sender, for: item)
         }
 

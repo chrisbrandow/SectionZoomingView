@@ -83,14 +83,14 @@ struct SectionedView {
         let e = self.view.subviews.first() { $0 is EntryView } as? EntryView
         let isVisible = e?.bigTitleLabel.layer.opacity == 1
         if columnCount <= 2, isVisible {
-            self.configure(for: .normal)
+            self.configure(forCompression: .normal)
         } else if columnCount > 2,
                   isVisible == false {
-            self.configure(for: .compressed)
+            self.configure(forCompression: .compressed)
         }
     }
 
-    func configure(for style: EntryMagnificationStyle) {
+    func configure(forCompression style: EntryMagnificationStyle) {
         let views = self.view.subviews
             .compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView })
         UIView.animate(withDuration: 0.18) {
