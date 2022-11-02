@@ -33,7 +33,7 @@ struct AddToCartView: View {
         VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
             HStack(alignment: .top, spacing: .otk_mediumSpacing) {
                 Text(item.name)
-                    .otk_configureBodyText(fontSize: 24, weight: .bold)
+                    .otk_configureBodyText(fontSize: 18, weight: .bold)
                     .layoutPriority(2)
                 Spacer()
                 Text(item.price.formattedDescription ?? "")
