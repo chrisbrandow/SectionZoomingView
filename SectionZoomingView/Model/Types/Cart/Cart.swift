@@ -30,3 +30,9 @@ extension Cart {
         var course: Int = 0
     }
 }
+
+extension Cart.Item {
+    var totalPrice: Price {
+        self.menuItem.price * Decimal(self.quantity)
+    }
+}

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddToCartView: View {
-    var item: MenuItem
+    var menuItem: MenuItem
 
     @State var quantity: Int
 
@@ -17,12 +17,12 @@ struct AddToCartView: View {
     var onCancel: () -> Void
 
     var cartItem: Cart.Item {
-        Cart.Item(menuItem: self.item,
+        Cart.Item(menuItem: self.menuItem,
                   quantity: self.quantity)
     }
 
     var addToCartButtonTitle: String {
-        if let price = self.item.price.formattedDescription {
+        if self.quantity > 0, let price = self.cartItem.totalPrice.formattedDescription {
             return "Add to cart • \(price)"
         } else {
             return "Add to cart"
@@ -30,30 +30,22 @@ struct AddToCartView: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
-            HStack(alignment: .top, spacing: .otk_mediumSpacing) {
-                Text(item.name)
-                    .otk_configureBodyText(fontSize: 18, weight: .bold)
-                    .layoutPriority(2)
-                Spacer()
-                Text(item.price.formattedDescription ?? "")
-                    .otk_configureBodyText(fontSize: 18)
-                    .foregroundColor(.ash_dark)
-                    .fixedSize(horizontal: true, vertical: false)
+        // Outer container to let the spacer grow, so we get a half-modal behavior
+        VStack {
+            Spacer()
+            VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
+                MenuItemView(item: self.menuItem)
+                ItemQuantityView(quantity: $quantity)
+                    .padding([.top, .bottom], .otk_largeSpacing)
+                self.addToCartButton()
+                self.cancelButton()
             }
-            if let description = item.itemDescription {
-                Text(description)
-                    .otk_configureBodyText(fontSize: 12)
-                    .lineLimit(2)
-                    .foregroundColor(.ash)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            ItemQuantityView(quantity: $quantity)
-                .padding([.top, .bottom], .otk_largeSpacing)
-            self.addToCartButton()
-            self.cancelButton()
+            .padding(.otk_mediumSpacing)
+            .padding([.top], .otk_mediumSpacing) // Add a little more, just to the top
+            .background (Color.white_ash)
         }
-        .padding()
+        .background { Color(.clear) }
+        .frame(maxHeight: .infinity)
     }
 
     func addToCartButton() -> some View {
@@ -64,8 +56,9 @@ struct AddToCartView: View {
         .font(.otf_systemFont(ofSize: 18, weight: .bold))
         .padding()
         .frame(maxWidth: .infinity)
-        .background { Color.otk_red }
+        .background { self.quantity > 0 ? Color.otk_red : Color.ash_lighter }
         .cornerRadius(.otk_cornerRadius)
+        .disabled(self.quantity < 1)
     }
 
     func cancelButton() -> some View {
@@ -87,7 +80,7 @@ struct AddToCartView: View {
 
 struct AddToCartView_Previews: PreviewProvider {
     static var previews: some View {
-        AddToCartView(item: .stub(index: 1),
+        AddToCartView(menuItem: .stub(index: 1),
                       quantity: 1,
                       onAddToCart: { _ in},
                       onCancel: {})
