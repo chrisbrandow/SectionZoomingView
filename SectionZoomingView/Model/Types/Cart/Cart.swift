@@ -30,33 +30,3 @@ extension Cart {
         var course: Int = 0
     }
 }
-
-// MARK: Stubs
-extension Cart {
-    static func stub() -> Self {
-        Cart(items: (0 ..< 5).map { Item.stub(index: $0) })
-    }
-}
-
-extension Cart.Item {
-    static func stub(index: Int) -> Self {
-        Cart.Item(menuItem: .stub(index: index))
-    }
-}
-
-fileprivate extension MenuItem {
-    static func stub(index: Int) -> Self {
-        let allItems = try! MenuDataSource
-            .load(example: .laPressa_4_14, title: "A Random Menu")
-            .allItems
-        // Just wrap around to beginning if needed
-        let safeIndex = index % allItems.count
-        return allItems[safeIndex]
-    }
-
-    static func random() -> Self {
-        return try! MenuDataSource.load(example: .laPressa_4_14, title: "A Random Menu")
-            .allItems
-            .randomElement()!
-    }
-}
