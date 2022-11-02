@@ -8,21 +8,17 @@
 import SwiftUI
 
 struct TagBar: View {
+    let tags = MenuTag.allCases.filter { $0 != .none }
+
     @ObservedObject var viewModel: TagBarViewModel
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
-                TagButton(tag: .vegetarian,
-                          tappedTag: $viewModel.tappedTag)
-                TagButton(tag: .glutenFree,
-                          tappedTag: $viewModel.tappedTag)
-                TagButton(tag: .vegan,
-                          tappedTag: $viewModel.tappedTag)
-                TagButton(tag: .raw,
-                          tappedTag: $viewModel.tappedTag)
-                TagButton(tag: .dairy,
-                          tappedTag: $viewModel.tappedTag)
+                ForEach(tags, id: \.self) { tag in
+                    TagButton(tag: tag,
+                              tappedTag: $viewModel.tappedTag)
+                }
             }
             .padding(1)
         }
