@@ -15,10 +15,6 @@ struct MenuItem: Codable, Equatable, Hashable {
     var price: Price
 
     enum CodingKeys: String, CodingKey {
-//        case name
-//        case menuDescription = "description"
-//        case sections = "groups"
-
         case id
         case name
         case itemDescription = "description"
