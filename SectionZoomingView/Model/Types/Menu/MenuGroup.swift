@@ -21,6 +21,8 @@ struct MenuGroup: Codable, Equatable {
         return Set(self.allItems).isSubset(of: other.allItems)
     }
 
+    var allTags: Set<String> { Set(self.allItems.flatMap({ $0.attributes })) }
+
 //    func setItemsSoldOut(forItemIds ids: [String]) {
 //        ids.forEach { id in
 //            guard let item = self.allItems.first(where: { $0.id == id }) else {

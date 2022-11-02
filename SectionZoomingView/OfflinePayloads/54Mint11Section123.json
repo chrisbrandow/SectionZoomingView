@@ -30,7 +30,10 @@
                             "name" : "Olive Miste",
                             "description" : "Gluten free. Mixed selection of marinated olives",
                             "attributes" : [
-
+                                "Gluten free",
+                                "Vegetarian",
+                                "Vegan",
+                                "Raw"
                             ]
                         },
                         {
@@ -47,7 +50,8 @@
                             "attributes" : [
                                 "Vegetarian",
                                 "Vegan",
-                                "Gluten Free"
+                                "Gluten Free",
+                                "Raw"
                             ]
                         },
                         {
@@ -78,7 +82,7 @@
                             "name" : "Suppli",
                             "description" : "Tomato and basil rice croquettes with molten smoked mozzarella",
                             "attributes" : [
-                                "Vegetaria"
+                                "Vegetarian"
                             ]
                         },
                         {
@@ -138,7 +142,9 @@
                             "name" : "Cavolo Nero",
                             "description" : "Raw lacinato kale salad, lemon garlic dressing, shaved pecorino pepato",
                             "attributes" : [
-                                "Vegetarian"
+                                "Vegetarian",
+                                "Dairy",
+                                "Raw"
                             ]
                         },
                         {
@@ -235,7 +241,8 @@
                             "name" : "Tonnarelli Cacio E Pepe",
                             "description" : "Housemade long square pasta, pecorino cheese, black pepper, acqua di cottura",
                             "attributes" : [
-                                "Vegetarian"
+                                "Vegetarian",
+                                "Dairy"
                             ]
                         },
                         {
@@ -429,7 +436,8 @@
                             "name" : "Fettuccine Ai Funghi",
                             "description" : "Long ribbon egg pasta, shitake mushroom, leeks, parsley, parmigiano reggiano",
                             "attributes" : [
-                                "Vegetarian"
+                                "Vegetarian",
+                                "Dairy"
                             ]
                         }
                     ],
@@ -515,7 +523,7 @@
                             "name" : "Panino Vegetariano",
                             "description" : "Buffalo mozzarella, grilled zucchini “sott’olio”, tomato, calabrian hot chili.",
                             "attributes" : [
-
+                                "Dairy"
                             ]
                         },
                         {
@@ -560,7 +568,8 @@
                             "name" : "Pasta Combo",
                             "description" : "Fresh tonnarelli pasta, hand-crushed tomatoes, heirloom garlic and basil. - tomato risotto croquette \"Supplì\" - vanilla pannacotta with chocolate",
                             "attributes" : [
-                                "Vegetarian"
+                                "Vegetarian",
+                                "Dairy"
                             ]
                         },
                         {
@@ -690,7 +699,8 @@
                             "name" : "Pannacotta Al Cioccolato",
                             "description" : "Vanilla pannacotta with chocolate",
                             "attributes" : [
-                                "Gluten Free"
+                                "Gluten Free",
+                                "Dairy"
                             ]
                         },
                         {
@@ -705,7 +715,7 @@
                             "name" : "Tiramisu",
                             "description" : "Espresso-soaked ladyfingers, chocolate mascarpone",
                             "attributes" : [
-
+                                "Dairy"
                             ]
                         },
                         {
@@ -720,7 +730,7 @@
                             "name" : "Crostata Di Ricotta E Ciliege",
                             "description" : "Shortcrust pastry, cow milk ricotta, cherry marmalade",
                             "attributes" : [
-
+                                "Dairy"
                             ]
                         }
                     ],
