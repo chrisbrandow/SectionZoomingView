@@ -12,6 +12,8 @@
 		447B7B4B2911DFB400CE3501 /* TagBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4A2911DFB400CE3501 /* TagBar.swift */; };
 		447B7B4D2911E00300CE3501 /* TopBarContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447B7B4C2911E00300CE3501 /* TopBarContainer.swift */; };
 		44B54EE929123CB3007381B2 /* SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */; };
+		44B54EF129132CA4007381B2 /* TagBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EF029132CA4007381B2 /* TagBarViewModel.swift */; };
+		44B54EF329132D91007381B2 /* MenuTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EF229132D91007381B2 /* MenuTag.swift */; };
 		5E1BE3C429119DE500F0002C /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C329119DE500F0002C /* MenuTests.swift */; };
 		5EBA473F2912E9D3006C950B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA473E2912E9D3006C950B /* Loader.swift */; };
 		5EBA47482912EA2F006C950B /* TextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA47412912EA2F006C950B /* TextExtensions.swift */; };
@@ -92,6 +94,8 @@
 		447B7B4A2911DFB400CE3501 /* TagBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagBar.swift; sourceTree = "<group>"; };
 		447B7B4C2911E00300CE3501 /* TopBarContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarContainer.swift; sourceTree = "<group>"; };
 		44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
+		44B54EF029132CA4007381B2 /* TagBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarViewModel.swift; sourceTree = "<group>"; };
+		44B54EF229132D91007381B2 /* MenuTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTag.swift; sourceTree = "<group>"; };
 		5E1BE3C329119DE500F0002C /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
 		5EBA473E2912E9D3006C950B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		5EBA47412912EA2F006C950B /* TextExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextExtensions.swift; sourceTree = "<group>"; };
@@ -353,10 +357,12 @@
 				831916A725CE27B100753195 /* CoreMenuView.swift */,
 				831916A225CCC3A400753195 /* CGSizeExtensions.swift */,
 				83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */,
+				44B54EF229132D91007381B2 /* MenuTag.swift */,
 				8359400125D6031B007010B1 /* ParentVCDrawerExtension.swift */,
 				447B7B402911B65800CE3501 /* SearchBar.swift */,
 				44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */,
 				447B7B4A2911DFB400CE3501 /* TagBar.swift */,
+				44B54EF029132CA4007381B2 /* TagBarViewModel.swift */,
 				447B7B4C2911E00300CE3501 /* TopBarContainer.swift */,
 				83F4F4F225E0A3E20026A0F8 /* Utilities.swift */,
 				832357EC25BC9D0E008295FE /* ZoomableViewController.swift */,
@@ -522,6 +528,7 @@
 				5EBA47772912EC52006C950B /* Menu.swift in Sources */,
 				5EBA47742912EC33006C950B /* Currency.swift in Sources */,
 				5EBA474E2912EA2F006C950B /* SwiftUIColorExtension.swift in Sources */,
+				44B54EF329132D91007381B2 /* MenuTag.swift in Sources */,
 				447B7B4D2911E00300CE3501 /* TopBarContainer.swift in Sources */,
 				8351CDDE2594569700946150 /* AppDelegate.swift in Sources */,
 				831916A825CE27B100753195 /* CoreMenuView.swift in Sources */,
@@ -536,6 +543,7 @@
 				5EBA474A2912EA2F006C950B /* GlobalConfiguration.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
 				5EBA474B2912EA2F006C950B /* Shadow.swift in Sources */,
+				44B54EF129132CA4007381B2 /* TagBarViewModel.swift in Sources */,
 				5EBA47642912EA73006C950B /* CartViewModel.swift in Sources */,
 				5EBA47752912EC33006C950B /* Price.swift in Sources */,
 				5EBA475B2912EA5C006C950B /* Cart+Facets.swift in Sources */,

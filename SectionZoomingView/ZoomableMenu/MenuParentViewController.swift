@@ -20,6 +20,8 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     var searchBarViewModel: SearchBarViewModel?
 
+    var tagBarViewModel: TagBarViewModel?
+
     private var cancellables = Set<AnyCancellable>()
 
     @IBOutlet weak var titleLabel: UILabel?
@@ -38,8 +40,14 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
         let searchBarViewModel = SearchBarViewModel()
+        let tagBarViewModel = TagBarViewModel()
+
         self.searchBarViewModel = searchBarViewModel
-        return UIHostingController(coder: coder, rootView: TopBarContainer(searchBarViewModel: searchBarViewModel))
+        self.tagBarViewModel = tagBarViewModel
+
+        let topBarContainer = TopBarContainer(searchBarViewModel: searchBarViewModel,
+                                              tagBarViewModel: tagBarViewModel)
+        return UIHostingController(coder: coder, rootView: topBarContainer)
     }
 
     func zoomableView(for frame: CGRect) -> SectionedView {

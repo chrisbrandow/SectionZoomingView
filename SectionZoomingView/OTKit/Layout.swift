@@ -49,6 +49,7 @@ extension UIColor {
     static var otk_ashLighter: UIColor { return UIColor(named: "otKit_ash_lighter") ?? .black }
     static var otk_ashLightest: UIColor { return UIColor(named: "otKit_ash_lightest") ?? .black }
     static var otk_green: UIColor { UIColor(named: "otKit_green") ?? . black }
+    static var otk_greenDark: UIColor { return UIColor(named: "otKit_green_dark") ?? .black }
     static var otk_greenLighter: UIColor { return UIColor(named: "otKit_green_lighter") ?? .black }
     static var otk_greenLightest: UIColor { UIColor(named: "otKit_green_lightest") ?? .black }
     static var otk_white_white: UIColor { return UIColor(named: "otKit_white_white") ?? .black }
