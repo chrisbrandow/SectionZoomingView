@@ -6,13 +6,16 @@ struct CartView: View {
 
     var body: some View {
         VStack(spacing: .otk_mediumSpacing) {
-            ForEach(viewModel.cart.orders.flatMap { $0.items}) {
+            ForEach(viewModel.cart.items) {
                 CartItemView(item: $0)
                     .background {
                         Color(uiColor: .otk_white)
                             .cornerRadius(8)
                             .shadow(color: Color(uiColor: .otk_ash_lighter), radius: 6, y: 6)
                     }
+            }
+            if let total = try? viewModel.cart.total() {
+                CartTotalView(total: total)
             }
         }.padding()
     }
