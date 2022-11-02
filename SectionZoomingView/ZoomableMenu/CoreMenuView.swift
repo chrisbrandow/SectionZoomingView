@@ -53,7 +53,9 @@ extension UIColor {
     static var otk_ashLight: UIColor { return UIColor(named: "otKit_ash_light") ?? .black }
     static var otk_ashLighter: UIColor { return UIColor(named: "otKit_ash_lighter") ?? .black }
     static var otk_ashLightest: UIColor { return UIColor(named: "otKit_ash_lightest") ?? .black }
+    static var otk_green: UIColor { UIColor(named: "otKit_green") ?? . black }
     static var otk_greenLighter: UIColor { return UIColor(named: "otKit_green_lighter") ?? .black }
+    static var otk_greenLightest: UIColor { UIColor(named: "otKit_green_lightest") ?? .black }
     static var otk_white: UIColor { return UIColor(named: "otKit_white") ?? .black }
     static var otk_white_white: UIColor { return UIColor(named: "otKit_white_white") ?? .black }
     static var otk_whiteAsh: UIColor { return UIColor(named: "otKit_white_ash") ?? .black }
@@ -251,8 +253,7 @@ class PlaceholderMenuView: UIView {
 
 enum EntryViewStyle {
     case normal
-    case highlightDescription(text: String)
-    case highlightTitle(text: String)
+    case highlight
 }
 
 enum EntryMagnificationStyle {
@@ -280,18 +281,16 @@ extension EntryView {
         switch style {
         case .normal:
             self.backgroundColor = .otk_white
-            self.titleLabel.textColor = .otk_ashDarker
-            self.descriptionLabel.textColor = .otk_ashLight
+            self.titleLabel.textColor = .otk_ashDark
+            self.descriptionLabel.textColor = .otk_ash
             self.descriptionLabel.text = self.descriptionLabel.text
             self.titleLabel.text = self.titleLabel.text
-        case let .highlightDescription(text):
-            self.backgroundColor = .otk_greenLighter
-            self.descriptionLabel.textColor = .otk_ashDarker
-            self.descriptionLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
-        case let .highlightTitle(text):
-            self.descriptionLabel.textColor = .otk_ashDark
-            self.backgroundColor = .otk_greenLighter
-            self.titleLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
+            layer.borderWidth = 0
+            layer.borderColor = UIColor.otk_white.cgColor
+        case .highlight:
+            self.backgroundColor = .otk_greenLightest
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.otk_green.cgColor
         }
     }
 }
