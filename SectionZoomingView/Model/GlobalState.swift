@@ -5,7 +5,7 @@ import Combine
 // a solitary life, unable to fit into society.
 
 class GlobalState: ObservableObject {
-    let shared = GlobalState()
+    static let shared = GlobalState()
 
     /// Posts to `NotificationCenter.default` when the cart changes, with
     /// `userInfo: ["cart": theNewCart]`

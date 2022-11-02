@@ -21,22 +21,19 @@ extension MenuParentViewController {
 
     func userDidTap(button: UIButton, for item: MenuItem) {//}, in view: ZoomableView) {
         let v = AddToCartView(menuItem: item, quantity: 1) { cartItem in
-            GlobalState.addToCart(cartItem)
+            GlobalState.shared.addToCart(cartItem)
         } onCancel: { [unowned self] in
             self.dismiss(animated: true)
         }
 
         let vc = UIHostingController(rootView: v)
-//        vc.view.frame = self.view.frame
         let tapBackgroundGR = UITapGestureRecognizer(target: self, action: #selector(tapBackgroundAction(_:)))
         vc.view.addGestureRecognizer(tapBackgroundGR)
 
         vc.view.sizeToFit()
         vc.view.backgroundColor = .clear
 
-        self.present(vc, animated: true) {
-
-        }
+        self.present(vc, animated: true) {}
     }
     
     private func update(value: Int, for view: EntryView) {

@@ -191,7 +191,6 @@ extension MenuParentViewController {
 class BottomBarVC: UIViewController {
     @IBOutlet weak var cartView: UIView?
 
-
     @IBOutlet weak var cartImageView: UIImageView!
     @IBOutlet weak var cartMiniView: CartInfoView!
 
@@ -199,9 +198,20 @@ class BottomBarVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(Self.cartUpdated(notification:)),
+                                               name: GlobalState.cartChangedNotification,
+                                               object: nil)
     }
 
+    @objc
+    func cartUpdated(notification: Notification) {
+        print("hooray! state propagation works! we can be less ashamed!")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 class CartInfoView: UIView {
