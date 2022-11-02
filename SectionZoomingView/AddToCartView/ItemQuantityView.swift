@@ -15,6 +15,7 @@ struct ItemQuantityView: View {
 
     var body: some View {
         HStack(spacing: 8) {
+            Spacer()
             self.button("−", isEmabled: self.quantity > self.minimumQuantity) {
                 self.quantity = max(self.minimumQuantity, self.quantity - 1)
             }
@@ -23,6 +24,7 @@ struct ItemQuantityView: View {
             self.button("+", isEmabled: self.quantity < self.maximumQuantity) {
                 self.quantity = min(self.maximumQuantity, self.quantity + 1)
             }
+            Spacer()
         }
     }
 
