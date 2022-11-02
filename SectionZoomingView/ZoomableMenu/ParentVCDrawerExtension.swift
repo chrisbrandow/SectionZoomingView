@@ -48,7 +48,7 @@ extension MenuParentViewController {
 
         tLabel.numberOfLines = 0
         tLabel.font = UIFont(name: "BrandonText-Bold", size: 24)
-        tLabel.textColor = .otk_ashDarker
+        tLabel.textColor = .otk_ashDark
         tLabel.text = item.name
 
         dLabel.numberOfLines = 0

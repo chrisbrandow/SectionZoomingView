@@ -120,15 +120,15 @@ class PlaceholderMenuView: UIView {
         //                let topSpacing: CGFloat = 4.0
         let label = UILabel()
         label.text = entry.name
-        label.textColor = .otk_ashDarker
+        label.textColor = .otk_ashDark
         view.addSubview(label)
 
-        label.textColor = .otk_ashDarker
+        label.textColor = .otk_ashDark
 
         label.font = UIFont(name: "BrandonText-Bold", size: fontSize)// UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.frame = view.frame
         label.textAlignment = .center
-        view.backgroundColor = .otk_ashLightest
+        view.backgroundColor = .otk_whiteAshDark
         var bigFrame = view.bounds
         bigFrame.origin.x += 8.0
         bigFrame.size.width -= 8.0
@@ -153,7 +153,7 @@ class PlaceholderMenuView: UIView {
         let topSpacing: CGFloat = 4.0
         let titleLabel = UILabel()
         titleLabel.text = entry.name
-        titleLabel.textColor = .otk_ashDarker
+        titleLabel.textColor = .otk_ashDark
 
         
         titleLabel.numberOfLines = view.isNarrowCell ? 0 : 1
@@ -167,7 +167,7 @@ class PlaceholderMenuView: UIView {
         view.addSubview(titleLabel)
         let price = UILabel()
         price.text = "\(entry.price.formattedDescription ?? "")"
-        price.textColor = .otk_ashDarker
+        price.textColor = .otk_ashDark
 
         price.sizeToFit()
         price.frame = CGRect(x: columnWidth - (price.frame.width + 16), y: topSpacing, width:  price.frame.width + 10, height: defaultTextHeight)
@@ -280,15 +280,13 @@ extension EntryView {
     func configure(style: EntryViewStyle) {
         switch style {
         case .normal:
-            self.backgroundColor = .otk_white
-            self.titleLabel.textColor = .otk_ashDark
-            self.descriptionLabel.textColor = .otk_ash
-            self.descriptionLabel.text = self.descriptionLabel.text
-            self.titleLabel.text = self.titleLabel.text
+            backgroundColor = .otk_white
+            titleLabel.textColor = .otk_ashDark
+            descriptionLabel.textColor = .otk_ash
             layer.borderWidth = 0
             layer.borderColor = UIColor.otk_white.cgColor
         case .highlight:
-            self.backgroundColor = .otk_greenLightest
+            backgroundColor = .otk_greenLightest
             layer.borderWidth = 1
             layer.borderColor = UIColor.otk_green.cgColor
         }

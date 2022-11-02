@@ -15,7 +15,7 @@ struct SearchBar: View {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(Color(.otk_ash))
             TextField("", text: $viewModel.searchQuery)
-                .foregroundColor(Color(.otk_ashDarker))
+                .foregroundColor(Color(.otk_ashDark))
                 .font(.callout)
         }
         .frame(height: 40)
