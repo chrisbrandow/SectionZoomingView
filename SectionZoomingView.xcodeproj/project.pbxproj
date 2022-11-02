@@ -189,14 +189,16 @@
 		5EBA47402912EA2F006C950B /* OTKit */ = {
 			isa = PBXGroup;
 			children = (
+				832DA6D325D4F58800BB8DD8 /* BrandonText-Bold.otf */,
 				8370764229117EE6000621FC /* OTKitColors.xcassets */,
+				447B7B442911D33400CE3501 /* Font+UIFont.swift */,
+				5EBA47432912EA2F006C950B /* GlobalConfiguration.swift */,
+				5EBA47462912EA2F006C950B /* Layout.swift */,
+				5EBA47452912EA2F006C950B /* OTKit.swift */,
+				5EBA47442912EA2F006C950B /* Shadow.swift */,
+				5EBA47472912EA2F006C950B /* SwiftUIColorExtension.swift */,
 				5EBA47412912EA2F006C950B /* TextExtensions.swift */,
 				5EBA47422912EA2F006C950B /* UIAppearanceAdditions.swift */,
-				5EBA47432912EA2F006C950B /* GlobalConfiguration.swift */,
-				5EBA47442912EA2F006C950B /* Shadow.swift */,
-				5EBA47452912EA2F006C950B /* OTKit.swift */,
-				5EBA47462912EA2F006C950B /* Layout.swift */,
-				5EBA47472912EA2F006C950B /* SwiftUIColorExtension.swift */,
 			);
 			path = OTKit;
 			sourceTree = "<group>";
@@ -300,9 +302,7 @@
 				5EBA475E2912EA73006C950B /* CartView */,
 				5E1BE3AC2911927D00F0002C /* Model */,
 				5EBA47402912EA2F006C950B /* OTKit */,
-				832DA6D325D4F58800BB8DD8 /* BrandonText-Bold.otf */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
-				447B7B442911D33400CE3501 /* Font+UIFont.swift */,
 				8351CDE12594569700946150 /* LaunchVC.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8342FC4428ECFF5600D2A0E3 /* NewZoom */,
