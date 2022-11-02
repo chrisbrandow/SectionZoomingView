@@ -124,14 +124,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         let entry = sender.superview as? EntryView
         self.selectedItems.append(entry?.item?.name ?? "")
         if let item = entry?.item {
-//            let v = AddToCartView(item: item, quantity: 1) { cartItem in
-//                print("yay you added a thing to your cart. Congratulations. \(cartItem)")
-//            } onCancel: { [unowned self] in
-//                self.dismiss(animated: true)
-//            }
-//
-//            let vc = UIHostingController(rootView: v)
-//            self.present(vc, animated: true)
             self.userDidTap(button: sender, for: item)
         }
 
@@ -207,7 +199,6 @@ extension MenuParentViewController {
 class BottomBarVC: UIViewController {
     @IBOutlet weak var cartView: UIView?
 
-
     @IBOutlet weak var cartImageView: UIImageView!
     @IBOutlet weak var cartMiniView: CartInfoView!
 
@@ -215,9 +206,20 @@ class BottomBarVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(Self.cartUpdated(notification:)),
+                                               name: GlobalState.cartChangedNotification,
+                                               object: nil)
     }
 
+    @objc
+    func cartUpdated(notification: Notification) {
+        print("hooray! state propagation works! we can be less ashamed!")
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 class CartInfoView: UIView {
