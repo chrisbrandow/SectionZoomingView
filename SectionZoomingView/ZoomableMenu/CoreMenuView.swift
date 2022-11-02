@@ -53,7 +53,9 @@ extension UIColor {
     static var otk_ashLight: UIColor { return UIColor(named: "otKit_ash_light") ?? .black }
     static var otk_ashLighter: UIColor { return UIColor(named: "otKit_ash_lighter") ?? .black }
     static var otk_ashLightest: UIColor { return UIColor(named: "otKit_ash_lightest") ?? .black }
+    static var otk_green: UIColor { UIColor(named: "otKit_green") ?? . black }
     static var otk_greenLighter: UIColor { return UIColor(named: "otKit_green_lighter") ?? .black }
+    static var otk_greenLightest: UIColor { UIColor(named: "otKit_green_lightest") ?? .black }
     static var otk_white: UIColor { return UIColor(named: "otKit_white") ?? .black }
     static var otk_white_white: UIColor { return UIColor(named: "otKit_white_white") ?? .black }
     static var otk_whiteAsh: UIColor { return UIColor(named: "otKit_white_ash") ?? .black }
@@ -118,15 +120,15 @@ class PlaceholderMenuView: UIView {
         //                let topSpacing: CGFloat = 4.0
         let label = UILabel()
         label.text = entry.name
-        label.textColor = .otk_ashDarker
+        label.textColor = .otk_ashDark
         view.addSubview(label)
 
-        label.textColor = .otk_ashDarker
+        label.textColor = .otk_ashDark
 
         label.font = UIFont(name: "BrandonText-Bold", size: fontSize)// UIFont.systemFont(ofSize: 16, weight: .semibold)
         label.frame = view.frame
         label.textAlignment = .center
-        view.backgroundColor = .otk_ashLightest
+        view.backgroundColor = .otk_whiteAshDark
         var bigFrame = view.bounds
         bigFrame.origin.x += 8.0
         bigFrame.size.width -= 8.0
@@ -151,7 +153,7 @@ class PlaceholderMenuView: UIView {
         let topSpacing: CGFloat = 4.0
         let titleLabel = UILabel()
         titleLabel.text = entry.name
-        titleLabel.textColor = .otk_ashDarker
+        titleLabel.textColor = .otk_ashDark
 
         
         titleLabel.numberOfLines = view.isNarrowCell ? 0 : 1
@@ -165,7 +167,7 @@ class PlaceholderMenuView: UIView {
         view.addSubview(titleLabel)
         let price = UILabel()
         price.text = "\(entry.price.formattedDescription ?? "")"
-        price.textColor = .otk_ashDarker
+        price.textColor = .otk_ashDark
 
         price.sizeToFit()
         price.frame = CGRect(x: columnWidth - (price.frame.width + 16), y: topSpacing, width:  price.frame.width + 10, height: defaultTextHeight)
@@ -251,8 +253,7 @@ class PlaceholderMenuView: UIView {
 
 enum EntryViewStyle {
     case normal
-    case highlightDescription(text: String)
-    case highlightTitle(text: String)
+    case highlight
 }
 
 enum EntryMagnificationStyle {
@@ -279,19 +280,15 @@ extension EntryView {
     func configure(style: EntryViewStyle) {
         switch style {
         case .normal:
-            self.backgroundColor = .otk_white
-            self.titleLabel.textColor = .otk_ashDarker
-            self.descriptionLabel.textColor = .otk_ashLight
-            self.descriptionLabel.text = self.descriptionLabel.text
-            self.titleLabel.text = self.titleLabel.text
-        case let .highlightDescription(text):
-            self.backgroundColor = .otk_greenLighter
-            self.descriptionLabel.textColor = .otk_ashDarker
-            self.descriptionLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
-        case let .highlightTitle(text):
-            self.descriptionLabel.textColor = .otk_ashDark
-            self.backgroundColor = .otk_greenLighter
-            self.titleLabel.setHightlightedString(tintColor: UIColor.otk_red, tintingString: text)
+            backgroundColor = .otk_white
+            titleLabel.textColor = .otk_ashDark
+            descriptionLabel.textColor = .otk_ash
+            layer.borderWidth = 0
+            layer.borderColor = UIColor.otk_white.cgColor
+        case .highlight:
+            backgroundColor = .otk_greenLightest
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.otk_green.cgColor
         }
     }
 }

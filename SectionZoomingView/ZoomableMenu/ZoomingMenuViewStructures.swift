@@ -61,11 +61,11 @@ struct SectionedView {
         for entryView in self.view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
             entryView.configure(style: .normal)
             if entryView.item?.name.lowercased().contains(text.lowercased()) == true {
-                entryView.configure(style: .highlightTitle(text: text))
+                entryView.configure(style: .highlight)
                 isAnyHighlighted = true
             }
             if entryView.item?.itemDescription?.lowercased().contains(text.lowercased()) == true {
-                entryView.configure(style: .highlightDescription(text: text))
+                entryView.configure(style: .highlight)
                 isAnyHighlighted = true
             }
         }
