@@ -21,7 +21,7 @@ extension MenuParentViewController {
 
     func userDidTap(button: UIButton, for item: MenuItem) {//}, in view: ZoomableView) {
         let v = AddToCartView(menuItem: item, quantity: 1) { cartItem in
-            print("yay you added a thing to your cart. Congratulations. \(cartItem)")
+            GlobalState.addToCart(cartItem)
         } onCancel: { [unowned self] in
             self.dismiss(animated: true)
         }
