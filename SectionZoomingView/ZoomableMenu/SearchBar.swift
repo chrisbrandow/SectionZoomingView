@@ -13,17 +13,17 @@ struct SearchBar: View {
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
-                .foregroundColor(.gray)
+                .foregroundColor(Color(.otk_ash))
             TextField("", text: $query)
-                .foregroundColor(.black)
-                .font(Font(uiFont: UIFont(name: "BrandonText-Bold", size: 12)!))
+                .foregroundColor(Color(.otk_ashDarker))
+                .font(.callout)
         }
         .frame(height: 40)
         .padding(.leading, 8)
         .overlay(
             RoundedRectangle(cornerRadius: 4)
-                .stroke(.gray, lineWidth: 1)
-                .shadow(color: .gray, radius: 8, x: 0, y: 2)
+                .stroke(Color(.otk_ashLightest), lineWidth: 1)
+                // TODO: drop shadow
         )
     }
 }
