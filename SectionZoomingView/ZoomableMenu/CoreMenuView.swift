@@ -300,16 +300,16 @@ extension EntryView {
     func configure(compression style: EntryMagnificationStyle) {
         switch style {
         case .normal:
-            self.bigTitleLabel.layer.opacity = 0.0
-            self.titleLabel.layer.opacity = 1.0
-            self.descriptionLabel.layer.opacity = 1.0
-            self.priceLabel.layer.opacity = 1.0
+            bigTitleLabel.layer.opacity = 0.0
+            titleLabel.layer.opacity = 1.0
+            descriptionLabel.layer.opacity = 1.0
+            priceLabel.layer.opacity = 1.0
             tagStackView?.layer.opacity = 1.0
         case .compressed:
-            self.bigTitleLabel.layer.opacity = 1.0
-            self.titleLabel.layer.opacity = 0.0
-            self.descriptionLabel.layer.opacity = 0.0
-            self.priceLabel.layer.opacity = 0.0
+            bigTitleLabel.layer.opacity = 1.0
+            titleLabel.layer.opacity = 0.0
+            descriptionLabel.layer.opacity = 0.0
+            priceLabel.layer.opacity = 0.0
             tagStackView?.layer.opacity = 0.0
         }
     }
