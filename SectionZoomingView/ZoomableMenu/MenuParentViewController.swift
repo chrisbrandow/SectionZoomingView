@@ -100,6 +100,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                                                name: Application.shakeNotification,
                                                object: nil)
 
+
         self.setupBottomBar()
         self.bottomBarHostingController.view.layer.opacity = 0.0
         observeTopContainerBar()
@@ -196,6 +197,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         GlobalState
             .shared
             .$cart
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] cart in
                 guard let self = self,
                       let lastCartItem = cart.items.last else {
