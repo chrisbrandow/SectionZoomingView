@@ -14,6 +14,8 @@
 		44B54EE929123CB3007381B2 /* SearchBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */; };
 		44B54EF129132CA4007381B2 /* TagBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B54EF029132CA4007381B2 /* TagBarViewModel.swift */; };
 		5E1BE3C429119DE500F0002C /* MenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BE3C329119DE500F0002C /* MenuTests.swift */; };
+		5E22EA212913FB3A00991AC6 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22EA202913FB3A00991AC6 /* Application.swift */; };
+		5E22EA232913FBC800991AC6 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E22EA222913FBC800991AC6 /* main.swift */; };
 		5E5F576B291371F300AC732B /* CartDinerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F576A291371F300AC732B /* CartDinerView.swift */; };
 		5E5F576D2913721E00AC732B /* DinerInitialsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E5F576C2913721E00AC732B /* DinerInitialsView.swift */; };
 		5EBA473F2912E9D3006C950B /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA473E2912E9D3006C950B /* Loader.swift */; };
@@ -103,6 +105,8 @@
 		44B54EE829123CB3007381B2 /* SearchBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewModel.swift; sourceTree = "<group>"; };
 		44B54EF029132CA4007381B2 /* TagBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagBarViewModel.swift; sourceTree = "<group>"; };
 		5E1BE3C329119DE500F0002C /* MenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTests.swift; sourceTree = "<group>"; };
+		5E22EA202913FB3A00991AC6 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		5E22EA222913FBC800991AC6 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5E5F576A291371F300AC732B /* CartDinerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDinerView.swift; sourceTree = "<group>"; };
 		5E5F576C2913721E00AC732B /* DinerInitialsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerInitialsView.swift; sourceTree = "<group>"; };
 		5EBA473E2912E9D3006C950B /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
@@ -346,7 +350,9 @@
 				5E1BE3AC2911927D00F0002C /* Model */,
 				5EBA47402912EA2F006C950B /* OTKit */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
+				5E22EA202913FB3A00991AC6 /* Application.swift */,
 				8351CDE12594569700946150 /* LaunchVC.swift */,
+				5E22EA222913FBC800991AC6 /* main.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8342FC4428ECFF5600D2A0E3 /* NewZoom */,
 				9B7105D927A9E053007F8479 /* ErikaNotes */,
@@ -577,8 +583,10 @@
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
 				5EBA474B2912EA2F006C950B /* Shadow.swift in Sources */,
 				44B54EF129132CA4007381B2 /* TagBarViewModel.swift in Sources */,
+				5E22EA212913FB3A00991AC6 /* Application.swift in Sources */,
 				5EBA47642912EA73006C950B /* CartViewModel.swift in Sources */,
 				5EBA47752912EC33006C950B /* Price.swift in Sources */,
+				5E22EA232913FBC800991AC6 /* main.swift in Sources */,
 				5EBA475B2912EA5C006C950B /* Cart+Facets.swift in Sources */,
 				831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */,
 				447B7B4B2911DFB400CE3501 /* TagBar.swift in Sources */,
