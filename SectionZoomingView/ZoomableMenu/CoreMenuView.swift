@@ -300,16 +300,16 @@ extension EntryView {
     func configure(compression style: EntryMagnificationStyle) {
         switch style {
         case .normal:
-            self.bigTitleLabel.layer.opacity = 0.0
-            self.titleLabel.layer.opacity = 1.0
-            self.descriptionLabel.layer.opacity = 1.0
-            self.priceLabel.layer.opacity = 1.0
+            bigTitleLabel.layer.opacity = 0.0
+            titleLabel.layer.opacity = 1.0
+            descriptionLabel.layer.opacity = 1.0
+            priceLabel.layer.opacity = 1.0
             tagStackView?.layer.opacity = 1.0
         case .compressed:
-            self.bigTitleLabel.layer.opacity = 1.0
-            self.titleLabel.layer.opacity = 0.0
-            self.descriptionLabel.layer.opacity = 0.0
-            self.priceLabel.layer.opacity = 0.0
+            bigTitleLabel.layer.opacity = 1.0
+            titleLabel.layer.opacity = 0.0
+            descriptionLabel.layer.opacity = 0.0
+            priceLabel.layer.opacity = 0.0
             tagStackView?.layer.opacity = 0.0
         }
     }
@@ -321,10 +321,24 @@ extension EntryView {
             descriptionLabel.textColor = .otk_ash
             layer.borderWidth = 0
             layer.borderColor = UIColor.otk_white.cgColor
+            tagStackView?
+                .subviews
+                .compactMap { $0 as? TagLabel }
+                .forEach { label in
+                    label.textColor = UIColor.otk_greenDark
+                    label.backgroundColor = UIColor.otk_greenLightest
+                }
         case .highlight:
             backgroundColor = .otk_greenLightest
             layer.borderWidth = 1
             layer.borderColor = UIColor.otk_green.cgColor
+            tagStackView?
+                .subviews
+                .compactMap { $0 as? TagLabel }
+                .forEach { label in
+                    label.textColor = UIColor.otk_ashDark
+                    label.backgroundColor = UIColor.otk_white
+                }
         }
     }
 }
