@@ -22,6 +22,29 @@ struct AdminView: View {
 
                 Divider().padding()
 
+                Text("Fake Diner Ordering")
+                    .font(Font.otf_systemFont(ofSize: 24, weight: .bold))
+                Text("Tap a diner to simulate fake ordering in UI")
+                HStack(spacing: 16) {
+                    ForEach(Diner.allCases) { diner in
+                        Button {
+                            GlobalState.shared.startFakeOrdering(diner: diner)
+                            self.onClose()
+                        } label: {
+                            DinerInitialsView(diner: diner)
+                                .frame(width: 48, height: 48)
+                        }
+                    }
+                }
+
+                CartButtonView(style: .confirm, title: "Stop Fake Ordering", isEnabled: true) {
+                    GlobalState.shared.stopFakeOrdering()
+                    self.onClose()
+                }
+                .foregroundColor(Color.otk_red)
+
+                Divider().padding()
+
                 CartButtonView(style: .confirm, title: "Clear cart", isEnabled: true) {
                     GlobalState.shared.clearCart()
                     self.onClose()
