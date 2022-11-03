@@ -40,6 +40,7 @@
 		5EBA47772912EC52006C950B /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA47762912EC52006C950B /* Menu.swift */; };
 		5EBA477D29131EC2006C950B /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA477C29131EC2006C950B /* MenuItemView.swift */; };
 		5EBA478229132DA9006C950B /* GlobalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA478129132DA9006C950B /* GlobalState.swift */; };
+		5EBA478C29133FA9006C950B /* BottomBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA478B29133FA9006C950B /* BottomBarView.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -124,6 +125,7 @@
 		5EBA47762912EC52006C950B /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5EBA477C29131EC2006C950B /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		5EBA478129132DA9006C950B /* GlobalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalState.swift; sourceTree = "<group>"; };
+		5EBA478B29133FA9006C950B /* BottomBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBarView.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -283,6 +285,14 @@
 			path = OfflinePayloads;
 			sourceTree = "<group>";
 		};
+		5EBA478A29133FA9006C950B /* CommonUI */ = {
+			isa = PBXGroup;
+			children = (
+				5EBA478B29133FA9006C950B /* BottomBarView.swift */,
+			);
+			path = CommonUI;
+			sourceTree = "<group>";
+		};
 		8342FC4428ECFF5600D2A0E3 /* NewZoom */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 				837076642912395F000621FC /* SectionZoomingView.entitlements */,
 				5EBA47672912EA7B006C950B /* AddToCartView */,
 				5EBA475E2912EA73006C950B /* CartView */,
+				5EBA478A29133FA9006C950B /* CommonUI */,
 				5E1BE3AC2911927D00F0002C /* Model */,
 				5EBA47402912EA2F006C950B /* OTKit */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
@@ -522,6 +533,7 @@
 				5EBA47632912EA73006C950B /* CartTotalView.swift in Sources */,
 				8342FC4828ED00E600D2A0E3 /* Layout Helpers.swift in Sources */,
 				44B54EE929123CB3007381B2 /* SearchBarViewModel.swift in Sources */,
+				5EBA478C29133FA9006C950B /* BottomBarView.swift in Sources */,
 				8351CDE22594569700946150 /* LaunchVC.swift in Sources */,
 				8342FC4A28ED00E600D2A0E3 /* ZoomableView Helpers.swift in Sources */,
 				5EBA47592912EA5C006C950B /* MenuGroup.swift in Sources */,

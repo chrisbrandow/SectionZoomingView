@@ -37,6 +37,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet weak var backingView: UIView!
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
+    lazy var bottomBarHostingController = UIHostingController(
+        rootView: AnyView(BottomBarView().environmentObject(GlobalState.shared))
+    )
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
         let searchBarViewModel = SearchBarViewModel()
@@ -98,6 +101,19 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             ])
         }
 
+        self.bottomBarContainer?.isHidden = true
+
+
+        if let v = bottomBarHostingController.view,
+           let container = self.view {
+            v.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(v)
+            NSLayoutConstraint.activate([
+                v.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                v.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+            ])
+        }
         observeSearchBar()
     }
 
