@@ -30,10 +30,9 @@
                             "name" : "Olive Miste",
                             "description" : "Gluten free. Mixed selection of marinated olives",
                             "attributes" : [
-                                "Gluten Free",
                                 "Vegetarian",
+                                "Gluten Free",
                                 "Vegan",
-                                "Raw"
                             ]
                         },
                         {
@@ -51,7 +50,6 @@
                                 "Vegetarian",
                                 "Vegan",
                                 "Gluten Free",
-                                "Raw"
                             ]
                         },
                         {
@@ -67,7 +65,7 @@
                             "description" : "Grilled mediterranean octopus, warm potato and parsley salad, and olive oil",
                             "attributes" : [
                                 "Gluten Free",
-                                "Dairy Free"
+                                "Dairy"
                             ]
                         },
                         {
@@ -112,7 +110,7 @@
                             "name" : "Saltimbocca Alla Romana",
                             "description" : "Veal saltimbocca, prosciutto di parma, and sage, simmered in white wine and butter",
                             "attributes" : [
-
+                                "Raw"
                             ]
                         },
                         {
@@ -140,11 +138,10 @@
 
                             ],
                             "name" : "Cavolo Nero",
-                            "description" : "Raw lacinato kale salad, lemon garlic dressing, shaved pecorino pepato",
+                            "description" : "Lacinato kale salad, lemon garlic dressing, shaved pecorino pepato, prosciutto",
                             "attributes" : [
-                                "Vegetarian",
-                                "Dairy",
-                                "Raw"
+                                "Raw",
+                                "Dairy"
                             ]
                         },
                         {
@@ -458,8 +455,8 @@
                             "name" : "Pollo Al Mattone Con Peperoni",
                             "description" : "Mustard marinated pan-roasted organic chicken, sautéed yellow and red peppers with capers and onions",
                             "attributes" : [
-                                "Dairy",
-                                "Gluten Free"
+                                "Gluten Free",
+                                "Dairy"
                             ]
                         },
                         {
@@ -507,8 +504,8 @@
                             "name" : "Agnello Alla Scottadito",
                             "description" : "Grilled lamb chops, broccolini, rosemary oil",
                             "attributes" : [
-                                "Dairy Free",
-                                "Gluten Free"
+                                "Gluten Free",
+                                "Dairy"
                             ]
                         },
                         {
@@ -677,8 +674,8 @@
                             "name" : "Salmone",
                             "description" : "Wild king salmon, celery root puree, toy box carrot, salmoriglio",
                             "attributes" : [
-                                "Dairy Free",
-                                "Gluten Free"
+                                "Gluten Free",
+                                "Dairy"
                             ]
                         }
                     ],
