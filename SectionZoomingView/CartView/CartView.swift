@@ -16,6 +16,8 @@ struct CartView: View {
 
     var onInviteDiners: () -> Void = {}
 
+    var onClose: () -> Void = {}
+
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
@@ -28,9 +30,10 @@ struct CartView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 7, height: 14)
-                    Button(" Back") { self.onSubmit() }
-                }.foregroundColor(Color.otk_red)
-                    .padding([.leading])
+                    Button(" Back") { self.onClose() }
+                }
+                .foregroundColor(Color.otk_red)
+                .padding([.leading, .trailing])
 
                 ScrollView {
                     // Items within the scroll view set their own leading / trailing
@@ -51,10 +54,9 @@ struct CartView: View {
 
                     self.allCartItemsList()
                         .padding([.leading, .trailing])
-                }.padding([.top])
-
+                }
                 self.submitButton()
-            }
+            }.padding([.top, .bottom])
         }
     }
 

@@ -121,7 +121,10 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         let cartView = CartView {
             print("Order submitted")
             // TODO: actually submit an order
-        }.environmentObject(GlobalState.shared)
+        } onClose: { [unowned self] in
+            self.dismiss(animated: true)
+        }
+        .environmentObject(GlobalState.shared)
 
         let vc = UIHostingController(rootView: cartView)
         self.present(vc, animated: true)
