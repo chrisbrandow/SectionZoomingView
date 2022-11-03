@@ -19,6 +19,10 @@ class Client {
 
     let redis = Redis()
 
+    private static let defaultPollingInterval: TimeInterval = 3
+
+    private var timer: Timer?
+
     // One shared order per restaurant
     var key: String { GlobalState.shared.selectedExample.rawValue }
 
@@ -30,6 +34,7 @@ class Client {
                 try await auth()
                 pull()
                 subscribe()
+                startPolling()
             } catch {
                 self.handleError(error)
             }
@@ -70,6 +75,22 @@ class Client {
             }
         }
         cancellables.insert(c)
+    }
+
+    func startPolling(interval: TimeInterval? = nil) {
+        let interval = interval ?? Self.defaultPollingInterval
+        if let timer = timer {
+            timer.invalidate()
+        }
+        timer = Timer.scheduledTimer(withTimeInterval: interval,
+                                     repeats: true) { [weak self] timer in
+            self?.pull()
+        }
+    }
+
+    func stopPolling() {
+        timer?.invalidate()
+        timer = nil
     }
 
     func cartString(cart: Cart) throws -> String {
