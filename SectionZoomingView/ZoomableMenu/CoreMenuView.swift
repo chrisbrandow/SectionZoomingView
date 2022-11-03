@@ -287,7 +287,8 @@ class PlaceholderMenuView: UIView {
 
 enum EntryViewStyle {
     case normal
-    case highlight
+    case highlightViaSearch
+    case highlightViaTag(_ tag: MenuTag)
 }
 
 enum EntryMagnificationStyle {
@@ -327,8 +328,10 @@ extension EntryView {
                 .forEach { label in
                     label.textColor = UIColor.otk_greenDark
                     label.backgroundColor = UIColor.otk_greenLightest
+                    label.layer.borderWidth = 0
+                    label.layer.borderColor = UIColor.white.cgColor
                 }
-        case .highlight:
+        case .highlightViaSearch:
             backgroundColor = .otk_greenLightest
             layer.borderWidth = 1
             layer.borderColor = UIColor.otk_green.cgColor
@@ -337,8 +340,26 @@ extension EntryView {
                 .compactMap { $0 as? TagLabel }
                 .forEach { label in
                     label.textColor = UIColor.otk_ashDark
-                    label.backgroundColor = UIColor.otk_white
+                    label.backgroundColor = .otk_white
                 }
+        case let .highlightViaTag(tag):
+            backgroundColor = .otk_greenLightest
+            layer.borderWidth = 1
+            layer.borderColor = UIColor.otk_green.cgColor
+            if let tags = tagStackView?.subviews.compactMap({ $0 as? TagLabel }) {
+                tags.forEach { label in
+                    if label.text == tag.rawValue || (tag == .raw && label.text == "Contains raw meat") {
+                        label.textColor = UIColor.otk_greenDark
+                        label.backgroundColor = .otk_white
+                        label.layer.borderWidth = 1
+                        label.layer.borderColor = UIColor.otk_green.cgColor
+                    }
+                    else {
+                        label.textColor = UIColor.otk_ashDark
+                        label.backgroundColor = .otk_white
+                    }
+                }
+            }
         }
     }
 }

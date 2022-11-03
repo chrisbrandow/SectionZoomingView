@@ -108,7 +108,8 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                 v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
             ])
         }
-        observeSearchBar()
+
+        observeTopContainerBar()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -143,20 +144,20 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     weak var selectedBadge: UIView?
     var selectedItems = [String]()
 
-    private func observeSearchBar() {
-        guard let searchBarViewModel = searchBarViewModel else {
+    private func observeTopContainerBar() {
+        guard let searchBarViewModel = searchBarViewModel,
+              let tagBarViewModel = tagBarViewModel else {
             return
         }
 
-        searchBarViewModel
-            .$searchQuery
-            .filter { !$0.isEmpty }
-            .sink { [weak self] query in
+        Publishers
+            .CombineLatest(searchBarViewModel.$searchQuery, tagBarViewModel.$tappedTag)
+            .sink { [weak self] query, tag in
                 guard let zoomingView = self?.zoomingView else {
                     return
                 }
 
-                zoomingView.highlight(text: query)
+                zoomingView.highlight(with: query, tag: tag)
             }
             .store(in: &cancellables)
     }
