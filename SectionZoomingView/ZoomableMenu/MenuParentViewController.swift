@@ -200,11 +200,11 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] cart in
                 guard let self = self,
-                      let lastCartItem = cart.items.last else {
+                    cart.items.isEmpty == false else {
                     return
                 }
+                cart.items.forEach({ self.updateEntryView(with: $0) })
 
-                self.updateEntryView(with: lastCartItem)
                 if self.bottomBarHostingController.view.layer.opacity == 0 {
                     
                     UIView.animate(withDuration: 0.2, delay: 0.3) {

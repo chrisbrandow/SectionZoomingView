@@ -74,6 +74,7 @@ extension GlobalState {
         let items: [Cart.Item] = (0 ..< itemCount)
             .map { Cart.Item.stub(index: $0) }
         let cart = Cart(items: items)
+        Client.shared.pull()
         return GlobalState(cart: cart)
     }
 }
