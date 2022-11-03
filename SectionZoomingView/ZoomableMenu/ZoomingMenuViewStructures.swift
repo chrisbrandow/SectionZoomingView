@@ -45,31 +45,29 @@ struct SectionedView {
         // also need a method for "is zooming"
     }
 
-    @discardableResult
-    func highlight(text: String) -> Bool {
-        guard text.count > 2 else {
-            self.view.subviews
-                .compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView })
-                .forEach ({ $0.configure(style: .normal) })
-            return false
-        }
-        // would be nice to be able to create plural/singular variant
-        // would be nice to have a dictionary of words that would highlight specific items based
-        // on generic words like
-        //TODO: Chris Brandow  2021-02-10 need to deal with section headers
-        var isAnyHighlighted = false
+    // would be nice to be able to create plural/singular variant
+    // would be nice to have a dictionary of words that would highlight specific items based
+    // on generic words
+    func highlight(with text: String, tag: MenuTag) {
         for entryView in self.view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
             entryView.configure(style: .normal)
-            if entryView.item?.name.lowercased().contains(text.lowercased()) == true {
-                entryView.configure(style: .highlight)
-                isAnyHighlighted = true
-            }
-            if entryView.item?.itemDescription?.lowercased().contains(text.lowercased()) == true {
-                entryView.configure(style: .highlight)
-                isAnyHighlighted = true
+            if let item = entryView.item {
+                if text.count > 2,
+                   item.name.lowercased().contains(text.lowercased()) {
+                    entryView.configure(style: .highlightViaSearch)
+                }
+
+                if text.count > 2,
+                   let itemDescription = item.itemDescription,
+                   itemDescription.lowercased().contains(text.lowercased()) {
+                    entryView.configure(style: .highlightViaSearch)
+                }
+
+                if item.attributes.contains(tag.rawValue) {
+                    entryView.configure(style: .highlightViaTag(tag))
+                }
             }
         }
-        return isAnyHighlighted
     }
 
     func setButtons(enabled: Bool) {
