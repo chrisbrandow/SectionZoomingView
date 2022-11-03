@@ -14,7 +14,7 @@ class GlobalState: ObservableObject {
     /// Updates to `cart` should be published via both Combine and
     /// NotificationCenter. Choose your fighter!!!
     @Published
-    var cart: Cart = Cart(items: []) {
+    var cart: Cart {
         didSet {
             print("Cart updated with item count: \(self.cart.items.count)")
             NotificationCenter.default.post(name: Self.cartChangedNotification,
@@ -23,10 +23,21 @@ class GlobalState: ObservableObject {
         }
     }
 
+    init(cart: Cart = Cart(items: [])) {
+        self.cart = cart
+    }
+
     /// Use this. Or don't. Whatever. The cart updates will be published nontheless.
     func addToCart(_ item: Cart.Item) {
         var newCart = cart
         newCart.items.append(item)
         self.cart = newCart
+    }
+}
+
+extension GlobalState {
+    static func stub(itemCount: Int = 4) -> GlobalState {
+        let cart = Cart(items: (0 ..< itemCount).map { Cart.Item.stub(index: $0) })
+        return GlobalState(cart: cart)
     }
 }

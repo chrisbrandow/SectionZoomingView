@@ -28,15 +28,14 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet var zoomableContainer: UIView?
     @IBOutlet var bottomBarContainer: UIView?
     var zoomableController: ZoomableViewController?
-    var bottomBarVC: BottomBarVC?
     var shadowLine = UIView()
-
-    @IBOutlet weak var bottomBarBottomConstraint: NSLayoutConstraint?
-    @IBOutlet weak var bottomBarHeightConstraint: NSLayoutConstraint?
 
     @IBOutlet weak var backingView: UIView!
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
+    lazy var bottomBarHostingController = UIHostingController(
+        rootView: AnyView(BottomBarView().environmentObject(GlobalState.shared))
+    )
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
         let searchBarViewModel = SearchBarViewModel()
@@ -66,8 +65,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         if let zoomableVC = segue.destination as? ZoomableViewController {
             zoomableVC.zoomableProvider = self
             self.zoomableController = zoomableVC
-        } else if let vc = segue.destination as? BottomBarVC, segue.identifier == "bottomBarVC" {
-            self.bottomBarVC = vc
         }
     }
 
@@ -98,6 +95,19 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             ])
         }
 
+        self.bottomBarContainer?.isHidden = true
+
+
+        if let v = bottomBarHostingController.view,
+           let container = self.view {
+            v.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(v)
+            NSLayoutConstraint.activate([
+                v.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                v.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+            ])
+        }
         observeSearchBar()
     }
 
@@ -110,13 +120,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 //            UserDefaults.standard.set(true, forKey: "hasSeenZoomGesture")
 //        }
 
-    }
-
-    var bottomVCConstraint: NSLayoutConstraint? {
-        return self.view.constraints.first() {
-            return $0.secondAnchor == self.bottomBarVC?.view.superview?.bottomAnchor
-            || $0.firstAnchor == self.bottomBarVC?.view.superview?.bottomAnchor
-        }
     }
 
     @objc
@@ -171,7 +174,7 @@ extension MenuParentViewController {
     }
 
     private func createView(with strips: [UIView]) -> SectionedView {
-        let viewHeight = (self.bottomBarVC?.view.superview?.frame.origin.y ?? 0)
+        let viewHeight = (self.bottomBarHostingController.view.frame.origin.y)
         - (self.titleLabel?.superview?.frame.maxY ?? 0)
         let aspectRatioSubHeader = Double(view.bounds.width/viewHeight)
         let arrangement = UIView.bestArrangement(for: strips, matchingRatio: aspectRatioSubHeader)

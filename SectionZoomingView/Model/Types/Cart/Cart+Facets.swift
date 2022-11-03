@@ -16,15 +16,19 @@ extension Cart {
     ///
     /// Or just think of a better way to valiate / prevent this at the Menu construction phase of things.
     // TODO: validate this when we're building the menu. It's awkward to handle errors here
-    func total() throws -> Price {
+    func totalPrice() throws -> Price {
         let currencies = Set(self.items.compactMap { $0.menuItem.price.currency })
         if currencies.count > 1 {
             throw Error.multipleCurrencies(currencies)
         }
 
         return items.reduce(Price(amountTimes100: 0, currency: currencies.first)) {
-            $0 + $1.menuItem.price
+            $0 + $1.totalPrice
         }
+    }
+
+    func totalItems() -> Int {
+        return items.reduce(0) { $0 + $1.quantity }
     }
 
     func itemsByDinerId() -> [Item.DinerID: [Item]] {
