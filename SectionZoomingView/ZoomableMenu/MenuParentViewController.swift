@@ -15,7 +15,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     var zoomingView: SectionedView?
 
-    var selectedExample = MenuDataSource.Example.paradiso_23_304
 //    lazy var pinchToZoomLayer: CALayer? = self.createPinchLayer()
 
     var searchBarViewModel: SearchBarViewModel?
@@ -73,16 +72,16 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         super.viewDidLoad()
         UserDefaults.standard.removeObject(forKey: "hasSeenZoomGesture")
         self.zoomableContainer?.clipsToBounds = false
+
+        self.title = GlobalState.shared.restaurantName
+        self.titleLabel?.text = GlobalState.shared.restaurantName
+
         if let _ = self.navigationController {
             self.zoomableTopConstraint.constant = 0
-            self.title = self.selectedExample.displayName
             self.titleLabel?.isHidden = true
             self.backingView.backgroundColor = .otk_white
             self.view.backgroundColor = .otk_white
-        } else {
-            self.titleLabel?.text = self.selectedExample.displayName
         }
-
 
         if let container = self.titleLabel?.superview {
             self.shadowLine.translatesAutoresizingMaskIntoConstraints = false
@@ -235,7 +234,7 @@ extension MenuParentViewController {
 
     /// This generates the array of individual views
     private func generateViews(for columnWidth: CGFloat) -> [UIView] {
-        let datasource = try! MenuDataSource(example: self.selectedExample)
+        let datasource = try! MenuDataSource(example: GlobalState.shared.selectedExample)
         // Ryosuke - here are the tags
         let allTags = datasource.entireMenu.allTags
         print(allTags)
