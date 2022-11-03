@@ -96,6 +96,15 @@ struct SectionedView {
             views.forEach ({ aView in aView.configure(compression: style) })
         }
     }
+
+    func firstEntryView(with id: String) -> EntryView? {
+        view
+            .subviews
+            .compactMap {
+                ($0 as? EntryView) ?? $0.subviews.first as? EntryView
+            }
+            .first(where: { $0.item?.id == id })
+    }
 }
 
 typealias PinchState = UIPinchGestureRecognizer.State // convenience
