@@ -14,7 +14,7 @@ struct CartView: View {
                             .otk_shadow()
                     }
             }
-            if let total = try? viewModel.cart.total() {
+            if let total = try? viewModel.cart.totalPrice() {
                 CartTotalView(total: total)
             }
         }.padding()

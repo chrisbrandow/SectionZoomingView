@@ -17,8 +17,8 @@ struct BottomBarView: View {
         guard self.cart.items.count > 0
         else { return "Your cart is empty" }
 
-        return [try? cart.total().formattedDescription,
-                "\(self.cart.items.count) items"]
+        return [try? cart.totalPrice().formattedDescription,
+                "\(self.cart.totalItems()) items"]
             .compactMap { $0 }
             .joined(separator: " • ")
     }
