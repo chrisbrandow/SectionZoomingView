@@ -48,6 +48,17 @@ class GlobalState: ObservableObject {
         newCart.items = []
         self.cart = newCart
     }
+
+    var fakeDiners: Set<FakeOtherDiner> = Set()
+
+    func startFakeOrdering(diner: Diner) {
+        let fake = FakeOtherDiner(diner: diner)
+        fakeDiners.insert(fake)
+    }
+
+    func stopFakeOrdering() {
+        fakeDiners.removeAll()
+    }
 }
 
 extension GlobalState {
