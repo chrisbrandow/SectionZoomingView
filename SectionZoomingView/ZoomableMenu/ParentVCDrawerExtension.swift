@@ -36,39 +36,6 @@ extension MenuParentViewController {
 
         self.present(vc, animated: true) {}
     }
-    
-    private func update(value: Int, for view: EntryView) {
-        guard var priceText = view.priceLabel.text,
-              value > 0 else {
-            view.badge.isHidden = true
-            return
-        }
-        
-        view.badge.isHidden = false
-        view.priceLabel.font = value == 0
-            ? UIFont.systemFont(ofSize: 14)
-            : UIFont(name: "BrandonText-Bold", size: 14.0)
-        view.priceLabel.textColor = .otk_white_white
-        let originalFrame = view.priceLabel.frame
-        if let _ = priceText.firstIndex(of: "•"),
-           let index = priceText.firstIndex(of: " ") {
-            priceText.replaceSubrange(priceText.startIndex..<index, with: "\(value)")
-            view.priceLabel.text = priceText
-        } else {
-            view.priceLabel.text = "\(value) • " + priceText
-        }
-        view.priceLabel.sizeToFit()
-        var newFrame = view.priceLabel.frame
-        newFrame.origin.x = newFrame.origin.x - (newFrame.width - originalFrame.width)
-        newFrame.size.height = originalFrame.height
-        view.priceLabel.frame = newFrame
-        newFrame.origin.x -= 4
-        newFrame.size.width += 8
-        view.badge.layer.cornerRadius = view.badge.frame.size.height/2.0 - 1
-        view.badge.frame = newFrame
-        view.badge.backgroundColor = .otk_red
-        
-    }
 }
 
 extension UIView {

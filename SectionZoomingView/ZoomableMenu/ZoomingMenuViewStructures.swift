@@ -50,7 +50,7 @@ struct SectionedView {
     // on generic words
     //TODO: Chris Brandow  2021-02-10 need to deal with section headers
     func highlight(with text: String, tag: MenuTag) {
-        for entryView in self.view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
+        for entryView in view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
             entryView.configure(style: .normal)
             if let item = entryView.item {
                 if text.count > 2,
@@ -72,29 +72,38 @@ struct SectionedView {
     }
 
     func setButtons(enabled: Bool) {
-        for entryView in self.view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
+        for entryView in view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
             entryView.button.isEnabled = enabled
         }
     }
 
     mutating
     func setStyle(columnCount: Int) {
-        let e = self.view.subviews.first() { $0 is EntryView } as? EntryView
+        let e = view.subviews.first() { $0 is EntryView } as? EntryView
         let isVisible = e?.bigTitleLabel.layer.opacity == 1
         if columnCount <= 2, isVisible {
-            self.configure(forCompression: .normal)
+            configure(forCompression: .normal)
         } else if columnCount > 2,
                   isVisible == false {
-            self.configure(forCompression: .compressed)
+            configure(forCompression: .compressed)
         }
     }
 
     func configure(forCompression style: EntryMagnificationStyle) {
-        let views = self.view.subviews
+        let views = view.subviews
             .compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView })
         UIView.animate(withDuration: 0.18) {
             views.forEach ({ aView in aView.configure(compression: style) })
         }
+    }
+
+    func firstEntryView(with id: String) -> EntryView? {
+        view
+            .subviews
+            .compactMap {
+                ($0 as? EntryView) ?? $0.subviews.first as? EntryView
+            }
+            .first(where: { $0.item?.id == id })
     }
 }
 
