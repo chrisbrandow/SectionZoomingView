@@ -11,7 +11,7 @@ struct AdminView: View {
                 HStack(spacing: 16) {
                     ForEach(Diner.allCases) { diner in
                         Button {
-                            GlobalState.diner = diner
+                            GlobalState.shared.diner = diner
                             self.onClose()
                         } label: {
                             DinerInitialsView(diner: diner)
