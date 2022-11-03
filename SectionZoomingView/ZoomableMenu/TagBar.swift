@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: fix dark mode
 struct TagBar: View {
     let tags = MenuTag.allCases.filter { $0 != .none }
 
