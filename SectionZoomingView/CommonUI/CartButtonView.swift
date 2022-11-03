@@ -30,7 +30,6 @@ struct CartButtonView: View {
                 .stroke(self.strokeColor, lineWidth: 1)
         }
         .frame(maxWidth: .infinity)
-
     }
 
     private var foregroundColor: Color {

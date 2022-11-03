@@ -11,15 +11,16 @@ struct CartItemView: View {
         VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
             HStack(alignment: .top, spacing: .otk_mediumSpacing) {
                 Text(item.menuItem.name)
-                    .otk_configureBodyText(fontSize: 16, weight: .semibold)
+                    .otk_configureBodyText(fontSize: 16)
                     .lineLimit(lineLimit)
                     .layoutPriority(1)
                 Spacer()
                 Text(item.menuItem.price.formattedDescription ?? "")
                     .otk_configureBodyText(fontSize: 16)
-                    .foregroundColor(.ash_dark)
                     .fixedSize(horizontal: true, vertical: false)
             }
+            .foregroundColor(.ash_dark)
+
             if let description = item.menuItem.itemDescription, shouldShowDescription {
                 Text(description)
                     .otk_configureBodyText(fontSize: 12)

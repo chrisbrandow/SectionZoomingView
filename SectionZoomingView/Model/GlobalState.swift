@@ -11,6 +11,10 @@ class GlobalState: ObservableObject {
     /// `userInfo: ["cart": theNewCart]`
     static let cartChangedNotification = Notification.Name("The cart done gone up and changed on us, pardner!!!")
 
+    /// Should probably use the whole restaurant, but we don't have that object around, so use this instead
+    @Published
+    var restaurantName: String?
+
     /// Updates to `cart` should be published via both Combine and
     /// NotificationCenter. Choose your fighter!!!
     @Published
@@ -23,8 +27,9 @@ class GlobalState: ObservableObject {
         }
     }
 
-    init(cart: Cart = Cart(items: [])) {
+    init(cart: Cart = Cart(items: []), restaurantName: String? = nil) {
         self.cart = cart
+        self.restaurantName = restaurantName
     }
 
     /// Use this. Or don't. Whatever. The cart updates will be published nontheless.
@@ -37,7 +42,9 @@ class GlobalState: ObservableObject {
 
 extension GlobalState {
     static func stub(itemCount: Int = 4) -> GlobalState {
-        let cart = Cart(items: (0 ..< itemCount).map { Cart.Item.stub(index: $0) })
-        return GlobalState(cart: cart)
+        let items: [Cart.Item] = (0 ..< itemCount)
+            .map { Cart.Item.stub(index: $0) }
+        let cart = Cart(items: items)
+        return GlobalState(cart: cart, restaurantName: "Leo's Oyster Bar")
     }
 }

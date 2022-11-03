@@ -8,9 +8,6 @@ struct Cart: Codable {
 // MARK: Cart Item
 extension Cart {
     struct Item: Codable, Identifiable {
-        // Opaque so it's trivial to change later
-        typealias DinerID = String
-
         /// The unique id of this item
         var id: UUID = UUID()
 
@@ -18,7 +15,7 @@ extension Cart {
         var menuItem: MenuItem
 
         /// Diners who are responsible for this item.
-        var diners: [DinerID] = []
+        var diners: [Diner] = []
 
         /// Number of items ordered
         var quantity: Int = 1

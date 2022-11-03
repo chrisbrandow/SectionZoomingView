@@ -31,25 +31,26 @@ extension Cart {
         return items.reduce(0) { $0 + $1.quantity }
     }
 
-    func itemsByDinerId() -> [Item.DinerID: [Item]] {
-        var result: [Item.DinerID: [Item]] = [:]
-        self.items.forEach { item in
-            item.diners.forEach { diner in
-                var dinerItems = result[diner] ?? []
-                dinerItems.append(item)
-                result[diner] = dinerItems
-            }
-        }
-        return result
+    func totalDiners() -> Int {
+        return items.reduce(into: Set<Diner>()) {
+            $0.formUnion(Set($1.diners))
+        }.count
     }
 
-    /// All items ordered by their courses.
+    func totalCourses() -> Int {
+        // Kinda inefficient, but simple
+        items.byCourse().count
+    }
+}
+
+extension [Cart.Item] {
+    /// Split this array into a 2D array based on course numbers.
     ///
     /// Empty courses will be compacted - for instance, an order whose items only
     /// belong to courses 0, 1, and 4 will produce an array of length 3
-    func itemsByCourse() -> [[Item]] {
-        var courses: [Int: [Item]] = [:]
-        self.items.forEach { item in
+    func byCourse() -> [[Cart.Item]] {
+        var courses: [Int: [Cart.Item]] = [:]
+        self.forEach { item in
             var courseItems = courses[item.course] ?? []
             courseItems.append(item)
             courses[item.course] = courseItems
@@ -58,5 +59,17 @@ extension Cart {
             .sorted()
             .map { courses[$0] }
             .compactMap { $0 }
+    }
+
+    func byDiner() -> [Diner: [Cart.Item]] {
+        var result: [Diner: [Cart.Item]] = [:]
+        self.forEach { item in
+            item.diners.forEach { diner in
+                var dinerItems = result[diner] ?? []
+                dinerItems.append(item)
+                result[diner] = dinerItems
+            }
+        }
+        return result
     }
 }
