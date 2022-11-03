@@ -33,7 +33,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
     lazy var bottomBarHostingController = UIHostingController(
-        rootView: AnyView(BottomBarView().environmentObject(GlobalState.shared))
+        rootView: AnyView(BottomBarView() { [unowned self] in
+            self.showCart()
+        }.environmentObject(GlobalState.shared))
     )
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
@@ -108,6 +110,16 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 //            UserDefaults.standard.set(true, forKey: "hasSeenZoomGesture")
 //        }
 
+    }
+
+    private func showCart() {
+        let cartView = CartView {
+            print("Order submitted")
+            // TODO: actually submit an order
+        }.environmentObject(GlobalState.shared)
+
+        let vc = UIHostingController(rootView: cartView)
+        self.present(vc, animated: true)
     }
 
     private func setupBottomBar() {
