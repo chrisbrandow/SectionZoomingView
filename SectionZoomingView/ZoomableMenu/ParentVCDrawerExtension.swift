@@ -20,7 +20,7 @@ extension MenuParentViewController {
     }
 
     func userDidTap(button: UIButton, for item: MenuItem) {//}, in view: ZoomableView) {
-        let v = AddToCartView(menuItem: item, quantity: 1) { cartItem in
+        let v = AddToCartView(menuItem: item, diner: GlobalState.shared.diner, quantity: 1) { cartItem in
             GlobalState.shared.addToCart(cartItem)
             self.dismiss(animated: true)
         } onCancel: { [unowned self] in

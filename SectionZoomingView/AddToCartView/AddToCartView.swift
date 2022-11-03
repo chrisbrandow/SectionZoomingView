@@ -10,6 +10,8 @@ import SwiftUI
 struct AddToCartView: View {
     var menuItem: MenuItem
 
+    var diner: Diner
+
     @State var quantity: Int
 
     var onAddToCart: (Cart.Item) -> Void
@@ -18,6 +20,7 @@ struct AddToCartView: View {
 
     var cartItem: Cart.Item {
         Cart.Item(menuItem: self.menuItem,
+                  diners: [self.diner],
                   quantity: self.quantity)
     }
 
@@ -60,6 +63,7 @@ struct AddToCartView: View {
 struct AddToCartView_Previews: PreviewProvider {
     static var previews: some View {
         AddToCartView(menuItem: .stub(index: 1),
+                      diner: .doug,
                       quantity: 1,
                       onAddToCart: { _ in},
                       onCancel: {})
