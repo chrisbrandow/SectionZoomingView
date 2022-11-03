@@ -101,7 +101,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                                                object: nil)
 
         self.setupBottomBar()
-
+        self.bottomBarHostingController.view.layer.opacity = 0.0
         observeTopContainerBar()
         observeCart()
     }
@@ -203,6 +203,12 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                 }
 
                 self.updateEntryView(with: lastCartItem)
+                if self.bottomBarHostingController.view.layer.opacity == 0 {
+                    
+                    UIView.animate(withDuration: 0.2, delay: 0.3) {
+                        self.bottomBarHostingController.view.layer.opacity = 1
+                    }
+                }
             }
             .store(in: &cancellables)
     }
