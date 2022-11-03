@@ -42,6 +42,33 @@ class EntryView: UIView {
     }
 }
 
+// https://medium.com/fabcoding/add-padding-to-uilabel-in-swift-87ba4647cf05
+
+@IBDesignable class TagLabel: UILabel {
+
+    @IBInspectable var topInset: CGFloat = 4.0
+    @IBInspectable var bottomInset: CGFloat = 4.0
+    @IBInspectable var leftInset: CGFloat = 8.0
+    @IBInspectable var rightInset: CGFloat = 8.0
+
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+
+    // without draw(rect:), corner radius on the layer never gets applied
+    override func draw(_ rect: CGRect) {
+        layer.masksToBounds = true
+        super.draw(rect)
+    }
+}
+
 //TODO: Chris Brandow  2021-02-05 this is temporary. it's more of a builder, but any actual views hsould come from this.
 class PlaceholderMenuView: UIView {
     static func createViews(columnWidth: CGFloat, datasource: MenuDataSource, target: Any?, action: Selector) -> [UIView] {
@@ -172,10 +199,10 @@ class PlaceholderMenuView: UIView {
         let addedHeight = description.frame.height > 0 ? description.frame.height + 4 + 8 : 8
 
         if let tagStackView = makeTagStackViewIfNecessary(attributes: entry.attributes) {
-            tagStackView.frame = view.isNarrowCell ? CGRect.zero : CGRect(x: 8, y: defaultTextHeight + 4 + topSpacing + description.frame.height + 8, width: columnWidth - 16, height: 24)
+            tagStackView.frame = view.isNarrowCell ? CGRect.zero : CGRect(x: 8, y: defaultTextHeight + 4 + topSpacing + description.frame.height + 4, width: columnWidth - 16, height: 24)
             view.addSubview(tagStackView)
 
-            vFrame.size.height = titleLabel.frame.height + addedHeight + 32
+            vFrame.size.height = titleLabel.frame.height + addedHeight + 28
             view.tagStackView = tagStackView
         }
         else {
@@ -239,7 +266,7 @@ class PlaceholderMenuView: UIView {
         var views = [UIView]()
 
         tags.forEach { tag in
-            let label = UILabel()
+            let label = TagLabel()
             label.backgroundColor = .otk_greenLightest
             label.text = tag.rawValue
             if tag == .raw {
