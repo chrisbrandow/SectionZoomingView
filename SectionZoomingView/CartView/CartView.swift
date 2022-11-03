@@ -19,6 +19,19 @@ struct CartView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: .otk_mediumSpacing) {
+                // Back Button
+                // This should really be the bar item on the navigation view but that's
+                // fucked up and I don't care to figure out why so we'll just stick this
+                // in the vstack
+                HStack {
+                    Image(systemName: "chevron.backward")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 7, height: 14)
+                    Button(" Back") { self.onSubmit() }
+                }.foregroundColor(Color.otk_red)
+                    .padding([.leading])
+
                 ScrollView {
                     // Items within the scroll view set their own leading / trailing
                     // padding else the shadow gets clipped.
@@ -43,7 +56,6 @@ struct CartView: View {
                 self.submitButton()
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     // MARK: Cart Items
