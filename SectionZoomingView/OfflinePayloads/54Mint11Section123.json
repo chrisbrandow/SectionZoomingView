@@ -30,7 +30,7 @@
                             "name" : "Olive Miste",
                             "description" : "Gluten free. Mixed selection of marinated olives",
                             "attributes" : [
-                                "Gluten free",
+                                "Gluten Free",
                                 "Vegetarian",
                                 "Vegan",
                                 "Raw"
@@ -458,7 +458,7 @@
                             "name" : "Pollo Al Mattone Con Peperoni",
                             "description" : "Mustard marinated pan-roasted organic chicken, sautéed yellow and red peppers with capers and onions",
                             "attributes" : [
-                                "Dairy Free",
+                                "Dairy",
                                 "Gluten Free"
                             ]
                         },
