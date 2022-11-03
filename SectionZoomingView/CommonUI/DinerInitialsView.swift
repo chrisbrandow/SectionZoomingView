@@ -19,8 +19,6 @@ struct DinerInitialsView: View {
                 Text(diner.initials)
                     .font(.otf_systemFont(ofSize: 12, weight: .bold))
                     .foregroundColor(.otk_white)
-                    .background {
-                    }
             }
 
     }
