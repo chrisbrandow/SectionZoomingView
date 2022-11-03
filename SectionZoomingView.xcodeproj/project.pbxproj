@@ -161,7 +161,6 @@
 		8370765C2911F8E1000621FC /* FakeList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FakeList.png; sourceTree = "<group>"; };
 		83707660291232BB000621FC /* RestaurantListView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RestaurantListView.png; sourceTree = "<group>"; };
 		8370766229123627000621FC /* RecordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
-		837076642912395F000621FC /* SectionZoomingView.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SectionZoomingView.entitlements; sourceTree = "<group>"; };
 		83B16D5125C9DB49008AE1BA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 		83B16D6225C9E95D008AE1BA /* zingari4Section29.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = zingari4Section29.json; sourceTree = "<group>"; };
 		83B16D6825C9E9C8008AE1BA /* Paradiso23Section304.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Paradiso23Section304.json; sourceTree = "<group>"; };
@@ -169,6 +168,7 @@
 		83B16D7E25C9F139008AE1BA /* 54Mint11Section123.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 54Mint11Section123.json; sourceTree = "<group>"; };
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
 		83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuParentViewController.swift; sourceTree = "<group>"; };
+		83D8E2872913908A005F319A /* SectionZoomingView.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SectionZoomingView.entitlements; sourceTree = "<group>"; };
 		83E9D67B25E497E200934F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SectionZoomingView/Base.lproj/ZoomableMenu.storyboard; sourceTree = "<group>"; };
 		83F4F4F225E0A3E20026A0F8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9B7105D927A9E053007F8479 /* ErikaNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ErikaNotes; sourceTree = "<group>"; };
@@ -339,7 +339,7 @@
 		8351CDDC2594569700946150 /* SectionZoomingView */ = {
 			isa = PBXGroup;
 			children = (
-				837076642912395F000621FC /* SectionZoomingView.entitlements */,
+				83D8E2872913908A005F319A /* SectionZoomingView.entitlements */,
 				5EBA47672912EA7B006C950B /* AddToCartView */,
 				5EBA475E2912EA73006C950B /* CartView */,
 				5EBA478A29133FA9006C950B /* CommonUI */,
@@ -779,9 +779,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SectionZoomingView/SectionZoomingView.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = VE26CNW5ZX;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -792,6 +795,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgb.SectionZoomingView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Better Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -803,9 +808,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SectionZoomingView/SectionZoomingView.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
-				DEVELOPMENT_TEAM = VE26CNW5ZX;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -816,6 +824,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgb.SectionZoomingView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Better Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
