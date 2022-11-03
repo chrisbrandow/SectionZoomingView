@@ -241,6 +241,7 @@ class PlaceholderMenuView: UIView {
         return shadowView
     }
 
+    // TODO: tags are missing when description is empty
     private static func makeTagStackViewIfNecessary(attributes: [String]) -> UIStackView? {
         guard !attributes.isEmpty else {
             return nil

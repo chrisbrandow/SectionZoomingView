@@ -204,7 +204,8 @@
 			  "name" : "Nona's Ribollita",
 			  "description" : "Roasted Vegetable, Pancetta, White Bean Puree, Tomato, Herbs, Garlic, Cabbage, Parmesan Crostini",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -219,7 +220,7 @@
 			  "name" : "Fried Blue Point Oysters",
 			  "description" : "Lemon Aioli",
 			  "attributes" : [
-
+                  "Gluten Free"
 			  ]
 			},
 			{
@@ -234,7 +235,7 @@
 			  "name" : "Wood Oven Baked Scampi",
 			  "description" : "Jumbo Wild Gulf Prawns\/Garlic Butter\/White Wine \/Parmesan Crumbs",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -249,7 +250,7 @@
 			  "name" : "Lamb Chops",
 			  "description" : "Three Oven Roasted Lamb Chops \/ Caprese Garnish",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -264,7 +265,9 @@
 			  "name" : "Dungeness Crab & Avocado",
 			  "description" : "Housemade Guacamole \/ Cara Cara Orange, Grapefruit, Blood Orange",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -279,7 +282,9 @@
 			  "name" : "Filet Mignonettes",
 			  "description" : "Pan Seared in Marsala Wine \/ Mushrooms \/ Crostinis",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -345,7 +350,9 @@
 			  "name" : "Organic Mixed Greens",
 			  "description" : "Onions\/ Tomatoes\/ Gorgonzola\/ Walnuts \/ Croutons \/ Champagne Vinaigrette",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -360,7 +367,9 @@
 			  "name" : "Pomegranate Salad",
 			  "description" : "Mixed Greens, Pomegranate, Candied Pecans, Goat Cheese, Pomegranate Vinaigrette",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -375,7 +384,8 @@
 			  "name" : "The Nicoise",
 			  "description" : "Seared Rare Ahi Tuna \/ Little Gems Lettuce \/ Haricots Vert \/ Roasted Red Peppers \/ Thyme Pickled Red Onion \/ Kalamata Olives \/ Capers \/ Peruvian Potatoes \/ Hard Boiled Egg \/ Cherry Tomatoes \/ Shallot Champagne Vinaigrette",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -390,7 +400,7 @@
 			  "name" : "Seafood Louie",
 			  "description" : "Dungeness Crab \/ Poached Prawns \/ Avocado \/ Egg \/ Tossed in Louie Dressing & on the side",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -403,9 +413,9 @@
 
 			  ],
 			  "name" : "Apple & Prosciutto",
-			  "description" : "Mixed Greens \/ Gorgonzola \/ Candied Pistachios \/ Walnut Vinaigrette",
+			  "description" : "Mixed Greens \/ Gorgonzola \/ Candied Pistachios \/ Walnut Vinaigrette \/ Prosciutto Cotto",
 			  "attributes" : [
-
+                  "Raw"
 			  ]
 			},
 			{
@@ -420,7 +430,8 @@
 			  "name" : "The Wedge",
 			  "description" : "Iceberg Lettuce \/ Applewood Bacon \/ Egg\/ Tomato \/Shallots\/ Gorgonzola \/ Blue Cheese Dressing",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -471,7 +482,8 @@
 			  "name" : "Grilled Portobello Panini",
 			  "description" : "Pesto\/ Roasted Red Pepper\/ Mozzarella \/ Parsley Parmesan Fries",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -499,9 +511,10 @@
 
 			  ],
 			  "name" : "Mona Lisa Special",
-			  "description" : "Prosciutto de Parme \/ Spicy Coppacola \/ Provolone \/ House Made Focaccia \/ Pesto Vinaigrette \/ Pickled Red Onion \/ Tomato \/ Aioli \/ Shredded Lettuce - the Ultimate Sandwich w\/ Parsley Parmesan Fries",
+			  "description" : "Prosciutto Cotto \/ Spicy Coppacola \/ Provolone \/ House Made Focaccia \/ Pesto Vinaigrette \/ Pickled Red Onion \/ Tomato \/ Aioli \/ Shredded Lettuce - the Ultimate Sandwich w\/ Parsley Parmesan Fries",
 			  "attributes" : [
-
+                  "Raw",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -531,7 +544,7 @@
 			  "name" : "Prime Rib Steak Sandwich",
 			  "description" : "Sautéed Mushrooms & Onions,Ciabatta Bun, Parsley Parmesan Fries",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -546,7 +559,7 @@
 			  "name" : "Paradiso Burger 1\/2 1b",
 			  "description" : "Hand Pressed American Kobe Beef \/ Ciabatta Bun \/ Parsley Parmesan Fries",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			}
 		  ],
@@ -567,7 +580,8 @@
 			  "name" : "Pizza Margherita",
 			  "description" : "San Marzano Tomato Sauce\/ Fresh Basil\/ Garlic\/ Mozzarella Fresca",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -582,7 +596,8 @@
 			  "name" : "Pepperoni & Crimini Mushroom Pizza",
 			  "description" : "San Marzano Tomato Sauce \/ Mozzarella Fresca",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -597,7 +612,8 @@
 			  "name" : "Smoked Salmon Pizza",
 			  "description" : "Housemade Lemon Creme Fraiche \/ Fried Capers \/ Shallot \/ Goat cheese\/ Chives",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -612,7 +628,8 @@
 			  "name" : "Sausage Pizza",
 			  "description" : "Mozzarella \/San Marzano Tomato Sauce \/ Mushrooms\/ Caramelized Onions",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -627,7 +644,8 @@
 			  "name" : "Pizza Primavera",
 			  "description" : "Mozzarella \/ San Marzano Tomato Sauce \/ Caramelized Onions \/ Basil \/ Bell Peppers \/ Mushrooms \/ Summer Squash \/ Spinach \/ Garlic",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			}
 		  ],
@@ -648,7 +666,7 @@
 			  "name" : "Rigatoni Bolognese",
 			  "description" : "Housemade Beef~Italian Sausage~Veal Red Wine Sugo \/ Reggiano Parmesan \/ Basil",
 			  "attributes" : [
-
+                  "Gluten Free"
 			  ]
 			},
 			{
@@ -663,7 +681,7 @@
 			  "name" : "Eggplant Parmesan",
 			  "description" : "Parmesan Crumbs, Marinara, & Mozzarella \/ Chimichurri Roasted Vegetables",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -678,7 +696,7 @@
 			  "name" : "Oven Baked Tortellini",
 			  "description" : "3 Cheese Tortellini \/ Mozzarella Cream Sauce",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -691,9 +709,10 @@
 
 			  ],
 			  "name" : "Daily Chef's Signature Risotto",
-			  "description" : "",
+			  "description" : "Carnaroli \/ Olive oil \/ Tipico Lodigiano cheese \/ Anchovies",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -855,7 +874,7 @@
 			  "name" : "Petrale Sole",
 			  "description" : "Caper Brown Butter Sauce \/ Olive Oil Mashed Potatoes \/ Toasted Garlic Sautéed Spinach",
 			  "attributes" : [
-
+                  "Vegetarian"
 			  ]
 			},
 			{
@@ -1155,7 +1174,9 @@
 			  "name" : "Slice Pecan Pie",
 			  "description" : "",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -1170,7 +1191,9 @@
 			  "name" : "Sorbet & Gelato",
 			  "description" : "for 1 scoop",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -1185,7 +1208,9 @@
 			  "name" : "Chocolate Almond or Almond Biscotti",
 			  "description" : "",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -1215,7 +1240,9 @@
 			  "name" : "Vanilla Bean Creme Brulee",
 			  "description" : "Shortbread Cookie",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -1230,7 +1257,9 @@
 			  "name" : "Classic Sundae",
 			  "description" : "Chocolate and Vanilla Bean Gelato\/ House-Made Whipped Cream\/ Candied Pecans \/ Dark Chocolate Sauce Made with Ghirardelli® Chocolate",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -1245,7 +1274,9 @@
 			  "name" : "Molten Chocolate Cake",
 			  "description" : "Ghirardelli® Chocolate With Vanilla Bean Gelato",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -1260,7 +1291,9 @@
 			  "name" : "Tiramisu",
 			  "description" : "Lady Fingers\/ Mascarpone\/ Whipped Cream\/ Zabaglione\/ Espresso \/ Grated Ghirardelli® Chocolate",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			}
 		  ],
@@ -1281,7 +1314,8 @@
 			  "name" : "Kids Cheese Pizza",
 			  "description" : "",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -1296,7 +1330,9 @@
 			  "name" : "Kids Sliders & Fries",
 			  "description" : "",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -1311,7 +1347,7 @@
 			  "name" : "Kids Pasta",
 			  "description" : "",
 			  "attributes" : [
-
+                  "Gluten Free"
 			  ]
 			}
 		  ],
@@ -2267,7 +2303,9 @@
 			  "name" : "Nona's Ribollita",
 			  "description" : "Roasted Vegetable, Pancetta, White Bean Puree, Tomato, Herbs, Garlic, Cabbage, Parmesan Crostini",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2282,7 +2320,7 @@
 			  "name" : "Calamari Fritti",
 			  "description" : "Chipotle Aioli & Warm Marinara for Dipping \/ Gremolata",
 			  "attributes" : [
-
+                  "Gluten Free"
 			  ]
 			},
 			{
@@ -2312,7 +2350,9 @@
 			  "name" : "Filet Mignonettes",
 			  "description" : "Pan Seared in Marsala Wine \/ Mushrooms \/ Crostinis",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -2342,7 +2382,7 @@
 			  "name" : "Lamb Chops",
 			  "description" : "Three Oven Roasted Lamb Chops \/ Caprese Garnish",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2357,7 +2397,7 @@
 			  "name" : "Wood Oven Baked Scampi",
 			  "description" : "Jumbo Wild Gulf Prawns\/Garlic Butter\/White Wine \/Parmesan Crumbs",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2372,7 +2412,9 @@
 			  "name" : "Mediterranean Platter",
 			  "description" : "Hummus\/ Feta \/ Roasted Red Peppers \/ Kalamata Olives \/ Pita",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -2438,7 +2480,9 @@
 			  "name" : "Organic Mixed Greens",
 			  "description" : "Onions\/ Tomatoes\/ Gorgonzola\/ Walnuts \/ Croutons \/ Champagne Vinaigrette",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -2453,7 +2497,9 @@
 			  "name" : "Caesar Salad",
 			  "description" : "Little Gem lettuce \/ Focaccia Garlic Croutons\/ Parmesan Cheese \/Shallots\/ Spanish White Anchovies",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Vegan"
 			  ]
 			},
 			{
@@ -2468,7 +2514,7 @@
 			  "name" : "The Wedge",
 			  "description" : "Iceberg Lettuce \/ Applewood Bacon \/ Egg\/ Tomato \/Shallots\/ Gorgonzola \/ Blue Cheese Dressing",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2480,10 +2526,11 @@
 			  "modifierGroups" : [
 
 			  ],
-			  "name" : "Apple & Prosciutto",
+			  "name" : "Apple & Prosciutto Cotto",
 			  "description" : "Mixed Greens \/ Gorgonzola \/ Candied Pistachios \/ Walnut Vinaigrette",
 			  "attributes" : [
-
+                  "Raw",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2513,7 +2560,7 @@
 			  "name" : "The Nicoise",
 			  "description" : "Seared Rare Ahi Tuna \/ Little Gems Lettuce \/ Haricots Vert \/ Roasted Red Peppers \/ Thyme Pickled Red Onion \/ Kalamata Olives \/ Capers \/ Peruvian Potatoes \/ Hard Boiled Egg \/ Cherry Tomatoes \/ Shallot Champagne Vinaigrette",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2528,7 +2575,8 @@
 			  "name" : "Pomegranate Salad",
 			  "description" : "Mixed Greens, Pomegranate, Candied Pecans, Goat Cheese, Pomegranate Vinaigrette",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Dairy"
 			  ]
 			}
 		  ],
@@ -2549,7 +2597,9 @@
 			  "name" : "Pizza Margherita",
 			  "description" : "San Marzano Tomato Sauce\/ Fresh Basil\/ Garlic\/ Mozzarella Fresca",
 			  "attributes" : [
-
+                  "Vegetarian",
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2564,7 +2614,8 @@
 			  "name" : "Pepperoni & Crimini Mushroom Pizza",
 			  "description" : "San Marzano Tomato Sauce \/ Mozzarella Fresca",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2579,7 +2630,8 @@
 			  "name" : "Smoked Salmon Pizza",
 			  "description" : "Housemade Lemon Creme Fraiche \/ Fried Capers \/ Shallot \/ Goat cheese\/ Chives",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2594,7 +2646,8 @@
 			  "name" : "Sausage Pizza",
 			  "description" : "Mozzarella \/San Marzano Tomato Sauce \/ Mushrooms\/ Caramelized Onions",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2607,9 +2660,11 @@
 
 			  ],
 			  "name" : "Pizza Primavera",
-			  "description" : "Mozzarella \/ San Marzano Tomato Sauce \/ Caramelized Onions \/ Basil \/ Bell Peppers \/ Mushrooms \/ Summer Squash \/ Spinach \/ Garlic",
+			  "description" : "Prosciutto Cotto \/ Mozzarella \/ San Marzano Tomato Sauce \/ Caramelized Onions \/ Basil \/ Bell Peppers \/ Mushrooms \/ Summer Squash \/ Spinach \/ Garlic",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Raw",
+                  "Dairy"
 			  ]
 			}
 		  ],
@@ -2630,7 +2685,7 @@
 			  "name" : "Rigatoni Bolognese",
 			  "description" : "Housemade Beef~Italian Sausage~Veal Red Wine Sugo \/ Reggiano Parmesan \/ Basil",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2645,7 +2700,7 @@
 			  "name" : "Eggplant Parmesan",
 			  "description" : "Parmesan Crumbs, Marinara, & Mozzarella \/ Chimichurri Roasted Vegetables",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2660,7 +2715,7 @@
 			  "name" : "Oven Baked Tortellini",
 			  "description" : "3 Cheese Tortellini \/ Mozzarella Cream Sauce",
 			  "attributes" : [
-
+                  "Dairy"
 			  ]
 			},
 			{
@@ -2673,9 +2728,10 @@
 
 			  ],
 			  "name" : "Daily Chef's Signature Risotto",
-			  "description" : "",
+              "description" : "Carnaroli \/ Olive oil \/ Tipico Lodigiano cheese \/ Anchovies",
 			  "attributes" : [
-
+                  "Gluten Free",
+                  "Dairy"
 			  ]
 			},
 			{
