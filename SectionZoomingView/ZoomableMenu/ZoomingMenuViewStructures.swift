@@ -48,6 +48,7 @@ struct SectionedView {
     // would be nice to be able to create plural/singular variant
     // would be nice to have a dictionary of words that would highlight specific items based
     // on generic words
+    //TODO: Chris Brandow  2021-02-10 need to deal with section headers
     func highlight(with text: String, tag: MenuTag) {
         for entryView in self.view.subviews.compactMap({ ($0 as? EntryView) ?? $0.subviews.first as? EntryView }) {
             entryView.configure(style: .normal)
