@@ -28,11 +28,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet var zoomableContainer: UIView?
     @IBOutlet var bottomBarContainer: UIView?
     var zoomableController: ZoomableViewController?
-    var bottomBarVC: BottomBarVC?
     var shadowLine = UIView()
-
-    @IBOutlet weak var bottomBarBottomConstraint: NSLayoutConstraint?
-    @IBOutlet weak var bottomBarHeightConstraint: NSLayoutConstraint?
 
     @IBOutlet weak var backingView: UIView!
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
@@ -69,8 +65,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
         if let zoomableVC = segue.destination as? ZoomableViewController {
             zoomableVC.zoomableProvider = self
             self.zoomableController = zoomableVC
-        } else if let vc = segue.destination as? BottomBarVC, segue.identifier == "bottomBarVC" {
-            self.bottomBarVC = vc
         }
     }
 
@@ -128,13 +122,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     }
 
-    var bottomVCConstraint: NSLayoutConstraint? {
-        return self.view.constraints.first() {
-            return $0.secondAnchor == self.bottomBarVC?.view.superview?.bottomAnchor
-            || $0.firstAnchor == self.bottomBarVC?.view.superview?.bottomAnchor
-        }
-    }
-
     @objc
     func didTap(_ sender: UIButton) {
         let entry = sender.superview as? EntryView
@@ -184,7 +171,7 @@ extension MenuParentViewController {
     }
 
     private func createView(with strips: [UIView]) -> SectionedView {
-        let viewHeight = (self.bottomBarVC?.view.superview?.frame.origin.y ?? 0)
+        let viewHeight = (self.bottomBarHostingController.view.frame.origin.y)
         - (self.titleLabel?.superview?.frame.maxY ?? 0)
         let aspectRatioSubHeader = Double(view.bounds.width/viewHeight)
         let arrangement = UIView.bestArrangement(for: strips, matchingRatio: aspectRatioSubHeader)
