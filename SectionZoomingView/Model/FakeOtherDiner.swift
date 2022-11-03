@@ -8,7 +8,7 @@ class FakeOtherDiner {
 
     var timer: Timer
 
-    init(diner: Diner, interval: TimeInterval = 1, maxItems: Int) {
+    init(diner: Diner, interval: TimeInterval = 2, maxItems: Int) {
         self.diner = diner
 
         var addedItems: Int = 0

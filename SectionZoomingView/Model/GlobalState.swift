@@ -49,8 +49,8 @@ class GlobalState: ObservableObject {
 
     var fakeDiners: Set<FakeOtherDiner> = Set()
 
-    func startFakeOrdering(diner: Diner) {
-        let fake = FakeOtherDiner(diner: diner, maxItems: 4)
+    func startFakeOrdering(diner: Diner, interval: TimeInterval) {
+        let fake = FakeOtherDiner(diner: diner, interval: interval, maxItems: 4)
         fakeDiners.insert(fake)
     }
 
