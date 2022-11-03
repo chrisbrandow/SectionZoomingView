@@ -321,10 +321,24 @@ extension EntryView {
             descriptionLabel.textColor = .otk_ash
             layer.borderWidth = 0
             layer.borderColor = UIColor.otk_white.cgColor
+            tagStackView?
+                .subviews
+                .compactMap { $0 as? TagLabel }
+                .forEach { label in
+                    label.textColor = UIColor.otk_greenDark
+                    label.backgroundColor = UIColor.otk_greenLightest
+                }
         case .highlight:
             backgroundColor = .otk_greenLightest
             layer.borderWidth = 1
             layer.borderColor = UIColor.otk_green.cgColor
+            tagStackView?
+                .subviews
+                .compactMap { $0 as? TagLabel }
+                .forEach { label in
+                    label.textColor = UIColor.otk_ashDark
+                    label.backgroundColor = UIColor.otk_white
+                }
         }
     }
 }
