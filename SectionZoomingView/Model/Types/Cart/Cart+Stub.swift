@@ -9,7 +9,7 @@ extension Cart {
 
 extension Cart.Item {
     static func stub(index: Int) -> Self {
-        Cart.Item(menuItem: .stub(index: index))
+        Cart.Item(menuItem: .stub(index: index), diners: [.allCases[index % Diner.allCases.count]])
     }
 }
 

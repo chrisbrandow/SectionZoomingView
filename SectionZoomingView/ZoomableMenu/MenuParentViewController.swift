@@ -26,7 +26,6 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet var zoomableContainer: UIView?
-    @IBOutlet var bottomBarContainer: UIView?
     var zoomableController: ZoomableViewController?
     var shadowLine = UIView()
 
@@ -34,7 +33,9 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     @IBOutlet weak var zoomableTopConstraint: NSLayoutConstraint!
 
     lazy var bottomBarHostingController = UIHostingController(
-        rootView: AnyView(BottomBarView().environmentObject(GlobalState.shared))
+        rootView: AnyView(BottomBarView() { [unowned self] in
+            self.showCart()
+        }.environmentObject(GlobalState.shared))
     )
 
     @IBSegueAction func embedTopContainer(_ coder: NSCoder) -> UIViewController? {
@@ -95,19 +96,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             ])
         }
 
-        self.bottomBarContainer?.isHidden = true
-
-
-        if let v = bottomBarHostingController.view,
-           let container = self.view {
-            v.translatesAutoresizingMaskIntoConstraints = false
-            container.addSubview(v)
-            NSLayoutConstraint.activate([
-                v.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-                v.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-                v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
-            ])
-        }
+        self.setupBottomBar()
 
         observeTopContainerBar()
     }
@@ -121,6 +110,29 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 //            UserDefaults.standard.set(true, forKey: "hasSeenZoomGesture")
 //        }
 
+    }
+
+    private func showCart() {
+        let cartView = CartView {
+            print("Order submitted")
+            // TODO: actually submit an order
+        }.environmentObject(GlobalState.shared)
+
+        let vc = UIHostingController(rootView: cartView)
+        self.present(vc, animated: true)
+    }
+
+    private func setupBottomBar() {
+        if let v = bottomBarHostingController.view,
+           let container = self.view {
+            v.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(v)
+            NSLayoutConstraint.activate([
+                v.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                v.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
+            ])
+        }
     }
 
     @objc

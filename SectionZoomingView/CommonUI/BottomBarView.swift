@@ -13,6 +13,8 @@ struct BottomBarView: View {
 
     var cart: Cart { self.globalState.cart }
 
+    var onPressViewCart: () -> Void
+
     var cartDescription: String {
         guard self.cart.items.count > 0
         else { return "Your cart is empty" }
@@ -29,7 +31,7 @@ struct BottomBarView: View {
                 .layoutPriority(1)
                 .font(.otf_systemFontOfSize(16))
             Spacer()
-            Text("View cart")
+            Button("View cart", action: self.onPressViewCart)
                 .font(.otf_systemFont(ofSize: 16, weight: .semibold))
         }
         .frame(maxWidth: .infinity)
@@ -45,10 +47,10 @@ struct BottomBarView: View {
 
 struct BottomBarView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomBarView()
+        BottomBarView() {}
             .environmentObject(GlobalState.stub())
             .previewDisplayName("With Items")
-        BottomBarView()
+        BottomBarView() {}
             .environmentObject(GlobalState.stub(itemCount: 0))
             .previewDisplayName("Empty")
     }
