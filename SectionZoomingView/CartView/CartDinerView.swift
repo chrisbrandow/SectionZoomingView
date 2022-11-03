@@ -14,6 +14,7 @@ struct CartDinerView: View {
     var body: some View {
         HStack {
             DinerInitialsView(diner: diner)
+                .frame(width: 24, height: 24)
             Text("Added by \(diner.firstName)")
                 .foregroundColor(.ash)
                 .font(.otf_systemFontOfSize(14))

@@ -15,6 +15,7 @@ struct AdminView: View {
                             self.onClose()
                         } label: {
                             DinerInitialsView(diner: diner)
+                                .frame(width: 48, height: 48)
                         }
                     }
                 }

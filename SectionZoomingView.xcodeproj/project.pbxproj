@@ -274,7 +274,6 @@
 				5EBA47602912EA73006C950B /* CartViewModel.swift */,
 				5EBA47612912EA73006C950B /* CartView.swift */,
 				5E5F576A291371F300AC732B /* CartDinerView.swift */,
-				5E5F576C2913721E00AC732B /* DinerInitialsView.swift */,
 				5EBA479329134867006C950B /* CartHeaderView.swift */,
 				5EBA47622912EA73006C950B /* CartItemView.swift */,
 			);
@@ -309,6 +308,7 @@
 				5E22EA242913FF3A00991AC6 /* AdminView.swift */,
 				5EBA478B29133FA9006C950B /* BottomBarView.swift */,
 				5EBA478D29134440006C950B /* CartButtonView.swift */,
+				5E5F576C2913721E00AC732B /* DinerInitialsView.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
