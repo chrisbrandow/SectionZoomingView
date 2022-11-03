@@ -7,9 +7,13 @@ struct CartView: View {
     var cart: Cart { self.globalState.cart }
 
     var submitButtonTitle: String {
-        ["Place order", try? self.cart.totalPrice().formattedDescription]
-            .compactMap { $0 }
-            .joined(separator: " • ")
+        if self.globalState.isSumbitted {
+            return "Add more items"
+        } else {
+            return ["Place order", try? self.cart.totalPrice().formattedDescription]
+                .compactMap { $0 }
+                .joined(separator: " • ")
+        }
     }
 
     var onSubmit: () -> Void
@@ -39,7 +43,7 @@ struct CartView: View {
                     // Items within the scroll view set their own leading / trailing
                     // padding else the shadow gets clipped.
 
-                    CartHeaderView(title: "Your cart",
+                    CartHeaderView(title: self.globalState.isSumbitted ? "Order sumbitted" : "Your cart",
                                    restaurantName: self.globalState.restaurantName,
                                    dinerCount: self.cart.totalDiners())
                         .frame(maxWidth: .infinity)

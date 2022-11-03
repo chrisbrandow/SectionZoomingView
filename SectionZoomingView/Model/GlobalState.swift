@@ -7,6 +7,9 @@ import Combine
 class GlobalState: ObservableObject {
     static let shared = GlobalState()
 
+    @Published
+    var isSumbitted: Bool = false
+
     // The active diner
     var diner: Diner = .doug
 
@@ -45,6 +48,7 @@ class GlobalState: ObservableObject {
         var newCart = cart
         newCart.items = []
         self.cart = newCart
+        self.isSumbitted = false
     }
 
     var fakeDiners: Set<FakeOtherDiner> = Set()

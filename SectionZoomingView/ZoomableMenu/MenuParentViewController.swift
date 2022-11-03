@@ -120,7 +120,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
     private func showCart() {
         let cartView = CartView {
             print("Order submitted")
-            // TODO: actually submit an order
+            GlobalState.shared.isSumbitted = true
         } onClose: { [unowned self] in
             self.dismiss(animated: true)
         }
