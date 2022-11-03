@@ -56,10 +56,5 @@ class LaunchVC: UIViewController {
         self.didLaunchOnce = true
         self.performSegue(withIdentifier: "showZoomable", sender: self)
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (segue.destination as? MenuParentViewController)?.selectedExample = self.selectedExample
-    }
-
 }
 

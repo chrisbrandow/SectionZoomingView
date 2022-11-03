@@ -40,8 +40,6 @@ struct MenuDataSource {
         }
     }
 
-
-
     var entireMenu: MenuGroup
 
     static func load(example: Example, title: String) throws -> MenuGroup {
