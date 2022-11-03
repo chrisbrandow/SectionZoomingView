@@ -27,7 +27,9 @@ class LaunchVC: UIViewController {
             button.addAction(UIAction(handler: { [weak self] _ in
                 guard let self = self else { return }
                 self.selectedExample = example
+                GlobalState.shared.selectedExample  = example
                 self.performSegue(withIdentifier: "showZoomable", sender: self)
+                print(example.displayName )
 
             }), for: .touchUpInside)
 
