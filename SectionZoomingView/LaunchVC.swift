@@ -20,9 +20,9 @@ class LaunchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        OrderManager.shared.fetchDinerOrders(forDinerIDs: []) { records, error in
-//            print("records. count \(records?.count)")
-//        }
+        OrderManager.shared.fetchDinerOrders(forDinerIDs: []) { records, error in
+            print("records. count \(records?.count)")
+        }
         for (button, example) in zip(self.mockStackView.arrangedSubviews.compactMap({ $0 as? UIButton}), MenuDataSource.Example.allCases) {
             button.addAction(UIAction(handler: { [weak self] _ in
                 guard let self = self else { return }
