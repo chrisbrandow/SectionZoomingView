@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -49,6 +49,8 @@
 		5EBA478E29134441006C950B /* CartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA478D29134440006C950B /* CartButtonView.swift */; };
 		5EBA479429134867006C950B /* CartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA479329134867006C950B /* CartHeaderView.swift */; };
 		5EBA47962913628E006C950B /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA47952913628E006C950B /* Diner.swift */; };
+		5EF776A529143331005E3AA0 /* SwiftRedis in Frameworks */ = {isa = PBXBuildFile; productRef = 5EF776A429143331005E3AA0 /* SwiftRedis */; };
+		5EF776A729143384005E3AA0 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF776A629143384005E3AA0 /* Client.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -142,6 +144,7 @@
 		5EBA478D29134440006C950B /* CartButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CartButtonView.swift; sourceTree = "<group>"; };
 		5EBA479329134867006C950B /* CartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartHeaderView.swift; sourceTree = "<group>"; };
 		5EBA47952913628E006C950B /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
+		5EF776A629143384005E3AA0 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EF776A529143331005E3AA0 /* SwiftRedis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +217,7 @@
 				83B16D5125C9DB49008AE1BA /* DataSource.swift */,
 				5E22EA262914170300991AC6 /* FakeOtherDiner.swift */,
 				5EBA478129132DA9006C950B /* GlobalState.swift */,
+				5EF776A629143384005E3AA0 /* Client.swift */,
 				5EBA473E2912E9D3006C950B /* Loader.swift */,
 				8370766229123627000621FC /* RecordManager.swift */,
 				5EBA474F2912EA5C006C950B /* Types */,
@@ -429,6 +434,9 @@
 			dependencies = (
 			);
 			name = SectionZoomingView;
+			packageProductDependencies = (
+				5EF776A429143331005E3AA0 /* SwiftRedis */,
+			);
 			productName = SectionZoomingView;
 			productReference = 8351CDDA2594569700946150 /* SectionZoomingView.app */;
 			productType = "com.apple.product-type.application";
@@ -500,6 +508,9 @@
 				Base,
 			);
 			mainGroup = 8351CDD12594569700946150;
+			packageReferences = (
+				5EF776A329143331005E3AA0 /* XCRemoteSwiftPackageReference "Kitura-redis" */,
+			);
 			productRefGroup = 8351CDDB2594569700946150 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -589,6 +600,7 @@
 				5EBA47652912EA73006C950B /* CartView.swift in Sources */,
 				5EBA474A2912EA2F006C950B /* GlobalConfiguration.swift in Sources */,
 				8359400225D6031B007010B1 /* ParentVCDrawerExtension.swift in Sources */,
+				5EF776A729143384005E3AA0 /* Client.swift in Sources */,
 				5EBA474B2912EA2F006C950B /* Shadow.swift in Sources */,
 				44B54EF129132CA4007381B2 /* TagBarViewModel.swift in Sources */,
 				5E22EA212913FB3A00991AC6 /* Application.swift in Sources */,
@@ -973,6 +985,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5EF776A329143331005E3AA0 /* XCRemoteSwiftPackageReference "Kitura-redis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kitura/Kitura-redis.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5EF776A429143331005E3AA0 /* SwiftRedis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5EF776A329143331005E3AA0 /* XCRemoteSwiftPackageReference "Kitura-redis" */;
+			productName = SwiftRedis;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8351CDD22594569700946150 /* Project object */;
 }

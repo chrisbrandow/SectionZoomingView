@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appearance.backgroundColor = .otk_white
         UINavigationBar.appearance().standardAppearance = appearance;
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
+
+        // Sync changes with Redis
+        Client.shared.configure()
+
         return true
     }
 

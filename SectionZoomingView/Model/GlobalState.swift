@@ -47,8 +47,14 @@ class GlobalState: ObservableObject {
     func clearCart() {
         var newCart = cart
         newCart.items = []
-        self.cart = newCart
+        self.setCart(newCart)
         self.isSumbitted = false
+    }
+
+    func setCart(_ newCart: Cart) {
+        DispatchQueue.main.async {
+            self.cart = newCart
+        }
     }
 
     var fakeDiners: Set<FakeOtherDiner> = Set()
