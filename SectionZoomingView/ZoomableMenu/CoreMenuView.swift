@@ -7,6 +7,15 @@
 
 import UIKit
 
+enum MenuTag: String, Equatable, CaseIterable {
+    case none = "None"
+    case vegetarian = "Vegetarian"
+    case glutenFree = "Gluten Free"
+    case vegan = "Vegan"
+    case raw = "Raw"
+    case dairy = "Dairy"
+}
+
 class EntryView: UIView {
     var item: MenuItem?
 
@@ -16,6 +25,8 @@ class EntryView: UIView {
     var priceLabel = UILabel()
     var button = UIButton()
     var badge = UIView()
+    var tagStackView: UIStackView?
+    
     override var description: String {
         return self.frame.debugDescription// self.item?.name ?? " no item"
     }
@@ -28,6 +39,33 @@ class EntryView: UIView {
 
     var isSectionHeader: Bool {
         return self.item == nil
+    }
+}
+
+// https://medium.com/fabcoding/add-padding-to-uilabel-in-swift-87ba4647cf05
+
+@IBDesignable class TagLabel: UILabel {
+
+    @IBInspectable var topInset: CGFloat = 4.0
+    @IBInspectable var bottomInset: CGFloat = 4.0
+    @IBInspectable var leftInset: CGFloat = 8.0
+    @IBInspectable var rightInset: CGFloat = 8.0
+
+    override func drawText(in rect: CGRect) {
+        let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
+        super.drawText(in: rect.inset(by: insets))
+    }
+
+    override var intrinsicContentSize: CGSize {
+        let size = super.intrinsicContentSize
+        return CGSize(width: size.width + leftInset + rightInset,
+                      height: size.height + topInset + bottomInset)
+    }
+
+    // without draw(rect:), corner radius on the layer never gets applied
+    override func draw(_ rect: CGRect) {
+        layer.masksToBounds = true
+        super.draw(rect)
     }
 }
 
@@ -159,8 +197,19 @@ class PlaceholderMenuView: UIView {
         view.addSubview(button)
         var vFrame = view.frame
         let addedHeight = description.frame.height > 0 ? description.frame.height + 4 + 8 : 8
-        
-        vFrame.size.height = titleLabel.frame.height + addedHeight
+
+        if let tagStackView = makeTagStackViewIfNecessary(attributes: entry.attributes) {
+            tagStackView.frame = view.isNarrowCell ? CGRect.zero : CGRect(x: 8, y: defaultTextHeight + 4 + topSpacing + description.frame.height + 4, width: columnWidth - 16, height: 24)
+            view.addSubview(tagStackView)
+
+            vFrame.size.height = titleLabel.frame.height + addedHeight + 28
+            view.tagStackView = tagStackView
+        }
+        else {
+            vFrame.size.height = titleLabel.frame.height + addedHeight
+            view.tagStackView = nil
+        }
+
         button.frame = vFrame
         let cornerRadius: CGFloat = Layout.menuItemMargin
         let shadowView = UIView(frame: vFrame)
@@ -191,6 +240,47 @@ class PlaceholderMenuView: UIView {
         view.badge = badge
         return shadowView
     }
+
+    private static func makeTagStackViewIfNecessary(attributes: [String]) -> UIStackView? {
+        guard !attributes.isEmpty else {
+            return nil
+        }
+
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.alignment = .leading
+        stackView.spacing = 8
+
+        let tags = attributes.compactMap { MenuTag(rawValue: $0) }
+        makeSubviews(with: tags).forEach { stackView.addArrangedSubview($0) }
+
+        let spacerView = UIView()
+        spacerView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        stackView.addArrangedSubview(spacerView)
+
+        return stackView
+    }
+
+    private static func makeSubviews(with tags: [MenuTag]) -> [UIView] {
+        var views = [UIView]()
+
+        tags.forEach { tag in
+            let label = TagLabel()
+            label.backgroundColor = .otk_greenLightest
+            label.text = tag.rawValue
+            if tag == .raw {
+                label.text = "Contains raw meat"
+            }
+            label.textColor = .otk_greenDark
+            label.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+            label.layer.cornerRadius = 4
+
+            views.append(label)
+        }
+
+        return views
+    }
 }
 
 
@@ -214,11 +304,13 @@ extension EntryView {
             self.titleLabel.layer.opacity = 1.0
             self.descriptionLabel.layer.opacity = 1.0
             self.priceLabel.layer.opacity = 1.0
+            tagStackView?.layer.opacity = 1.0
         case .compressed:
             self.bigTitleLabel.layer.opacity = 1.0
             self.titleLabel.layer.opacity = 0.0
             self.descriptionLabel.layer.opacity = 0.0
             self.priceLabel.layer.opacity = 0.0
+            tagStackView?.layer.opacity = 0.0
         }
     }
     func configure(style: EntryViewStyle) {
