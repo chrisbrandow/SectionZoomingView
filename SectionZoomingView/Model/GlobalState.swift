@@ -37,9 +37,7 @@ class GlobalState: ObservableObject {
     /// Use this. Or don't. Whatever. The cart updates will be published nontheless.
     func addToCart(_ item: Cart.Item) {
         var newCart = cart
-        var newItem = item
-        newItem.diners = [self.diner]
-        newCart.items.append(newItem)
+        newCart.items.append(item)
         self.cart = newCart
     }
 
@@ -52,7 +50,7 @@ class GlobalState: ObservableObject {
     var fakeDiners: Set<FakeOtherDiner> = Set()
 
     func startFakeOrdering(diner: Diner) {
-        let fake = FakeOtherDiner(diner: diner)
+        let fake = FakeOtherDiner(diner: diner, maxItems: 4)
         fakeDiners.insert(fake)
     }
 

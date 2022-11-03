@@ -7,7 +7,7 @@ struct AdminView: View {
         NavigationView {
             VStack(spacing: .otk_largeSpacing) {
                 Text("Active Diner")
-                    .font(Font.otf_systemFont(ofSize: 24, weight: .bold))
+                    .font(Font.otf_systemFont(ofSize: 18, weight: .bold))
                 HStack(spacing: 16) {
                     ForEach(Diner.allCases) { diner in
                         Button {
@@ -20,10 +20,10 @@ struct AdminView: View {
                     }
                 }
 
-                Divider().padding()
+                Divider()
 
                 Text("Fake Diner Ordering")
-                    .font(Font.otf_systemFont(ofSize: 24, weight: .bold))
+                    .font(Font.otf_systemFont(ofSize: 18, weight: .bold))
                 Text("Tap a diner to simulate fake ordering in UI")
                 HStack(spacing: 16) {
                     ForEach(Diner.allCases) { diner in
@@ -37,13 +37,13 @@ struct AdminView: View {
                     }
                 }
 
-                CartButtonView(style: .confirm, title: "Stop Fake Ordering", isEnabled: true) {
+                CartButtonView(style: .cancel, title: "Stop Fake Ordering", isEnabled: true) {
                     GlobalState.shared.stopFakeOrdering()
                     self.onClose()
                 }
                 .foregroundColor(Color.otk_red)
 
-                Divider().padding()
+                Divider()
 
                 CartButtonView(style: .confirm, title: "Clear cart", isEnabled: true) {
                     GlobalState.shared.clearCart()
@@ -56,6 +56,7 @@ struct AdminView: View {
             }
             .padding()
             .navigationTitle("Admin")
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(leading: Button("Done") {
                     self.onClose()
                 }.padding([.top, .bottom, .trailing])

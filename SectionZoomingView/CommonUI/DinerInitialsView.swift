@@ -14,7 +14,7 @@ struct DinerInitialsView: View {
         Circle()
             .fill(Color.pseudoRandom(for: diner.initials))
             .frame(minWidth: 24, minHeight: 24)
-            .frame(maxWidth: 48, maxHeight: 48)
+            .frame(maxWidth: 36, maxHeight: 36)
             .overlay {
                 Text(diner.initials)
                     .font(.otf_systemFont(ofSize: 12, weight: .bold))

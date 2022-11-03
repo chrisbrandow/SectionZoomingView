@@ -6,12 +6,26 @@ import Foundation
 class FakeOtherDiner {
     var diner: Diner
 
-    let timer: Timer
+    var timer: Timer
 
-    init(diner: Diner, interval: TimeInterval = 1) {
+    init(diner: Diner, interval: TimeInterval = 1, maxItems: Int) {
         self.diner = diner
+
+        var addedItems: Int = 0
+
+        print("\(diner.firstName) is ordering")
+
         self.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
-            print("it's working, son.")
+            let item = Cart.Item(menuItem: .random(), diners: [diner])
+            GlobalState.shared.addToCart(item)
+
+            addedItems += 1
+
+            print("\(diner.firstName) added item \(item.menuItem.name) (total: \(addedItems))")
+            if addedItems >= maxItems {
+                print("\(diner.firstName) is finished ordering")
+                timer.invalidate()
+            }
         }
     }
 
