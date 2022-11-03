@@ -95,6 +95,11 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             ])
         }
 
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(Self.didShake(_:)),
+                                               name: Application.shakeNotification,
+                                               object: nil)
+
         self.setupBottomBar()
 
         observeTopContainerBar()
@@ -133,6 +138,16 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
                 v.bottomAnchor.constraint(equalTo: container.safeAreaLayoutGuide.bottomAnchor),
             ])
         }
+    }
+
+    @objc
+    func didShake(_ notification: Notification) {
+        let rootVC = self.navigationController ?? self
+        let adminView = AdminView {
+            rootVC.dismiss(animated: true)
+        }
+        let vc = UIHostingController(rootView: adminView)
+        rootVC.present(vc, animated: true)
     }
 
     @objc

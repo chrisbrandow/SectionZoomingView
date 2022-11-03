@@ -7,6 +7,8 @@ import Combine
 class GlobalState: ObservableObject {
     static let shared = GlobalState()
 
+    static var diner: Diner = .doug
+
     /// Posts to `NotificationCenter.default` when the cart changes, with
     /// `userInfo: ["cart": theNewCart]`
     static let cartChangedNotification = Notification.Name("The cart done gone up and changed on us, pardner!!!")
@@ -35,6 +37,12 @@ class GlobalState: ObservableObject {
     func addToCart(_ item: Cart.Item) {
         var newCart = cart
         newCart.items.append(item)
+        self.cart = newCart
+    }
+
+    func clearCart() {
+        var newCart = cart
+        newCart.items = []
         self.cart = newCart
     }
 }
