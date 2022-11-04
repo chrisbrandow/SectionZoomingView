@@ -2,6 +2,14 @@ import Foundation
 import Combine
 import SwiftRedis
 
+
+// TODOs:
+// make items deleteble in the cart (view and model)
+// make items movalbe
+// fetch the cart to a primary user
+// get user's name when creating cart. use that as unique id. asign user's id to their name when adding
+// share cart info based on proximity? or a qr code if that fails.
+
 class Client {
     enum Error: Swift.Error {
         case badData
@@ -86,6 +94,7 @@ class Client {
                                      repeats: true) { [weak self] timer in
             self?.pull()
         }
+        self.pull()
     }
 
     func stopPolling() {
@@ -120,6 +129,7 @@ class Client {
         }
     }
 
+    // add a delete key
     func pull() {
         redis.get(self.key) { [weak self] result, error in
             if let error = error {
@@ -128,6 +138,9 @@ class Client {
 
             guard let string = result?.asString else {
                 print("got no data from Redis")
+                GlobalState.shared.setCart(Cart(items: []))
+
+                // this should update things with an empty cart
                 return
             }
             do {

@@ -30,6 +30,7 @@ class LaunchVC: UIViewController {
                 GlobalState.shared.selectedExample  = example
                 self.performSegue(withIdentifier: "showZoomable", sender: self)
                 print(example.displayName )
+                Client.shared.startPolling(interval: 10)
 
             }), for: .touchUpInside)
 

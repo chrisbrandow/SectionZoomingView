@@ -117,17 +117,22 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
 //        }
 
     }
-
+//disable hack panel
+//    add modal for starting/joining cart
+//        add modal for inviting with a code
     private func showCart() {
         let cartView = CartView {
             print("Order submitted")
             GlobalState.shared.isSumbitted = true
+        } onInviteDiners: {
+            print("hello")
+            // present an alert or
         } onClose: { [unowned self] in
             self.dismiss(animated: true)
-        }
-        .environmentObject(GlobalState.shared)
+        }.environmentObject(GlobalState.shared)
 
         let vc = UIHostingController(rootView: cartView)
+
         self.present(vc, animated: true)
     }
 
@@ -199,17 +204,12 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             .$cart
             .receive(on: DispatchQueue.main)
             .sink { [weak self] cart in
-                guard let self = self,
-                      let lastCartItem = cart.items.last else {
+                guard let self = self else {
                     return
                 }
-
-                self.updateEntryView(with: lastCartItem)
-                if self.bottomBarHostingController.view.layer.opacity == 0 {
-                    
-                    UIView.animate(withDuration: 0.2, delay: 0.3) {
-                        self.bottomBarHostingController.view.layer.opacity = 1
-                    }
+                cart.items.forEach({ self.updateEntryView(with: $0) })
+                UIView.animate(withDuration: 0.2, delay: 0.3) {
+                    self.bottomBarHostingController.view.layer.opacity = cart.items.isEmpty ? 0 : 1
                 }
             }
             .store(in: &cancellables)
@@ -329,147 +329,4 @@ class CartInfoView: UIView {
     func update(withNumber: Int, price: Double) {
         
     }
-}
-
-
-/// Not needed for demo
-extension MenuParentViewController {
-
-    /// this is not really needed for the demo
-    //    private func addPinchToZoomIndicator() {
-    //        if let layer = self.pinchToZoomLayer {
-    //            self.view.layer.addSublayer(layer)
-    //        }
-    //    }
-
-//    private func createPinchLayer() -> CALayer? {
-//        if UserDefaults.standard.bool(forKey: "hasSeenZoomGesture") == true {
-//            return nil
-//        }
-//
-//        let layer = CALayer()
-//        layer.frame = self.view.bounds
-//        layer.backgroundColor = UIColor.clear.cgColor
-//        let origin1 = CGPoint(x: 3*layer.frame.width/4.0, y: layer.frame.height/4.0)
-//        let origin2 = CGPoint(x: layer.frame.width/4.0, y: 3*layer.frame.height/4.0)
-//
-//        let circle1 = CAShapeLayer()
-//        circle1.bounds = CGRect(origin: .zero, size: CGSize(width: 60, height: 60))
-//        circle1.position = CGPoint(x: 305.3333282470703, y: 107.66665649414062)
-//        circle1.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-//        let circle2 = CAShapeLayer()
-//        circle2.bounds = CGRect(origin: .zero, size: CGSize(width: 60, height: 60))
-//        circle2.position = origin2
-//        circle2.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3).cgColor
-//        circle1.cornerRadius = 30
-//        circle2.cornerRadius = 30
-//        circle1.masksToBounds = true
-//        circle2.masksToBounds = true
-//        layer.addSublayer(circle1)
-//        layer.addSublayer(circle2)
-//
-//        let end1 = CGPoint(x: 4*layer.frame.width/7.0, y: 3*layer.frame.height/7.0)
-//        let end2 = CGPoint(x: 3*layer.frame.width/7.0, y: 4*layer.frame.height/7.0)
-//
-//        let duration: CFTimeInterval = 1.2
-//        let leftMovement = CAKeyframeAnimation(keyPath: "position")
-//        leftMovement.path = self.createPath()
-//        leftMovement.duration = duration
-//        leftMovement.repeatCount = 1000
-//
-//        let rightMovement = CAKeyframeAnimation(keyPath: "position")
-//        rightMovement.path = self.createPath2()
-//        rightMovement.duration = duration
-//        rightMovement.repeatCount = 1000
-//
-//        circle1.add(leftMovement, forKey: nil)
-//        circle2.add(rightMovement, forKey: nil)
-//
-//        return layer
-//    }()
-//
-//    func createPath() -> CGMutablePath {
-//        let thePath = CGMutablePath()
-//        thePath.move(to: CGPoint(x: 305.3333282470703, y: 107.66665649414062  + 60))
-//
-//        let points = [
-//            CGPoint(x: 305.3333282470703, y: 107.66665649414062),
-//            CGPoint(x: 301.0, y: 113.0),
-//            CGPoint(x: 295.0, y: 121.66665649414062),
-//            CGPoint(x: 290.3333282470703, y: 129.0),
-//            CGPoint(x: 287.6666564941406, y: 133.66665649414062),
-//            CGPoint(x: 283.6666564941406, y: 141.3333282470703),
-//            CGPoint(x: 281.3333282470703, y: 147.3333282470703),
-//            CGPoint(x: 275.6666564941406, y: 157.3333282470703),
-//            CGPoint(x: 270.6666564941406, y: 164.3333282470703),
-//            CGPoint(x: 261.0, y: 177.3333282470703),
-//            CGPoint(x: 255.0, y: 186.3333282470703),
-//            CGPoint(x: 246.3333282470703, y: 200.0),
-//            CGPoint(x: 240.0, y: 210.0),
-//            CGPoint(x: 234.0, y: 219.3333282470703),
-//            CGPoint(x: 228.0, y: 227.66665649414062),
-//            CGPoint(x: 224.66665649414062, y: 231.3333282470703),
-//            CGPoint(x: 219.0, y: 237.66665649414062),
-//            CGPoint(x: 214.0, y: 243.3333282470703),
-//            CGPoint(x: 212.0, y: 245.66665649414062),
-//            CGPoint(x: 210.3333282470703, y: 247.3333282470703),
-//            CGPoint(x: 209.66665649414062, y: 248.3333282470703),
-//            CGPoint(x: 209.3333282470703, y: 249.0),
-//            CGPoint(x: 209.3333282470703, y: 249.3333282470703),
-//            CGPoint(x: 209.0, y: 250.3333282470703),
-//            CGPoint(x: 209.0, y: 251.0),
-//            CGPoint(x: 209.0, y: 251.3333282470703),
-//            CGPoint(x: 209.0, y: 251.3333282470703)
-//        ]
-//        for point in points {
-//            let adjusted = CGPoint(x: point.x, y: point.y + 60)
-//            thePath.addLine(to: adjusted)
-//        }
-//
-//        return thePath
-//    }
-//
-//    private func createPath2() -> CGMutablePath {
-//        let thePath = CGMutablePath()
-//        thePath.move(to: CGPoint(x: 69.66665649414062, y: 516.3333282470703))
-//
-//        let points = [
-//            CGPoint(x: 69.66665649414062, y: 516.3333282470703),
-//            CGPoint(x: 74.0, y: 511.0),
-//            CGPoint(x: 80.0, y: 502.3333282470703),
-//            CGPoint(x: 84.66665649414062, y: 495.0),
-//            CGPoint(x: 87.33332824707031, y: 490.3333282470703),
-//            CGPoint(x: 91.33332824707031, y: 482.6666564941406),
-//            CGPoint(x: 93.66665649414062, y: 476.6666564941406),
-//            CGPoint(x: 99.33332824707031, y: 466.6666564941406),
-//            CGPoint(x: 104.33332824707031, y: 459.6666564941406),
-//            CGPoint(x: 113.66665649414062, y: 446.6666564941406),
-//            CGPoint(x: 120.0, y: 437.6666564941406),
-//            CGPoint(x: 128.66665649414062, y: 424.0),
-//            CGPoint(x: 135.0, y: 414.0),
-//            CGPoint(x: 141.0, y: 404.6666564941406),
-//            CGPoint(x: 147.0, y: 396.3333282470703),
-//            CGPoint(x: 150.3333282470703, y: 392.6666564941406),
-//            CGPoint(x: 156.0, y: 386.3333282470703),
-//            CGPoint(x: 161.0, y: 380.6666564941406),
-//            CGPoint(x: 163.0, y: 378.3333282470703),
-//            CGPoint(x: 164.66665649414062, y: 376.6666564941406),
-//            CGPoint(x: 165.3333282470703, y: 375.6666564941406),
-//            CGPoint(x: 165.66665649414062, y: 375.0),
-//            CGPoint(x: 165.66665649414062, y: 374.6666564941406),
-//            CGPoint(x: 166.0, y: 373.6666564941406),
-//            CGPoint(x: 166.0, y: 373.0),
-//            CGPoint(x: 166.0, y: 372.6666564941406),
-//            CGPoint(x: 166.0, y: 372.6666564941406)
-//        ]
-//
-//
-//        for point in points {
-//            let adjusted = CGPoint(x: point.x, y: point.y + 60)
-//            thePath.addLine(to: adjusted)
-//        }
-//
-//        return thePath
-//    }
-
 }
