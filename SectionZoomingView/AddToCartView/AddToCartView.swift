@@ -54,9 +54,12 @@ struct AddToCartView: View {
             .padding(.otk_mediumSpacing)
             .padding([.top], .otk_mediumSpacing) // Add a little more, just to the top
             .background (Color.white_ash)
-        }
-        .background { Color(.clear) }
+            .cornerRadius(16
+            )
+        }.padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+            .background { Color(.clear)  }
         .frame(maxHeight: .infinity)
+
     }
 }
 

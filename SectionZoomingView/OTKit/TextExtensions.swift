@@ -28,8 +28,7 @@ extension Text {
 
      - Note: This was added to confom to a design spec for the Promotions Header. It may or may not be what you're looking for. If you use this anywhere else, please remove this comment.
      */
-    func otk_configureBodyText(fontSize: CGFloat = 14,
-                               weight: UIFont.Weight = .regular) -> some View {
+    func otk_configureBodyText(fontSize: CGFloat = 14, weight: UIFont.Weight = .regular) -> some View {
         let lineHeight = OTKit.Font.lineHeight(fontSize: fontSize)
         return self.font(.otf_systemFont(ofSize: fontSize, weight: weight))
             .lineSpacing((lineHeight - fontSize) * 0.5)
@@ -48,3 +47,5 @@ extension View {
         self.background(Color.otk_white.edgesIgnoringSafeArea(.all))
     }
 }
+
+

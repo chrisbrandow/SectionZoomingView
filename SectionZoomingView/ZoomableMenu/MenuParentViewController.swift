@@ -131,7 +131,7 @@ class MenuParentViewController: UIViewController, ZoomableViewProvider {
             self.dismiss(animated: true)
         }.environmentObject(GlobalState.shared)
 
-        let vc = UIHostingController(rootView: cartView)
+        let vc = UIHostingController(rootView: SelectionView(selectionViewModel: .init()))
 
         self.present(vc, animated: true)
     }

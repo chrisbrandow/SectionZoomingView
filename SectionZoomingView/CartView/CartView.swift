@@ -4,13 +4,13 @@ struct CartView: View {
     @EnvironmentObject
     var globalState: GlobalState
 
-    var cart: Cart { self.globalState.cart }
+//    @State lazy var cart: Cart = self.globalState.cart
 
     var submitButtonTitle: String {
         if self.globalState.isSumbitted {
             return "Add more items"
         } else {
-            return ["Place order", try? self.cart.totalPrice().formattedDescription]
+            return ["Place order", try? self.globalState.cart.totalPrice().formattedDescription]
                 .compactMap { $0 }
                 .joined(separator: " • ")
         }
@@ -45,7 +45,7 @@ struct CartView: View {
 
                     CartHeaderView(title: self.globalState.isSumbitted ? "Order sumbitted" : "Your cart",
                                    restaurantName: self.globalState.restaurantName,
-                                   dinerCount: self.cart.totalDiners())
+                                   dinerCount: self.globalState.cart.totalDiners())
                         .frame(maxWidth: .infinity)
                         .padding([.leading, .trailing])
 
@@ -62,36 +62,39 @@ struct CartView: View {
                 self.submitButton()
             }.padding([.top, .bottom])
         }
+        
     }
 
     // MARK: Cart Items
-    /// Main dispatch for displaying cart.
+    /// Main dispatch for displaying globalState.cart.
     ///
     /// Sorting and grouping will depend on the number of courses / diners in the order
     func allCartItemsList() -> some View {
         let result: any View
 
-        if cart.totalCourses() > 1 {
+        if globalState.cart.totalCourses() > 1 {
             // Multiple courses, we breakdown by course first, then diner
-            result = self.itemListByCourse(items: cart.items)
-        } else if cart.totalDiners() > 1 {
+            result = self.itemListByCourse(items: globalState.cart.items)
+        } else if globalState.cart.totalDiners() > 1 {
             // No course ordering, multiple diners - still breakdown by diner
-            result = self.itemListByDiner(items: cart.items)
+            result = self.itemListByDiner(items: globalState.cart.items)
         } else {
             // Single diner, no courses - just a simple list of items
-            result = self.simpleItemsList(items: cart.items)
+            result = self.simpleItemsList(items: globalState.cart.items)
         }
         return AnyView(result)
     }
 
     func itemListByCourse(items: [Cart.Item]) -> some View {
-        let coursesAsTuples = Array(self.cart.items.byCourse().enumerated())
+        let coursesAsTuples = Array(self.globalState.cart.items.byCourse().enumerated())
         return ForEach(coursesAsTuples, id: \.offset) { (i, courseItems) in
-            Text("Course \(i + 1)")
-            self.singleCourseItemList(course: i, items: courseItems)
-        }
+                Text("Course \(i + 1)")
+                self.singleCourseItemList(course: i, items: courseItems)
+            }
     }
-
+    func move(from source: IndexSet, to destination: Int) {
+        globalState.cart.items.move(fromOffsets: source, toOffset: destination)
+    }
     func itemListByDiner(items: [Cart.Item]) -> some View {
         let sortedDinerTuples = items.byDiner()          // dictionary of items by diner
             .map { $0 }                                  // as array of tuples
@@ -109,7 +112,7 @@ struct CartView: View {
 
     func singleCourseItemList(course: Int, items: [Cart.Item]) -> some View {
         let result: any View
-        if cart.totalDiners() < 2 {
+        if globalState.cart.totalDiners() < 2 {
             result = itemListByDiner(items: items)
         } else {
             result = simpleItemsList(items: items)

@@ -5,7 +5,7 @@ struct CartItemView: View {
 
     @State var shouldShowDescription: Bool = false
 
-    var lineLimit: Int = 1
+    var lineLimit: Int = 0
 
     var body: some View {
         VStack(alignment: .leading, spacing: .otk_mediumSpacing) {

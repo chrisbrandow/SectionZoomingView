@@ -51,6 +51,8 @@
 		5EBA47962913628E006C950B /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBA47952913628E006C950B /* Diner.swift */; };
 		5EF776A529143331005E3AA0 /* SwiftRedis in Frameworks */ = {isa = PBXBuildFile; productRef = 5EF776A429143331005E3AA0 /* SwiftRedis */; };
 		5EF776A729143384005E3AA0 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF776A629143384005E3AA0 /* Client.swift */; };
+		8312E6BC29CA55B20090930F /* TryAttr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8312E6BB29CA55B20090930F /* TryAttr.swift */; };
+		8315DD782915C7FF007B7D2A /* SortableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315DD772915C7FF007B7D2A /* SortableList.swift */; };
 		831916A325CCC3A400753195 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A225CCC3A400753195 /* CGSizeExtensions.swift */; };
 		831916A825CE27B100753195 /* CoreMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831916A725CE27B100753195 /* CoreMenuView.swift */; };
 		832357ED25BC9D0E008295FE /* ZoomableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832357EC25BC9D0E008295FE /* ZoomableViewController.swift */; };
@@ -145,6 +147,8 @@
 		5EBA479329134867006C950B /* CartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartHeaderView.swift; sourceTree = "<group>"; };
 		5EBA47952913628E006C950B /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
 		5EF776A629143384005E3AA0 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		8312E6BB29CA55B20090930F /* TryAttr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryAttr.swift; sourceTree = "<group>"; };
+		8315DD772915C7FF007B7D2A /* SortableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortableList.swift; sourceTree = "<group>"; };
 		831916A225CCC3A400753195 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
 		831916A725CE27B100753195 /* CoreMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreMenuView.swift; sourceTree = "<group>"; };
 		832357EC25BC9D0E008295FE /* ZoomableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableViewController.swift; sourceTree = "<group>"; };
@@ -317,6 +321,7 @@
 				5EBA478B29133FA9006C950B /* BottomBarView.swift */,
 				5EBA478D29134440006C950B /* CartButtonView.swift */,
 				5E5F576C2913721E00AC732B /* DinerInitialsView.swift */,
+				8312E6BB29CA55B20090930F /* TryAttr.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -334,6 +339,7 @@
 		8351CDD12594569700946150 = {
 			isa = PBXGroup;
 			children = (
+				8315DD772915C7FF007B7D2A /* SortableList.swift */,
 				8351CDDC2594569700946150 /* SectionZoomingView */,
 				8351CDF32594569A00946150 /* SectionZoomingViewTests */,
 				8351CDFE2594569A00946150 /* SectionZoomingViewUITests */,
@@ -362,8 +368,8 @@
 				5EBA47402912EA2F006C950B /* OTKit */,
 				8351CDDD2594569700946150 /* AppDelegate.swift */,
 				5E22EA202913FB3A00991AC6 /* Application.swift */,
-				8351CDE12594569700946150 /* LaunchVC.swift */,
 				5E22EA222913FBC800991AC6 /* main.swift */,
+				8351CDE12594569700946150 /* LaunchVC.swift */,
 				8351CDDF2594569700946150 /* SceneDelegate.swift */,
 				8342FC4428ECFF5600D2A0E3 /* NewZoom */,
 				9B7105D927A9E053007F8479 /* ErikaNotes */,
@@ -577,6 +583,7 @@
 				8342FC4928ED00E600D2A0E3 /* ZoomableContainerView.swift in Sources */,
 				5EBA473F2912E9D3006C950B /* Loader.swift in Sources */,
 				83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */,
+				8312E6BC29CA55B20090930F /* TryAttr.swift in Sources */,
 				8370763F29117454000621FC /* ZoomingMenuViewStructures.swift in Sources */,
 				83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */,
 				5EBA478229132DA9006C950B /* GlobalState.swift in Sources */,
@@ -592,6 +599,7 @@
 				5EBA474C2912EA2F006C950B /* OTKit.swift in Sources */,
 				5E22EA252913FF3A00991AC6 /* AdminView.swift in Sources */,
 				5EBA476B2912EA7B006C950B /* ItemQuantityView.swift in Sources */,
+				8315DD782915C7FF007B7D2A /* SortableList.swift in Sources */,
 				83B16D5225C9DB49008AE1BA /* DataSource.swift in Sources */,
 				5EBA47582912EA5C006C950B /* MenuItem+Stub.swift in Sources */,
 				5EBA476A2912EA7B006C950B /* AddToCartView.swift in Sources */,
@@ -808,14 +816,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SectionZoomingView/SectionZoomingView.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VE26CNW5ZX;
+				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,7 +830,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgb.SectionZoomingView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Better Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -837,14 +842,12 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SectionZoomingView/SectionZoomingView.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 15;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = VE26CNW5ZX;
+				DEVELOPMENT_TEAM = VE26CNW5ZX;
 				INFOPLIST_FILE = SectionZoomingView/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "OT Menu";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -853,7 +856,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cgb.SectionZoomingView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "Better Menu";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

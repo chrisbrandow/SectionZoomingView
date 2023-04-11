@@ -462,3 +462,52 @@ extension UIColor {
         return hexString
      }
 }
+
+public extension NSAttributedString {
+    typealias Attribute = [NSAttributedString.Key : Any]
+
+    static func attributedText(withString string: String, boldStrings: [String], font: UIFont, textColor: UIColor, usingOtKitLineHeight: Bool = false, boldDynamicFont: UIFont? = nil) -> NSAttributedString {
+
+        var attributes = [NSAttributedString.Key.font: font, NSAttributedString.Key.foregroundColor : textColor]
+        if usingOtKitLineHeight {
+            attributes[NSAttributedString.Key.paragraphStyle] = NSParagraphStyle.otKit_Paragraph(with: font, linebreak: .byTruncatingTail, centered: true)
+        }
+
+        let attributedString = NSMutableAttributedString(string: string, attributes: attributes)
+        let boldFontAttribute: [NSAttributedString.Key: Any]
+        if let boldDynamicFont = boldDynamicFont {
+            boldFontAttribute = [NSAttributedString.Key.font: boldDynamicFont]
+        } else {
+            boldFontAttribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: font.pointSize)]
+        }
+
+        for boldString in boldStrings {
+            let range = (string as NSString).range(of: boldString)
+            attributedString.addAttributes(boldFontAttribute, range: range)
+        }
+        return attributedString
+    }
+
+    var lengthRange: NSRange {
+        return NSRange(location: 0,length: self.length)
+    }
+
+    var otf_textAttributes: [NSAttributedString.Key: Any] {
+        let range = NSRange(location: 0, length: self.length)
+        return self.attributes(at: 0, longestEffectiveRange: nil, in: range)
+    }
+}
+
+public extension NSParagraphStyle {
+
+    static func otKit_Paragraph(with font: UIFont, linebreak: NSLineBreakMode, centered: Bool = false) -> NSParagraphStyle {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.minimumLineHeight = OTKit.Font.lineHeight(for: font)
+        paragraphStyle.maximumLineHeight = OTKit.Font.lineHeight(for: font)
+        paragraphStyle.lineBreakMode = linebreak
+        if centered {
+            paragraphStyle.alignment = .center
+        }
+        return paragraphStyle
+    }
+}
