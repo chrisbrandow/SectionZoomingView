@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rTI-E4-E70">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b2M-iE-7Fc">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -159,6 +159,69 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfA-Nn-47a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93" y="1246"/>
+        </scene>
+        <!--Att Host HostVC-->
+        <scene sceneID="IUF-Th-te8">
+            <objects>
+                <viewController id="b2M-iE-7Fc" customClass="AttHostHostVC" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vst-0g-Jye">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="This is ths leable" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l2h-9Z-PI6">
+                                <rect key="frame" x="0.0" y="59.000000000000007" width="393" height="20.333333333333336"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rfz-bn-Q6Y">
+                                <rect key="frame" x="0.0" y="95.333333333333314" width="393" height="722.66666666666674"/>
+                                <connections>
+                                    <segue destination="Doe-Jd-Acy" kind="embed" id="o9m-Ac-E82"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8qc-o5-4a3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rfz-bn-Q6Y" firstAttribute="leading" secondItem="8qc-o5-4a3" secondAttribute="leading" id="7lC-6l-Vh5"/>
+                            <constraint firstItem="8qc-o5-4a3" firstAttribute="trailing" secondItem="l2h-9Z-PI6" secondAttribute="trailing" id="DOU-dG-ed9"/>
+                            <constraint firstItem="l2h-9Z-PI6" firstAttribute="top" secondItem="8qc-o5-4a3" secondAttribute="top" id="FPT-6X-P5k"/>
+                            <constraint firstItem="8qc-o5-4a3" firstAttribute="trailing" secondItem="rfz-bn-Q6Y" secondAttribute="trailing" id="Fod-Cl-TIy"/>
+                            <constraint firstItem="l2h-9Z-PI6" firstAttribute="leading" secondItem="8qc-o5-4a3" secondAttribute="leading" id="eop-8f-het"/>
+                            <constraint firstItem="rfz-bn-Q6Y" firstAttribute="top" secondItem="l2h-9Z-PI6" secondAttribute="bottom" constant="16" id="jF1-ME-tod"/>
+                            <constraint firstItem="8qc-o5-4a3" firstAttribute="bottom" secondItem="rfz-bn-Q6Y" secondAttribute="bottom" id="xvy-MG-iVA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="attLabel" destination="l2h-9Z-PI6" id="WGi-iQ-5Ym"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QT5-o5-fAu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="573.28244274809163" y="-556.33802816901414"/>
+        </scene>
+        <!--Att Hosting-->
+        <scene sceneID="kEx-xE-fFf">
+            <objects>
+                <hostingController id="Doe-Jd-Acy" customClass="AttHosting" customModule="SectionZoomingView" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dth-AO-G4r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="-528"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bA7-Uw-Edq">
+            <objects>
+                <viewController id="URQ-yo-hrR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pIb-i7-nCh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gJu-qk-iVz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1371" y="98"/>
         </scene>
     </scenes>
     <resources>

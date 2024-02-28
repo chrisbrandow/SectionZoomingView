@@ -15,7 +15,6 @@ struct CellCoordinate {
 protocol Zoomable: UIView {
     var columnWidth: CGFloat { get }
     func frameForCell(at: CellCoordinate, for size: CGSize)  -> CGRect
-
 }
 
 class ZoomableView: UIView, Zoomable {
@@ -24,7 +23,6 @@ class ZoomableView: UIView, Zoomable {
     private var tempNumberOfColumns = 5
     var columnWidth: CGFloat { self.frame.width/CGFloat(self.tempNumberOfColumns) }
     private var rowHeight: CGFloat { max(1, self.temporaryCellHeight*self.transform.a) }
-
 
     /// This seems to work correctly 21Sep2022!!
     func frameForCell(at coordinate: CellCoordinate, for size: CGSize) -> CGRect {
@@ -38,7 +36,7 @@ class ZoomableView: UIView, Zoomable {
         let origin = rect.origin
         let column = max(0, Int(round(-origin.x/self.columnWidth)))
         let row    = max(0, Int(round(-origin.y/self.rowHeight)))
-
+        
         return CellCoordinate(column: column, row: row)
     }
 
@@ -75,7 +73,7 @@ class ZoomableView: UIView, Zoomable {
         let onscreenSubviews = self.subviews.filter({
             let fx = $0.frame.midX*ratio + self.frame.origin.x
             let fy = $0.frame.midY*ratio + self.frame.origin.y
-            return fx  > 0
+            return fx > 0
             && fx < superView.frame.width
             && fy > 0
             && fy < superView.frame.height

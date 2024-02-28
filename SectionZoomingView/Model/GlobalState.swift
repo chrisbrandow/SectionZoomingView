@@ -24,7 +24,8 @@ class GlobalState: ObservableObject {
     /// Updates to `cart` should be published via both Combine and
     /// NotificationCenter. Choose your fighter!!!
     @Published
-    private(set) var cart: Cart {
+
+    var cart: Cart {
         didSet {
             print("Cart updated with item count: \(self.cart.items.count)")
             NotificationCenter.default.post(name: Self.cartChangedNotification,

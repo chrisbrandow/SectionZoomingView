@@ -12,6 +12,10 @@ class ZoomableContainerView: UIView {
     var scaleUp = true // diagnostic
     private var contentOffsetAnimation: TimerAnimation?
 
+    var endPinchTime: Date?
+    var endPinchTimer: Timer?
+    var lastPinchLoc: CGPoint?
+
     var addedView: ZoomableView?
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -38,14 +42,35 @@ class ZoomableContainerView: UIView {
         self.addSubview(aView)
         aView.transform = CGAffineTransform(for: aView, toColumn: 0, visibleColumns: 5, verticalOffset: 0)
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(_:)))
+        pinch.cancelsTouchesInView = false
         let drag = UIPanGestureRecognizer(target: self, action: #selector(dragAction(_:)))
+        drag.cancelsTouchesInView = false
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapAction(_:)))
+        doubleTap.cancelsTouchesInView = false
         doubleTap.numberOfTapsRequired = 2
         self.addedView?.addGestureRecognizer(pinch)
         self.addedView?.addGestureRecognizer(drag)
         self.addedView?.addGestureRecognizer(doubleTap)
     }
 
+    /// the touches thing was to handle if the gesture recognizer was not behaving correctly when holding
+    /// in place for a long time, but i think that was only a simulator issue. i'm leaving this here for now.
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesBegan(touches, with: event)
+//        NSLog("t began")
+//    }
+//
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        super.touchesEnded(touches, with: event)
+//        NSLog("t ended2")
+//
+//        if let loc = self.lastPinchLoc,
+//            let aView = addedView
+//        {
+//            NSLog("t ended2")
+//            self.adjustFrame(for: aView, location: loc)
+//        }
+//    }
     private func transformAddedView(with transform: CGAffineTransform, animated: Bool, ignoreIncremental: Bool = false, completion: (()->Void)? = nil) {
         guard let aView = addedView
         else { return }
@@ -91,8 +116,10 @@ extension ZoomableContainerView {
         /// So probably the steps should be
         /// 1. transition to display link animation
         /// 2. do the destination thing
+        NSLog("drag")
         guard let aView = self.addedView
         else { return }
+
         switch dragGR.state {
         case .began:
             self.initialOffset = 0
@@ -122,13 +149,16 @@ extension ZoomableContainerView {
         return RubberBand(coeff: 0.3, dims: dims, limits: limitBounds).clamp(translation)
     }
 
-
 // this is everything i need: https://medium.com/@esskeetit/how-uiscrollview-works-e418adc47060
     // https://github.com/super-ultra/ScrollMechanics/blob/master/ScrollExample/Sources/SimpleScrollView.swift
+
+    /// this is a nice litte demo of lerping: https://rachsmith.com/lerp/
     @objc
     func pinchAction(_ pinchGR: UIPinchGestureRecognizer) {
+        NSLog("pinch")
         guard let aView = addedView
         else { return }
+
         switch pinchGR.state {
         case .changed:
             let location = pinchGR.location(in: aView)
@@ -138,15 +168,25 @@ extension ZoomableContainerView {
             pinchGR.scale = 1.0
             // on the simulator sometimes, when i end a pinch, it does not trigger an end state,
             // the last state is just .change. i have not observed this on an actual devcice
+            self.lastPinchLoc = location
+            self.endPinchTime = Date()
+            NSLog("changed")
         case .ended,
                 .cancelled,
                 .failed:
+            NSLog("finished pinch: \(pinchGR.state.rawValue)")
+            self.endPinchTime = nil
+            self.lastPinchLoc = nil
             let location = pinchGR.location(in: aView)
             self.adjustFrame(for: aView, location: location)
-        default: return
+        default:
+            NSLog("default pinch: \(pinchGR.state.rawValue)")
+            self.endPinchTime = nil
+            self.lastPinchLoc = nil
+
+            return
         }
     }
-
 
     private func adjustFrame(for aView: ZoomableView, location: CGPoint) {
         let destinationFrame = aView.destinationFrame(startingAt: location)
@@ -158,6 +198,7 @@ extension ZoomableContainerView {
 
     @objc
     func doubleTapAction(_ tapGR: UITapGestureRecognizer) {
+        NSLog("d tap")
         switch tapGR.state {
         case .ended:
             let location = tapGR.location(in: self.addedView)
@@ -233,4 +274,15 @@ extension CGAffineTransform {
         self.init(a: t.a, b: t.b, c: t.c, d: t.d, tx: t.tx, ty: t.ty)
     }
 }
+
+
+
+// knuth stuff
+
+// https://www.yumpu.com/en/document/read/40120511/knuth-plass-breaking
+// https://github.com/jaroslov/knuth-plass-thoughts/blob/master/plass.md
+// http://litherum.blogspot.com/2015/07/knuth-plass-line-breaking-algorithm.html
+// https://tex.stackexchange.com/questions/230668/any-progress-on-knuth-plass-algorithm
+// https://github.com/bramstein/typeset/
+// https://defoe.sourceforge.net/folio/knuth-plass.html
 

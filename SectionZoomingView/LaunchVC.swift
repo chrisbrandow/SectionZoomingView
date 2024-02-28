@@ -19,7 +19,7 @@ class LaunchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        _ = NSLocalizedString("test string", comment: "test comment")
 //        OrderManager.shared.fetchDinerOrders(forDinerIDs: []) { records, error in
 //            print("records. count \(records?.count)")
 //        }
@@ -28,7 +28,8 @@ class LaunchVC: UIViewController {
                 guard let self = self else { return }
                 self.selectedExample = example
                 GlobalState.shared.selectedExample  = example
-                self.performSegue(withIdentifier: "showZoomable", sender: self)
+//                self.performSegue(withIdentifier: "showZoomable", sender: self)
+                self.performSegue(withIdentifier: "showBetterZoom", sender: self)
                 print(example.displayName )
                 Client.shared.startPolling(interval: 10)
 
@@ -57,7 +58,8 @@ class LaunchVC: UIViewController {
             return
         }
         self.didLaunchOnce = true
-        self.performSegue(withIdentifier: "showZoomable", sender: self)
+//        self.performSegue(withIdentifier: "showZoomable", sender: self)
+        self.performSegue(withIdentifier: "showBetterZoom", sender: self)
     }
 }
 
