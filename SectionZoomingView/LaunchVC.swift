@@ -19,7 +19,7 @@ class LaunchVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        _ = NSLocalizedString("test string", comment: "test comment")
 //        OrderManager.shared.fetchDinerOrders(forDinerIDs: []) { records, error in
 //            print("records. count \(records?.count)")
 //        }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -81,6 +81,7 @@
 		83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D7A25C9F083008AE1BA /* laPressa4Section14.json */; };
 		83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */ = {isa = PBXBuildFile; fileRef = 83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */; };
 		83B16D9925CCAF6A008AE1BA /* MenuParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */; };
+		83E05D592B8FB80100FA8A43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83E05D5B2B8FB80100FA8A43 /* Localizable.strings */; };
 		83E9D67C25E497E200934F8A /* ZoomableMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */; };
 		83F4F4F325E0A3E20026A0F8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4F4F225E0A3E20026A0F8 /* Utilities.swift */; };
 		9B7105DA27A9E053007F8479 /* ErikaNotes in Resources */ = {isa = PBXBuildFile; fileRef = 9B7105D927A9E053007F8479 /* ErikaNotes */; };
@@ -184,6 +185,12 @@
 		83B16D8A25C9F2BE008AE1BA /* coqueta11Section31.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = coqueta11Section31.json; sourceTree = "<group>"; };
 		83B16D9825CCAF6A008AE1BA /* MenuParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuParentViewController.swift; sourceTree = "<group>"; };
 		83D8E2872913908A005F319A /* SectionZoomingView.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SectionZoomingView.entitlements; sourceTree = "<group>"; };
+		83E05D532B8FB6CA00FA8A43 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		83E05D542B8FB7AC00FA8A43 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "SectionZoomingView/zh-Hant.lproj/ZoomableMenu.strings"; sourceTree = "<group>"; };
+		83E05D552B8FB7AC00FA8A43 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		83E05D562B8FB7AC00FA8A43 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		83E05D5A2B8FB80100FA8A43 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		83E05D5C2B8FB80300FA8A43 /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		83E9D67B25E497E200934F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SectionZoomingView/Base.lproj/ZoomableMenu.storyboard; sourceTree = "<group>"; };
 		83F4F4F225E0A3E20026A0F8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9B7105D927A9E053007F8479 /* ErikaNotes */ = {isa = PBXFileReference; lastKnownFileType = text; path = ErikaNotes; sourceTree = "<group>"; };
@@ -339,6 +346,7 @@
 		8351CDD12594569700946150 = {
 			isa = PBXGroup;
 			children = (
+				83E05D5B2B8FB80100FA8A43 /* Localizable.strings */,
 				8315DD772915C7FF007B7D2A /* SortableList.swift */,
 				8351CDDC2594569700946150 /* SectionZoomingView */,
 				8351CDF32594569A00946150 /* SectionZoomingViewTests */,
@@ -512,6 +520,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
 			);
 			mainGroup = 8351CDD12594569700946150;
 			packageReferences = (
@@ -543,6 +552,7 @@
 				9B7105DA27A9E053007F8479 /* ErikaNotes in Resources */,
 				832DA6D425D4F59400BB8DD8 /* BrandonText-Bold.otf in Resources */,
 				8370764329117EE6000621FC /* OTKitColors.xcassets in Resources */,
+				83E05D592B8FB80100FA8A43 /* Localizable.strings in Resources */,
 				83B16D8B25C9F2CA008AE1BA /* coqueta11Section31.json in Resources */,
 				8370765D2911F8E1000621FC /* FakeList.png in Resources */,
 				83B16D8625C9F1B1008AE1BA /* laPressa4Section14.json in Resources */,
@@ -670,6 +680,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				8351CDE42594569700946150 /* Base */,
+				83E05D532B8FB6CA00FA8A43 /* en */,
+				83E05D552B8FB7AC00FA8A43 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -678,14 +690,25 @@
 			isa = PBXVariantGroup;
 			children = (
 				8351CDE92594569A00946150 /* Base */,
+				83E05D562B8FB7AC00FA8A43 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		83E05D5B2B8FB80100FA8A43 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83E05D5A2B8FB80100FA8A43 /* en */,
+				83E05D5C2B8FB80300FA8A43 /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		83E9D67A25E497E200934F8A /* ZoomableMenu.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				83E9D67B25E497E200934F8A /* Base */,
+				83E05D542B8FB7AC00FA8A43 /* zh-Hant */,
 			);
 			name = ZoomableMenu.storyboard;
 			sourceTree = "<group>";
@@ -697,6 +720,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -758,6 +782,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
